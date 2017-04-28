@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h1>T Bills</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Principal</th>
+      <th>Tenure</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @t_bills.each do |t_bill| %>
+      <tr>
+        <td><%= t_bill.principal %></td>
+        <td><%= t_bill.tenure %></td>
+        <td><%= link_to 'Show', t_bill %></td>
+        <td><%= link_to 'Edit', edit_t_bill_path(t_bill) %></td>
+        <td><%= link_to 'Destroy', t_bill, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New T Bill', new_t_bill_path %>

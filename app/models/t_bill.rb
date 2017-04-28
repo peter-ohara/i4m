@@ -1,0 +1,2 @@
+class TBill < ApplicationRecord
+end
