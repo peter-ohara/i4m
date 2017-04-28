@@ -1,0 +1,2 @@
+class NextOfKin < ApplicationRecord
+end

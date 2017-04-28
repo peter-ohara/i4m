@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @next_of_kin.name %>
+</p>
+
+<p>
+  <strong>Phone number:</strong>
+  <%= @next_of_kin.phone_number %>
+</p>
+
+<%= link_to 'Edit', edit_next_of_kin_path(@next_of_kin) %> |
+<%= link_to 'Back', next_of_kins_path %>
