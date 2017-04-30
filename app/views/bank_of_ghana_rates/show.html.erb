@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Discount rate 91 days:</strong>
+  <%= @bank_of_ghana_rate.discount_rate_91_days %>
+</p>
+
+<p>
+  <strong>Interest rate 91 days:</strong>
+  <%= @bank_of_ghana_rate.interest_rate_91_days %>
+</p>
+
+<p>
+  <strong>Discount rate 182 days:</strong>
+  <%= @bank_of_ghana_rate.discount_rate_182_days %>
+</p>
+
+<p>
+  <strong>Interest rate 182 days:</strong>
+  <%= @bank_of_ghana_rate.interest_rate_182_days %>
+</p>
+
+<p>
+  <strong>Start date:</strong>
+  <%= @bank_of_ghana_rate.start_date %>
+</p>
+
+<p>
+  <strong>End date:</strong>
+  <%= @bank_of_ghana_rate.end_date %>
+</p>
+
+<%= link_to 'Edit', edit_bank_of_ghana_rate_path(@bank_of_ghana_rate) %> |
+<%= link_to 'Back', bank_of_ghana_rates_path %>

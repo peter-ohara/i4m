@@ -1,0 +1,37 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Bank Of Ghana Rates</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Discount rate 91 days</th>
+      <th>Interest rate 91 days</th>
+      <th>Discount rate 182 days</th>
+      <th>Interest rate 182 days</th>
+      <th>Start date</th>
+      <th>End date</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @bank_of_ghana_rates.each do |bank_of_ghana_rate| %>
+      <tr>
+        <td><%= bank_of_ghana_rate.discount_rate_91_days %></td>
+        <td><%= bank_of_ghana_rate.interest_rate_91_days %></td>
+        <td><%= bank_of_ghana_rate.discount_rate_182_days %></td>
+        <td><%= bank_of_ghana_rate.interest_rate_182_days %></td>
+        <td><%= bank_of_ghana_rate.start_date %></td>
+        <td><%= bank_of_ghana_rate.end_date %></td>
+        <td><%= link_to 'Show', bank_of_ghana_rate %></td>
+        <td><%= link_to 'Edit', edit_bank_of_ghana_rate_path(bank_of_ghana_rate) %></td>
+        <td><%= link_to 'Destroy', bank_of_ghana_rate, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Bank Of Ghana Rate', new_bank_of_ghana_rate_path %>

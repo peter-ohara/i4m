@@ -1,0 +1,2 @@
+module BankOfGhanaRatesHelper
+end
