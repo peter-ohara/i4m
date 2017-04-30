@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :purchased_t_bills
   resources :saved_t_bills
   resources :bank_of_ghana_rates
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
