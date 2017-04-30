@@ -2,6 +2,8 @@
 # which change each week.
 class BankOfGhanaRate < ApplicationRecord
 
+  has_many :saved_t_bills
+
   validates :discount_rate_91_days,
             :interest_rate_91_days,
             :discount_rate_182_days,

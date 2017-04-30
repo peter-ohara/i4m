@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170430115050) do
+ActiveRecord::Schema.define(version: 20170430132725) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -35,6 +35,17 @@ ActiveRecord::Schema.define(version: 20170430115050) do
     t.index ["user_id"], name: "index_next_of_kins_on_user_id", using: :btree
   end
 
+  create_table "saved_t_bills", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "principal_pesewas"
+    t.integer  "tenure"
+    t.integer  "bank_of_ghana_rate_id"
+    t.datetime "created_at",            null: false
+    t.datetime "updated_at",            null: false
+    t.index ["bank_of_ghana_rate_id"], name: "index_saved_t_bills_on_bank_of_ghana_rate_id", using: :btree
+    t.index ["user_id"], name: "index_saved_t_bills_on_user_id", using: :btree
+  end
+
   create_table "users", force: :cascade do |t|
     t.string   "name"
     t.string   "phone_number"
@@ -42,4 +53,6 @@ ActiveRecord::Schema.define(version: 20170430115050) do
     t.datetime "updated_at",   null: false
   end
 
+  add_foreign_key "saved_t_bills", "bank_of_ghana_rates"
+  add_foreign_key "saved_t_bills", "users"
 end
