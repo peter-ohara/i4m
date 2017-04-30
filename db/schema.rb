@@ -35,15 +35,6 @@ ActiveRecord::Schema.define(version: 20170430115050) do
     t.index ["user_id"], name: "index_next_of_kins_on_user_id", using: :btree
   end
 
-  create_table "t_bills", force: :cascade do |t|
-    t.integer  "principal_pesewas"
-    t.integer  "tenure"
-    t.integer  "user_id"
-    t.datetime "created_at",        null: false
-    t.datetime "updated_at",        null: false
-    t.index ["user_id"], name: "index_t_bills_on_user_id", using: :btree
-  end
-
   create_table "users", force: :cascade do |t|
     t.string   "name"
     t.string   "phone_number"
