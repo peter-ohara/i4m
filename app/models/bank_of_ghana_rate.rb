@@ -20,4 +20,9 @@ class BankOfGhanaRate < ApplicationRecord
             # Should be an integer greater than zero
             numericality: { only_integer: true, greater_than: 0 }
 
+  def name
+    return if start_date.nil? || end_date.nil?
+    "#{start_date} to #{end_date}"
+  end
 end
+
