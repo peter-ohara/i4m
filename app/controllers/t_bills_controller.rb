@@ -1,6 +1,8 @@
 class TBillsController < ApplicationController
   before_action :set_t_bill, only: [:show, :edit, :update, :destroy]
 
+  skip_before_action :verify_authenticity_token, only: [:update, :create]
+
   # GET /t_bills
   # GET /t_bills.json
   def index
@@ -69,6 +71,6 @@ class TBillsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def t_bill_params
-      params.require(:t_bill).permit(:principal, :tenure)
+      params.require(:t_bill).permit(:principal, :tenure, :user_id)
     end
 end

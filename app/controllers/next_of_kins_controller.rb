@@ -1,6 +1,8 @@
 class NextOfKinsController < ApplicationController
   before_action :set_next_of_kin, only: [:show, :edit, :update, :destroy]
 
+  skip_before_action :verify_authenticity_token, only: [:update, :create]
+
   # GET /next_of_kins
   # GET /next_of_kins.json
   def index
@@ -69,6 +71,6 @@ class NextOfKinsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def next_of_kin_params
-      params.require(:next_of_kin).permit(:name, :phone_number)
+      params.require(:next_of_kin).permit(:name, :phone_number, :user_id)
     end
 end
