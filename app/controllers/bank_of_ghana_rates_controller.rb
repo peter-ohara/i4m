@@ -1,6 +1,8 @@
 class BankOfGhanaRatesController < ApplicationController
   before_action :set_bank_of_ghana_rate, only: [:show, :edit, :update, :destroy]
 
+  skip_before_action :verify_authenticity_token, only: [:show, :create, :update, :destroy]
+
   # GET /bank_of_ghana_rates
   # GET /bank_of_ghana_rates.json
   def index
@@ -62,13 +64,14 @@ class BankOfGhanaRatesController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_bank_of_ghana_rate
-      @bank_of_ghana_rate = BankOfGhanaRate.find(params[:id])
-    end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def bank_of_ghana_rate_params
-      params.require(:bank_of_ghana_rate).permit(:discount_rate_91_days, :interest_rate_91_days, :discount_rate_182_days, :interest_rate_182_days, :start_date, :end_date)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_bank_of_ghana_rate
+    @bank_of_ghana_rate = BankOfGhanaRate.current_rate
+  end
+
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def bank_of_ghana_rate_params
+    params.require(:bank_of_ghana_rate).permit(:discount_rate_91_days, :interest_rate_91_days, :discount_rate_182_days, :interest_rate_182_days, :start_date, :end_date)
+  end
 end

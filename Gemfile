@@ -42,6 +42,9 @@ gem 'money-rails', '~>1'
 # RailsAdmin
 gem 'rails_admin', '~> 1.1.1'
 
+# Cross Origin Requests
+gem 'rack-cors', require: 'rack/cors'
+
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

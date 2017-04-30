@@ -24,5 +24,12 @@ class BankOfGhanaRate < ApplicationRecord
     return if start_date.nil? || end_date.nil?
     "#{start_date} to #{end_date}"
   end
+
+  def self.current_rate
+    now = DateTime.current
+    BankOfGhanaRate.where('start_date <= ?', now)
+                   .where('end_date >= ?', now - 2.days)
+                   .first
+  end
 end
 
