@@ -5,4 +5,6 @@ class User < ApplicationRecord
   has_many :purchased_t_bills
 
   # TODO: Add uniqueness validation for phone numbers
+
+  validates :name, :phone_number, :next_of_kin, presence: true
 end
