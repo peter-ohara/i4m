@@ -1,6 +1,8 @@
 class SavedTBillsController < ApplicationController
   before_action :set_saved_t_bill, only: [:show, :edit, :update, :destroy]
 
+  skip_before_action :verify_authenticity_token, only: [:show, :create, :update, :destroy]
+
   # GET /saved_t_bills
   # GET /saved_t_bills.json
   def index
@@ -24,7 +26,12 @@ class SavedTBillsController < ApplicationController
   # POST /saved_t_bills
   # POST /saved_t_bills.json
   def create
-    @saved_t_bill = SavedTBill.new(saved_t_bill_params)
+    @saved_t_bill = SavedTBill.new
+    # :user_id, :principal, :tenure, :bank_of_ghana_rate_id)
+    @saved_t_bill.user_id = saved_t_bill_params[:user_id]
+    @saved_t_bill.principal_pesewas = saved_t_bill_params[:principal] * 100
+    @saved_t_bill.tenure = saved_t_bill_params[:tenure]
+    @saved_t_bill.bank_of_ghana_rate_id = BankOfGhanaRate.current_rate.id
 
     respond_to do |format|
       if @saved_t_bill.save
@@ -41,7 +48,12 @@ class SavedTBillsController < ApplicationController
   # PATCH/PUT /saved_t_bills/1.json
   def update
     respond_to do |format|
-      if @saved_t_bill.update(saved_t_bill_params)
+      if @saved_t_bill.update(
+        user_id: saved_t_bill_params[:user_id],
+        principal_pesewas: saved_t_bill_params[:principal] * 100,
+        tenure: saved_t_bill_params[:tenure],
+        bank_of_ghana_rate_id: BankOfGhanaRate.current_rate.id
+      )
         format.html { redirect_to @saved_t_bill, notice: 'Saved t bill was successfully updated.' }
         format.json { render :show, status: :ok, location: @saved_t_bill }
       else
@@ -62,13 +74,14 @@ class SavedTBillsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_saved_t_bill
-      @saved_t_bill = SavedTBill.find(params[:id])
-    end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def saved_t_bill_params
-      params.require(:saved_t_bill).permit(:user_id, :principal_pesewas, :tenure, :bank_of_ghana_rate_id)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_saved_t_bill
+    @saved_t_bill = SavedTBill.find(params[:id])
+  end
+
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def saved_t_bill_params
+    params.require(:saved_t_bill).permit(:user_id, :principal, :tenure, :bank_of_ghana_rate_id)
+  end
 end
