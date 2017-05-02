@@ -1,8 +1,6 @@
 class NextOfKinsController < ApplicationController
   before_action :set_next_of_kin, only: [:show, :edit, :update, :destroy]
 
-  skip_before_action :verify_authenticity_token, only: [:update, :create]
-
   # GET /next_of_kins
   # GET /next_of_kins.json
   def index

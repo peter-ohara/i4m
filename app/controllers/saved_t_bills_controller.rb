@@ -1,8 +1,6 @@
 class SavedTBillsController < ApplicationController
   before_action :set_saved_t_bill, only: [:show, :edit, :update, :destroy]
 
-  skip_before_action :verify_authenticity_token, only: [:show, :create, :update, :destroy]
-
   # GET /saved_t_bills
   # GET /saved_t_bills.json
   def index

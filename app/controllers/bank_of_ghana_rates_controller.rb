@@ -1,7 +1,7 @@
 class BankOfGhanaRatesController < ApplicationController
   before_action :set_bank_of_ghana_rate, only: [:show, :edit, :update, :destroy]
 
-  skip_before_action :verify_authenticity_token, only: [:show, :create, :update, :destroy]
+  skip_before_action :authenticate, only: [:show]
 
   # GET /bank_of_ghana_rates
   # GET /bank_of_ghana_rates.json
