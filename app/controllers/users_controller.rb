@@ -39,6 +39,17 @@ class UsersController < ApplicationController
     end
   end
 
+  def login
+    @user = User.find_by(phone_number: user_params[:phone_number])
+    if user && user.authenticate(user_params[:password])
+      # @user.regenerate_auth_token
+      @current_user = @user
+      redirect_to @user
+    else
+      format.json { render json: 'Invalid phone_number/password combination' }
+    end
+  end
+
   # PATCH/PUT /users/1
   # PATCH/PUT /users/1.json
   def update
@@ -71,6 +82,6 @@ class UsersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
-      params.require(:user).permit(:name, :phone_number)
+      params.require(:user).permit(:name, :phone_number, :password)
     end
 end

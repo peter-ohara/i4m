@@ -1,5 +1,6 @@
 class User < ApplicationRecord
   has_secure_token :auth_token
+  has_secure_password
 
   has_one :next_of_kin, inverse_of: :user
 
