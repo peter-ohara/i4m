@@ -24,7 +24,12 @@ class PurchasedTBillsController < ApplicationController
   # POST /purchased_t_bills
   # POST /purchased_t_bills.json
   def create
-    @purchased_t_bill = PurchasedTBill.new(purchased_t_bill_params)
+    @purchased_t_bill = PurchasedTBill.new(
+      user: @current_user,
+      principal_pesewas: saved_t_bill_params[:principal] * 100,
+      tenure: saved_t_bill_params[:tenure],
+      bank_of_ghana_rate_id: BankOfGhanaRate.current_rate.id
+    )
 
     respond_to do |format|
       if @purchased_t_bill.save
@@ -41,7 +46,12 @@ class PurchasedTBillsController < ApplicationController
   # PATCH/PUT /purchased_t_bills/1.json
   def update
     respond_to do |format|
-      if @purchased_t_bill.update(purchased_t_bill_params)
+      if @purchased_t_bill.update(
+        user: @current_user,
+        principal_pesewas: saved_t_bill_params[:principal] * 100,
+        tenure: saved_t_bill_params[:tenure],
+        bank_of_ghana_rate_id: BankOfGhanaRate.current_rate.id
+      )
         format.html { redirect_to @purchased_t_bill, notice: 'Purchased t bill was successfully updated.' }
         format.json { render :show, status: :ok, location: @purchased_t_bill }
       else
@@ -62,13 +72,14 @@ class PurchasedTBillsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_purchased_t_bill
-      @purchased_t_bill = PurchasedTBill.find(params[:id])
-    end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def purchased_t_bill_params
-      params.require(:purchased_t_bill).permit(:user_id, :principal_pesewas, :tenure, :bank_of_ghana_rate_id)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_purchased_t_bill
+    @purchased_t_bill = PurchasedTBill.find(params[:id])
+  end
+
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def purchased_t_bill_params
+    params.require(:purchased_t_bill).permit(:principal_pesewas, :tenure)
+  end
 end

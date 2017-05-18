@@ -24,7 +24,10 @@ class NextOfKinsController < ApplicationController
   # POST /next_of_kins
   # POST /next_of_kins.json
   def create
-    @next_of_kin = NextOfKin.new(next_of_kin_params)
+    @next_of_kin = NextOfKin.new
+    @next_of_kin.name = next_of_kin_params[:name]
+    @next_of_kin.phone_number = next_of_kin_params[:phone_number]
+    @next_of_kin.user = @current_user
 
     respond_to do |format|
       if @next_of_kin.save
@@ -41,7 +44,11 @@ class NextOfKinsController < ApplicationController
   # PATCH/PUT /next_of_kins/1.json
   def update
     respond_to do |format|
-      if @next_of_kin.update(next_of_kin_params)
+      if @next_of_kin.update(
+        name: next_of_kin_params[:name],
+        phone_number: next_of_kin_params[:phone_number],
+        user: @current_user
+      )
         format.html { redirect_to @next_of_kin, notice: 'Next of kin was successfully updated.' }
         format.json { render :show, status: :ok, location: @next_of_kin }
       else
@@ -62,13 +69,14 @@ class NextOfKinsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_next_of_kin
-      @next_of_kin = NextOfKin.find(params[:id])
-    end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def next_of_kin_params
-      params.require(:next_of_kin).permit(:name, :phone_number, :user_id)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_next_of_kin
+    @next_of_kin = NextOfKin.find(params[:id])
+  end
+
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def next_of_kin_params
+    params.require(:next_of_kin).permit(:name, :phone_number)
+  end
 end

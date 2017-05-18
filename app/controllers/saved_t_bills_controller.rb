@@ -24,13 +24,12 @@ class SavedTBillsController < ApplicationController
   # POST /saved_t_bills
   # POST /saved_t_bills.json
   def create
-    @saved_t_bill = SavedTBill.new
-    # :user_id, :principal, :tenure, :bank_of_ghana_rate_id)
-    @saved_t_bill.user_id = saved_t_bill_params[:user_id]
-    @saved_t_bill.principal_pesewas = saved_t_bill_params[:principal] * 100
-    @saved_t_bill.tenure = saved_t_bill_params[:tenure]
-    @saved_t_bill.bank_of_ghana_rate_id = BankOfGhanaRate.current_rate.id
-
+    @saved_t_bill = SavedTBill.new(
+      user: @current_user,
+      principal_pesewas: saved_t_bill_params[:principal] * 100,
+      tenure: saved_t_bill_params[:tenure],
+      bank_of_ghana_rate_id: BankOfGhanaRate.current_rate.id
+    )
     respond_to do |format|
       if @saved_t_bill.save
         format.html { redirect_to @saved_t_bill, notice: 'Saved t bill was successfully created.' }
@@ -47,7 +46,7 @@ class SavedTBillsController < ApplicationController
   def update
     respond_to do |format|
       if @saved_t_bill.update(
-        user_id: saved_t_bill_params[:user_id],
+        user: @current_user,
         principal_pesewas: saved_t_bill_params[:principal] * 100,
         tenure: saved_t_bill_params[:tenure],
         bank_of_ghana_rate_id: BankOfGhanaRate.current_rate.id
@@ -80,6 +79,6 @@ class SavedTBillsController < ApplicationController
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def saved_t_bill_params
-    params.require(:saved_t_bill).permit(:user_id, :principal, :tenure, :bank_of_ghana_rate_id)
+    params.require(:saved_t_bill).permit(:principal, :tenure)
   end
 end
