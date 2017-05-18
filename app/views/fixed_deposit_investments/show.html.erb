@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Institution:</strong>
+  <%= @fixed_deposit_investment.institution %>
+</p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @fixed_deposit_investment.name %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @fixed_deposit_investment.description %>
+</p>
+
+<p>
+  <strong>Tenure:</strong>
+  <%= @fixed_deposit_investment.tenure %>
+</p>
+
+<p>
+  <strong>Minimum principal pesewas:</strong>
+  <%= @fixed_deposit_investment.minimum_principal_pesewas %>
+</p>
+
+<%= link_to 'Edit', edit_fixed_deposit_investment_path(@fixed_deposit_investment) %> |
+<%= link_to 'Back', fixed_deposit_investments_path %>

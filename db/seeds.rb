@@ -18,3 +18,17 @@ With an e-business suite and a branch expansion drive, Legacy Capital gives you 
 We are committed to truly understanding your business. We work as an extension of your own team-trusted,dedicated, accessible and responsive.
 Legacy Capital...Banking for your Legacy"
 )
+
+cash_is_king_fixed_deposit = FixedDepositInvestment.create(
+    institution: legacy_capital,
+    name: "Cash is King Fixed Deposit",
+    description: "Features\n
+    - Customer deposit money for a fixed period of time not less than 6 months.\n
+    - No premature withdrawal is allowed.\n
+    - Interest rate is prevailing Treasury Bill rate plus up to 7%.\n
+    - Interest is paid monthly to the customers preferred account at any bank.\n
+    - The deposit could be used as a collateral for a loan (the loan would be obtained within 12 hours upon receipt of request)\n
+    - A certificate of deposit is issued.",
+    tenure: 6*30.4167, # 6 months = 6 * avg_days_in_a_month
+    minimum_principal_pesewas: 10 * 100
+)
