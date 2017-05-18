@@ -1,0 +1,32 @@
+<%= form_for(fixed_deposit_rate) do |f| %>
+  <% if fixed_deposit_rate.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(fixed_deposit_rate.errors.count, "error") %> prohibited this fixed_deposit_rate from being saved:</h2>
+
+      <ul>
+      <% fixed_deposit_rate.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :fixed_deposit_investment_id %>
+    <%= f.text_field :fixed_deposit_investment_id %>
+  </div>
+
+  <div class="field">
+    <%= f.label :interest_rate %>
+    <%= f.number_field :interest_rate %>
+  </div>
+
+  <div class="field">
+    <%= f.label :start_date %>
+    <%= f.date_select :start_date %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

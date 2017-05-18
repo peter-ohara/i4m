@@ -1,0 +1,2 @@
+module FixedDepositRatesHelper
+end

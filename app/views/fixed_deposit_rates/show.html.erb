@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Fixed deposit investment:</strong>
+  <%= @fixed_deposit_rate.fixed_deposit_investment %>
+</p>
+
+<p>
+  <strong>Interest rate:</strong>
+  <%= @fixed_deposit_rate.interest_rate %>
+</p>
+
+<p>
+  <strong>Start date:</strong>
+  <%= @fixed_deposit_rate.start_date %>
+</p>
+
+<%= link_to 'Edit', edit_fixed_deposit_rate_path(@fixed_deposit_rate) %> |
+<%= link_to 'Back', fixed_deposit_rates_path %>

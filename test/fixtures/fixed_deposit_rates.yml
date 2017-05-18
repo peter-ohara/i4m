@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  fixed_deposit_investment: one
+  interest_rate: 1
+  start_date: 2017-05-18
+
+two:
+  fixed_deposit_investment: two
+  interest_rate: 1
+  start_date: 2017-05-18

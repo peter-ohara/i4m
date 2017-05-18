@@ -29,6 +29,12 @@ cash_is_king_fixed_deposit = FixedDepositInvestment.create(
     - Interest is paid monthly to the customers preferred account at any bank.\n
     - The deposit could be used as a collateral for a loan (the loan would be obtained within 12 hours upon receipt of request)\n
     - A certificate of deposit is issued.",
-    tenure: 6*30.4167, # 6 months = 6 * avg_days_in_a_month
+    tenure: 182, # 6 months = 182 days
     minimum_principal_pesewas: 10 * 100
+)
+
+cash_is_king_interest_rate = FixedDepositRate.create(
+    fixed_deposit_investment: cash_is_king_fixed_deposit,
+    interest_rate: (15.3181 + 7) * 1000,
+    start_date: "Monday May 15, 2017",
 )

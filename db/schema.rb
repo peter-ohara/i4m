@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170518143002) do
+ActiveRecord::Schema.define(version: 20170518190757) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -35,6 +35,15 @@ ActiveRecord::Schema.define(version: 20170518143002) do
     t.datetime "created_at",                null: false
     t.datetime "updated_at",                null: false
     t.index ["institution_id"], name: "index_fixed_deposit_investments_on_institution_id", using: :btree
+  end
+
+  create_table "fixed_deposit_rates", force: :cascade do |t|
+    t.integer  "fixed_deposit_investment_id"
+    t.integer  "interest_rate"
+    t.date     "start_date"
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
+    t.index ["fixed_deposit_investment_id"], name: "index_fixed_deposit_rates_on_fixed_deposit_investment_id", using: :btree
   end
 
   create_table "institutions", force: :cascade do |t|
@@ -86,6 +95,7 @@ ActiveRecord::Schema.define(version: 20170518143002) do
   end
 
   add_foreign_key "fixed_deposit_investments", "institutions"
+  add_foreign_key "fixed_deposit_rates", "fixed_deposit_investments"
   add_foreign_key "purchased_t_bills", "bank_of_ghana_rates"
   add_foreign_key "purchased_t_bills", "users"
   add_foreign_key "saved_t_bills", "bank_of_ghana_rates"

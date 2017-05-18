@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :fixed_deposit_rates
   resources :fixed_deposit_investments
   resources :institutions
   resources :purchased_t_bills
