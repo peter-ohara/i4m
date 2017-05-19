@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user: one
+  fixed_deposit_investment: one
+  principal_pesewas: 1
+
+two:
+  user: two
+  fixed_deposit_investment: two
+  principal_pesewas: 1
