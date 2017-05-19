@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170519162058) do
+ActiveRecord::Schema.define(version: 20170519163717) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -45,6 +45,23 @@ ActiveRecord::Schema.define(version: 20170519162058) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "mutual_funds", force: :cascade do |t|
+    t.integer  "institution_id"
+    t.string   "name"
+    t.integer  "minimum_principal_pesewas"
+    t.integer  "debit_order_pesewas"
+    t.integer  "management_fee_rate"
+    t.integer  "min_days_before_withdrawal"
+    t.integer  "risk_rating"
+    t.text     "links"
+    t.string   "email"
+    t.string   "phone_number"
+    t.text     "description"
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
+    t.index ["institution_id"], name: "index_mutual_funds_on_institution_id", using: :btree
+  end
+
   create_table "users", force: :cascade do |t|
     t.string   "first_name"
     t.string   "last_name"
@@ -56,4 +73,5 @@ ActiveRecord::Schema.define(version: 20170519162058) do
 
   add_foreign_key "fixed_deposit_investments", "institutions"
   add_foreign_key "fixed_deposit_rates", "fixed_deposit_investments"
+  add_foreign_key "mutual_funds", "institutions"
 end

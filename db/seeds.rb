@@ -77,3 +77,31 @@ fixed_deposit_rate2 = FixedDepositRate.create(
   interest_rate: 16.7892,
   effective_date: '2017-05-19'
 )
+
+mutual_fund1 = MutualFund.create(
+  institution: institution1,
+  name: 'Mfund',
+  minimum_principal_pesewas: 5000,
+  debit_order_pesewas: 1000,
+  management_fee_rate: 30000,
+  min_days_before_withdrawal: 91,
+  risk_rating: 1,
+  links: 'http://bit.ly/2databank',
+  email: 'info@databankgh.com',
+  phone_number: '(+233) 302 610610',
+  description: "N/A"
+)
+
+mutual_fund2 = MutualFund.create(
+    institution: institution1,
+    name: 'SIA',
+    minimum_principal_pesewas: 2500,
+    debit_order_pesewas: 2000,
+    management_fee_rate: 30000,
+    min_days_before_withdrawal: 365,
+    risk_rating: 1,
+    links: 'http://bit.ly/2databank',
+    email: 'info@databankgh.com',
+    phone_number: '(+233) 302 610610',
+    description: "N/A"
+)
