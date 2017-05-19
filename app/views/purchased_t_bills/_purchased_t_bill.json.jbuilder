@@ -1,2 +1,0 @@
-json.extract! purchased_t_bill, :id, :user_id, :principal_pesewas, :tenure, :bank_of_ghana_rate_id, :created_at, :updated_at
-json.url purchased_t_bill_url(purchased_t_bill, format: :json)
