@@ -27,3 +27,41 @@ institution1 = Institution.create(
 institution2 = Institution.create(
     name: 'Databank'
 )
+
+
+fixed_deposit1 = FixedDepositInvestment.create(
+  institution: institution1,
+  name: 'Legacy Fixed Deposit - 91 days',
+  period_in_days: 91,
+  minimum_principal_pesewas: 10000,
+  risk_rating: 1,
+  links: 'http://legacycapital.com.gh/products_services',
+  email: 'info@legacycapital.com.gh',
+  phone_number: '027-7506509/027-7508773/050-1339522',
+  description: "These offer flexible interest payment plans for tenures of 91, 182 and 365 days respectively.
+      Features
+  - Minimum investment amount of GHS 1,000.00
+  - Very attractive interest rate (Ranging from T –Bill + 2% to 8%) depending on the amount and the tenure.
+      - All our rates are negotiable.
+          - Prompt payment of investment upon maturity
+  - We believe that, it is not only the rate but the security of your investment is what gives us the edge over our competitors."
+)
+
+
+fixed_deposit2 = FixedDepositInvestment.create(
+    institution: institution1,
+    name: 'Legacy Fixed Deposit - 182 days',
+    period_in_days: 182,
+    minimum_principal_pesewas: 10000,
+    risk_rating: 1,
+    links: 'http://legacycapital.com.gh/products_services',
+    email: 'info@legacycapital.com.gh',
+    phone_number: '027-7506509/027-7508773/050-1339522',
+    description: "These offer flexible interest payment plans for tenures of 91, 182 and 365 days respectively.
+      Features
+  - Minimum investment amount of GHS 1,000.00
+  - Very attractive interest rate (Ranging from T –Bill + 2% to 8%) depending on the amount and the tenure.
+      - All our rates are negotiable.
+          - Prompt payment of investment upon maturity
+  - We believe that, it is not only the rate but the security of your investment is what gives us the edge over our competitors."
+)

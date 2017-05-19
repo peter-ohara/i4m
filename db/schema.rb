@@ -10,10 +10,25 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170519160547) do
+ActiveRecord::Schema.define(version: 20170519161021) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "fixed_deposit_investments", force: :cascade do |t|
+    t.integer  "institution_id"
+    t.string   "name"
+    t.integer  "period_in_days"
+    t.integer  "minimum_principal_pesewas"
+    t.integer  "risk_rating"
+    t.text     "links"
+    t.string   "email"
+    t.string   "phone_number"
+    t.text     "description"
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
+    t.index ["institution_id"], name: "index_fixed_deposit_investments_on_institution_id", using: :btree
+  end
 
   create_table "institutions", force: :cascade do |t|
     t.string   "name"
@@ -30,4 +45,5 @@ ActiveRecord::Schema.define(version: 20170519160547) do
     t.datetime "updated_at",   null: false
   end
 
+  add_foreign_key "fixed_deposit_investments", "institutions"
 end
