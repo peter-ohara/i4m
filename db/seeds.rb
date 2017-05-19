@@ -131,3 +131,16 @@ mutual_fund_purchase_attempt2 = MutualFundPurchaseAttempt.create(
   mutual_fund: mutual_fund2,
   principal_pesewas: 100000
 )
+
+fixed_deposit_purchase_attempt1 = FdPurchaseAttempt.create(
+  user: user1,
+  fixed_deposit_investment: fixed_deposit1,
+  principal_pesewas: 180000
+)
+
+mutual_fund_purchase_attempt2 = FdPurchaseAttempt.create(
+  user: user1,
+  fixed_deposit_investment: fixed_deposit2,
+  principal_pesewas: 560000
+)
+
