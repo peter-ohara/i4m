@@ -25,7 +25,7 @@ institution1 = Institution.create(
 )
 
 institution2 = Institution.create(
-    name: 'Databank'
+  name: 'Databank'
 )
 
 
@@ -49,19 +49,31 @@ fixed_deposit1 = FixedDepositInvestment.create(
 
 
 fixed_deposit2 = FixedDepositInvestment.create(
-    institution: institution1,
-    name: 'Legacy Fixed Deposit - 182 days',
-    period_in_days: 182,
-    minimum_principal_pesewas: 10000,
-    risk_rating: 1,
-    links: 'http://legacycapital.com.gh/products_services',
-    email: 'info@legacycapital.com.gh',
-    phone_number: '027-7506509/027-7508773/050-1339522',
-    description: "These offer flexible interest payment plans for tenures of 91, 182 and 365 days respectively.
+  institution: institution1,
+  name: 'Legacy Fixed Deposit - 182 days',
+  period_in_days: 182,
+  minimum_principal_pesewas: 10000,
+  risk_rating: 1,
+  links: 'http://legacycapital.com.gh/products_services',
+  email: 'info@legacycapital.com.gh',
+  phone_number: '027-7506509/027-7508773/050-1339522',
+  description: "These offer flexible interest payment plans for tenures of 91, 182 and 365 days respectively.
       Features
   - Minimum investment amount of GHS 1,000.00
   - Very attractive interest rate (Ranging from T –Bill + 2% to 8%) depending on the amount and the tenure.
       - All our rates are negotiable.
           - Prompt payment of investment upon maturity
   - We believe that, it is not only the rate but the security of your investment is what gives us the edge over our competitors."
+)
+
+fixed_deposit_rate = FixedDepositRate.create(
+  fixed_deposit_investment: fixed_deposit1,
+  interest_rate: 15.7892,
+  effective_date: '2017-05-19'
+)
+
+fixed_deposit_rate2 = FixedDepositRate.create(
+  fixed_deposit_investment: fixed_deposit2,
+  interest_rate: 16.7892,
+  effective_date: '2017-05-19'
 )
