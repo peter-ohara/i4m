@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  first_name: Kwaku
+  last_name: Bako
+  phone_number: 0244199900
+  email: kwaku.baku@gmail.com
+
+two:
+  first_name: Andrew
+  last_name: Adom
+  phone_number: 0501191603
+  email: andrew.adom@gmail.com
