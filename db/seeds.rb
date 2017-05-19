@@ -105,3 +105,17 @@ mutual_fund2 = MutualFund.create(
     phone_number: '(+233) 302 610610',
     description: "N/A"
 )
+
+mutual_fund_rate1 = MutualFundRate.create(
+  mutual_fund: mutual_fund1,
+  unit_price_pesewas: 9392,
+  yield_to_date: 1988,
+  effective_date: '2017-05-19'
+)
+
+mutual_fund_rate2 = MutualFundRate.create(
+  mutual_fund: mutual_fund2,
+  unit_price_pesewas: 1578,
+  yield_to_date: 534,
+  effective_date: '2017-05-19'
+)
