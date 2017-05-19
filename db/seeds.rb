@@ -19,3 +19,11 @@ user2 = User.create(
   phone_number: '0501191603',
   email: 'andrew.adom@gmail.com'
 )
+
+institution1 = Institution.create(
+  name: 'Legacy Capital'
+)
+
+institution2 = Institution.create(
+    name: 'Databank'
+)
