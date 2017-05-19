@@ -10,94 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170518190757) do
+ActiveRecord::Schema.define(version: 20170519154439) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "bank_of_ghana_rates", force: :cascade do |t|
-    t.integer  "discount_rate_91_days"
-    t.integer  "interest_rate_91_days"
-    t.integer  "discount_rate_182_days"
-    t.integer  "interest_rate_182_days"
-    t.date     "start_date"
-    t.date     "end_date"
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
-  end
-
-  create_table "fixed_deposit_investments", force: :cascade do |t|
-    t.integer  "institution_id"
-    t.string   "name"
-    t.text     "description"
-    t.integer  "tenure"
-    t.integer  "minimum_principal_pesewas"
-    t.datetime "created_at",                null: false
-    t.datetime "updated_at",                null: false
-    t.index ["institution_id"], name: "index_fixed_deposit_investments_on_institution_id", using: :btree
-  end
-
-  create_table "fixed_deposit_rates", force: :cascade do |t|
-    t.integer  "fixed_deposit_investment_id"
-    t.integer  "interest_rate"
-    t.date     "start_date"
-    t.datetime "created_at",                  null: false
-    t.datetime "updated_at",                  null: false
-    t.index ["fixed_deposit_investment_id"], name: "index_fixed_deposit_rates_on_fixed_deposit_investment_id", using: :btree
-  end
-
-  create_table "institutions", force: :cascade do |t|
-    t.string   "name"
-    t.text     "description"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
-  end
-
-  create_table "next_of_kins", force: :cascade do |t|
-    t.string   "name"
+  create_table "users", force: :cascade do |t|
+    t.string   "first_name"
+    t.string   "last_name"
     t.string   "phone_number"
-    t.integer  "user_id"
+    t.string   "email"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
-    t.index ["user_id"], name: "index_next_of_kins_on_user_id", using: :btree
   end
 
-  create_table "purchased_t_bills", force: :cascade do |t|
-    t.integer  "user_id"
-    t.integer  "principal_pesewas"
-    t.integer  "tenure"
-    t.integer  "bank_of_ghana_rate_id"
-    t.datetime "created_at",            null: false
-    t.datetime "updated_at",            null: false
-    t.index ["bank_of_ghana_rate_id"], name: "index_purchased_t_bills_on_bank_of_ghana_rate_id", using: :btree
-    t.index ["user_id"], name: "index_purchased_t_bills_on_user_id", using: :btree
-  end
-
-  create_table "saved_t_bills", force: :cascade do |t|
-    t.integer  "user_id"
-    t.integer  "principal_pesewas"
-    t.integer  "tenure"
-    t.integer  "bank_of_ghana_rate_id"
-    t.datetime "created_at",            null: false
-    t.datetime "updated_at",            null: false
-    t.index ["bank_of_ghana_rate_id"], name: "index_saved_t_bills_on_bank_of_ghana_rate_id", using: :btree
-    t.index ["user_id"], name: "index_saved_t_bills_on_user_id", using: :btree
-  end
-
-  create_table "users", force: :cascade do |t|
-    t.string   "name"
-    t.string   "phone_number"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
-    t.string   "auth_token"
-    t.string   "password_digest"
-    t.index ["auth_token"], name: "index_users_on_auth_token", unique: true, using: :btree
-  end
-
-  add_foreign_key "fixed_deposit_investments", "institutions"
-  add_foreign_key "fixed_deposit_rates", "fixed_deposit_investments"
-  add_foreign_key "purchased_t_bills", "bank_of_ghana_rates"
-  add_foreign_key "purchased_t_bills", "users"
-  add_foreign_key "saved_t_bills", "bank_of_ghana_rates"
-  add_foreign_key "saved_t_bills", "users"
 end
