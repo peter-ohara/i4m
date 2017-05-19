@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :mutual_funds
   resources :fixed_deposit_investments
   root to: 'welcome#index'
 
