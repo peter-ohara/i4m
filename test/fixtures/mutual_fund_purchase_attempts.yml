@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user: one
+  mutual_fund: one
+  principal_pesewas: 500000
+
+two:
+  user: two
+  mutual_fund: two
+  principal_pesewas: 100000

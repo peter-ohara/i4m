@@ -119,3 +119,15 @@ mutual_fund_rate2 = MutualFundRate.create(
   yield_to_date: 534,
   effective_date: '2017-05-19'
 )
+
+mutual_fund_purchase_attempt1 = MutualFundPurchaseAttempt.create(
+  user: user1,
+  mutual_fund: mutual_fund1,
+  principal_pesewas: 500000
+)
+
+mutual_fund_purchase_attempt2 = MutualFundPurchaseAttempt.create(
+  user: user1,
+  mutual_fund: mutual_fund2,
+  principal_pesewas: 100000
+)
