@@ -1,69 +1,60 @@
-<h1>Welcome to Sprint</h1>
-
-
-<h2>
-  <%= form_tag root_path, :method => 'get', id: 'search-form' do %>
-      <p>
-        I want to invest
-        <%= text_field_tag :search, params[:principal], placeholder: 'Principal' %>
-        for this
-        <%= text_field_tag :search, params[:period], placeholder: 'Period' %>
-        days
-        <%= submit_tag "Filter", :name => nil %>
-      </p>
-  <% end %>
-</h2>
-
-<h2>Fixed Deposit Investments</h2>
-<table>
-  <thead>
-  <tr>
-    <th>Investment</th>
-    <th>Description</th>
-    <th>Interest Rate</th>
-  </tr>
-  </thead>
-  <tbody>
-  <% @fixed_deposit_investments.each do |fixed_deposit_investment| %>
+<div class="mdl-grid portfolio-max-width">
+  <div class="mdl-cell mdl-cell--12-col">
+    <h2>Fixed Deposit Investments</h2>
+    <table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp">
+      <thead>
       <tr>
-        <td>
-          <%= link_to(fixed_deposit_investment, html_options = {}) do %>
-              <%= fixed_deposit_investment.institution.name %>
-              <br>
-              <%= fixed_deposit_investment.name %>
-          <% end %>
-        </td>
-        <td><span class="description"><%= fixed_deposit_investment.description %></span></td>
-        <td><%= fixed_deposit_investment.interest_rate / 10000.0 %></td>
+        <th class="mdl-data-table__cell--non-numeric">Investment</th>
+        <th class="mdl-data-table__cell--non-numeric">Description</th>
+        <th>Interest Rate (%)</th>
       </tr>
-  <% end %>
-  </tbody>
-</table>
+      </thead>
+      <tbody>
+      <% @fixed_deposit_investments.each do |fixed_deposit_investment| %>
+          <tr>
+            <td class="mdl-data-table__cell--non-numeric">
+              <%= link_to(fixed_deposit_investment, html_options = {}) do %>
+                  <%= fixed_deposit_investment.institution.name %>
+                  <br>
+                  <%= fixed_deposit_investment.name %>
+              <% end %>
+            </td>
+            <td class="mdl-data-table__cell--non-numeric"><span class="description"><%= fixed_deposit_investment.description %></span></td>
+            <td><%= fixed_deposit_investment.interest_rate / 10000.0 %></td>
+          </tr>
+      <% end %>
+      </tbody>
+    </table>
+  </div>
 
-<h2>Mutual Funds</h2>
-<table>
-  <thead>
-  <tr>
-    <th>Investment</th>
-    <th>Description</th>
-    <th>Unit Price</th>
-    <th>Yield To Date</th>
-  </tr>
-  </thead>
-  <tbody>
-  <% @mutual_funds.each do |mutual_fund| %>
+  <div class="mdl-cell mdl-cell--12-col">
+    <h2>Mutual Funds</h2>
+    <table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp">
+      <thead>
       <tr>
-        <td>
-          <%= link_to(mutual_fund, html_options = {}) do %>
-              <%= mutual_fund.institution.name %>
-              <br>
-              <%= mutual_fund.name %>
-          <% end %>
-        </td>
-        <td><span class="description"><%= mutual_fund.description %></span></td>
-        <td><%= mutual_fund.unit_price %></td>
-        <td><%= mutual_fund.yield_to_date / 10000.0 %></td>
+        <th class="mdl-data-table__cell--non-numeric">Investment</th>
+        <th class="mdl-data-table__cell--non-numeric">Description</th>
+        <th>Unit Price (GHS)</th>
+        <th>Yield To Date (%)</th>
       </tr>
-  <% end %>
-  </tbody>
-</table>
+      </thead>
+      <tbody>
+      <% @mutual_funds.each do |mutual_fund| %>
+          <tr>
+            <td class="mdl-data-table__cell--non-numeric">
+              <%= link_to(mutual_fund, html_options = {}) do %>
+                  <%= mutual_fund.institution.name %>
+                  <br>
+                  <%= mutual_fund.name %>
+              <% end %>
+            </td>
+            <td  class="mdl-data-table__cell--non-numeric"><span class="description"><%= mutual_fund.description %></span></td>
+            <td><%= mutual_fund.unit_price %></td>
+            <td><%= mutual_fund.yield_to_date / 10000.0 %></td>
+          </tr>
+      <% end %>
+      </tbody>
+    </table>
+  </div>
+
+</div>

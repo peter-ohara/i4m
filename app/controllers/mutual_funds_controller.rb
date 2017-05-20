@@ -1,5 +1,5 @@
 class MutualFundsController < ApplicationController
-  before_action :set_mutual_fund, only: [:show, :edit, :update, :destroy]
+  before_action :set_mutual_fund, only: [:show, :edit, :update, :destroy, :purchase]
 
   # GET /mutual_funds
   # GET /mutual_funds.json
@@ -58,6 +58,31 @@ class MutualFundsController < ApplicationController
     respond_to do |format|
       format.html { redirect_to mutual_funds_url, notice: 'Mutual fund was successfully destroyed.' }
       format.json { head :no_content }
+    end
+  end
+
+  def purchase
+    @user = User.create(
+        first_name: params[:first_name],
+        last_name: params[:last_name],
+        phone_number: params[:phone_number],
+        email: params[:email]
+    )
+
+    purchase_attempt = MutualFundPurchaseAttempt.new(user: @user,
+                                             mutual_fund: @mutual_fund,
+                                             principal_pesewas: params[:principal].to_i * 100
+    )
+
+    respond_to do |format|
+      if purchase_attempt.save
+        format.html { redirect_to @mutual_fund,
+                      notice: "Purchase created successfully." }
+        format.json { render :show, status: :created, location: @fixed_deposit_investment }
+      else
+        format.html { render :new }
+        format.json { render json: @fixed_deposit_investment.errors, status: :unprocessable_entity }
+      end
     end
   end
 

@@ -1,5 +1,5 @@
 class FixedDepositInvestmentsController < ApplicationController
-  before_action :set_fixed_deposit_investment, only: [:show, :edit, :update, :destroy]
+  before_action :set_fixed_deposit_investment, only: [:show, :edit, :update, :destroy, :purchase]
 
   # GET /fixed_deposit_investments
   # GET /fixed_deposit_investments.json
@@ -58,6 +58,31 @@ class FixedDepositInvestmentsController < ApplicationController
     respond_to do |format|
       format.html { redirect_to fixed_deposit_investments_url, notice: 'Fixed deposit investment was successfully destroyed.' }
       format.json { head :no_content }
+    end
+  end
+
+  def purchase
+    @user = User.create(
+      first_name: params[:first_name],
+      last_name: params[:last_name],
+      phone_number: params[:phone_number],
+      email: params[:email]
+    )
+
+    purchase_attempt = FdPurchaseAttempt.new(user: @user,
+      fixed_deposit_investment: @fixed_deposit_investment,
+      principal_pesewas: params[:principal].to_i * 100
+    )
+
+    respond_to do |format|
+      if purchase_attempt.save
+        format.html { redirect_to @fixed_deposit_investment,
+                                  notice: "Purchase created successfully."}
+        format.json { render :show, status: :created, location: @fixed_deposit_investment }
+      else
+        format.html { render :new }
+        format.json { render json: @fixed_deposit_investment.errors, status: :unprocessable_entity }
+      end
     end
   end
 

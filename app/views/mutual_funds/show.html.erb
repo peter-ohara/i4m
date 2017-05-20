@@ -1,76 +1,112 @@
-<p id="notice"><%= notice %></p>
+<div class="mdl-grid portfolio-max-width">
 
-<p>
-  <strong>Institution:</strong>
-  <%= @mutual_fund.institution.name %>
-</p>
+  <div class="mdl-cell mdl-cell--12-col">
 
-<p>
-  <strong>Name:</strong>
-  <%= @mutual_fund.name %>
-</p>
+    <p id="notice"><%= notice %></p>
+
+    <p>
+      <strong>Institution:</strong>
+      <%= @mutual_fund.institution.name %>
+    </p>
+
+    <p>
+      <strong>Name:</strong>
+      <%= @mutual_fund.name %>
+    </p>
 
 
-<p>
-  <strong>Unit Price:</strong>
-  <%= @mutual_fund.unit_price %>
-</p>
+    <p>
+      <strong>Unit Price:</strong>
+      <%= @mutual_fund.unit_price %>
+    </p>
 
-<p>
-  <strong>Yield to Date:</strong>
-  <%= @mutual_fund.yield_to_date / 100.0 %> %
-</p>
+    <p>
+      <strong>Yield to Date:</strong>
+      <%= @mutual_fund.yield_to_date / 100.0 %> %
+    </p>
 
-<p>
-  <strong>Minimum principal:</strong>
-  <%= @mutual_fund.minimum_principal %>
-</p>
+    <p>
+      <strong>Minimum principal:</strong>
+      <%= @mutual_fund.minimum_principal %>
+    </p>
 
-<p>
-  <strong>Debit order:</strong>
-  <%= @mutual_fund.debit_order %>
-</p>
+    <p>
+      <strong>Debit order:</strong>
+      <%= @mutual_fund.debit_order %>
+    </p>
 
-<p>
-  <strong>Management fee rate:</strong>
-  <%= @mutual_fund.management_fee_rate %>
-</p>
+    <p>
+      <strong>Management fee rate:</strong>
+      <%= @mutual_fund.management_fee_rate %>
+    </p>
 
-<p>
-  <strong>Min days before withdrawal:</strong>
-  <%= @mutual_fund.min_days_before_withdrawal %>
-</p>
+    <p>
+      <strong>Min days before withdrawal:</strong>
+      <%= @mutual_fund.min_days_before_withdrawal %>
+    </p>
 
-<p>
-  <strong>Risk rating:</strong>
-  <%= @mutual_fund.risk_rating %>
-</p>
+    <p>
+      <strong>Risk rating:</strong>
+      <%= @mutual_fund.risk_rating %>
+    </p>
 
-<p>
-  <strong>Links:</strong>
-  <%= @mutual_fund.links %>
-</p>
+    <p>
+      <strong>Links:</strong>
+      <%= @mutual_fund.links %>
+    </p>
 
-<p>
-  <strong>Email:</strong>
-  <%= @mutual_fund.email %>
-</p>
+    <p>
+      <strong>Email:</strong>
+      <%= @mutual_fund.email %>
+    </p>
 
-<p>
-  <strong>Phone number:</strong>
-  <%= @mutual_fund.phone_number %>
-</p>
+    <p>
+      <strong>Phone number:</strong>
+      <%= @mutual_fund.phone_number %>
+    </p>
 
-<p>
-  <strong>Description:</strong>
-  <%= @mutual_fund.description %>
-</p>
+    <p>
+      <strong>Description:</strong>
+      <%= @mutual_fund.description %>
+    </p>
 
-<p>
-  <%= link_to 'Purchase', mutual_funds_path %>
-</p>
+    <p>
+      <%= form_tag "/mutual_funds/#{@mutual_fund.id}/purchase", :method => 'post', id: 'purchase-form' do %>
+        <div class="field">
+          Amount to Purchase: <br>
+          <%= number_field_tag :principal, params[:principal], placeholder: 'Principal' %>
+        </div>
 
-<br>
+        <div class="field">
+          First Name: <br>
+          <%= text_field_tag :first_name, params[:first_name], placeholder: 'First Name' %>
+        </div>
 
-<%= link_to 'Edit', edit_mutual_fund_path(@mutual_fund) %> |
-<%= link_to 'Back', mutual_funds_path %>
+        <div class="field">
+          Last Name: <br>
+          <%= text_field_tag :last_name, params[:last_name], placeholder: 'Last Name' %>
+        </div>
+
+        <div class="field">
+          Phone Number: <br>
+          <%= text_field_tag :phone_number, params[:phone_number], placeholder: 'Phone Number' %>
+        </div>
+
+        <div class="field">
+          Email: <br>
+          <%= email_field_tag :email, params[:email], placeholder: 'Email' %>
+        </div>
+
+        <br>
+        <%= submit_tag "Purchase", :name => nil%>
+    <% end %>
+    </p>
+
+    <br>
+
+    <%= link_to 'Back', root_path %>
+  </div>
+
+</div>
+
+
