@@ -68,18 +68,18 @@ fixed_deposit2 = FixedDepositInvestment.create(
 
 fixed_deposit_rate = FixedDepositRate.create(
   fixed_deposit_investment: fixed_deposit1,
-  interest_rate: 15.7892,
+  interest_rate: 157892,
   effective_date: '2017-05-19'
 )
 
 fixed_deposit_rate2 = FixedDepositRate.create(
   fixed_deposit_investment: fixed_deposit2,
-  interest_rate: 16.7892,
+  interest_rate: 167892,
   effective_date: '2017-05-19'
 )
 
 mutual_fund1 = MutualFund.create(
-  institution: institution1,
+  institution: institution2,
   name: 'Mfund',
   minimum_principal_pesewas: 5000,
   debit_order_pesewas: 1000,
@@ -93,7 +93,7 @@ mutual_fund1 = MutualFund.create(
 )
 
 mutual_fund2 = MutualFund.create(
-    institution: institution1,
+    institution: institution2,
     name: 'SIA',
     minimum_principal_pesewas: 2500,
     debit_order_pesewas: 2000,

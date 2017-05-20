@@ -1,0 +1,47 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Mutual Funds</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Institution</th>
+      <th>Name</th>
+      <th>Minimum principal pesewas</th>
+      <th>Debit order pesewas</th>
+      <th>Management fee rate</th>
+      <th>Min days before withdrawal</th>
+      <th>Risk rating</th>
+      <th>Links</th>
+      <th>Email</th>
+      <th>Phone number</th>
+      <th>Description</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @mutual_funds.each do |mutual_fund| %>
+      <tr>
+        <td><%= mutual_fund.institution %></td>
+        <td><%= mutual_fund.name %></td>
+        <td><%= mutual_fund.minimum_principal_pesewas %></td>
+        <td><%= mutual_fund.debit_order_pesewas %></td>
+        <td><%= mutual_fund.management_fee_rate %></td>
+        <td><%= mutual_fund.min_days_before_withdrawal %></td>
+        <td><%= mutual_fund.risk_rating %></td>
+        <td><%= mutual_fund.links %></td>
+        <td><%= mutual_fund.email %></td>
+        <td><%= mutual_fund.phone_number %></td>
+        <td><%= mutual_fund.description %></td>
+        <td><%= link_to 'Show', mutual_fund %></td>
+        <td><%= link_to 'Edit', edit_mutual_fund_path(mutual_fund) %></td>
+        <td><%= link_to 'Destroy', mutual_fund, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Mutual Fund', new_mutual_fund_path %>
