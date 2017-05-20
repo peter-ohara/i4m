@@ -1,11 +1,13 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  fixed_deposit_investment: one
-  interest_rate: 15.7892
+  mutual_fund: one
+  unit_price_pesewas: 9392
+  yield_to_date: 1988
   effective_date: 2017-05-19
 
 two:
-  fixed_deposit_investment: two
-  interest_rate: 16.3842
+  mutual_fund: two
+  unit_price_pesewas: 1578
+  yield_to_date: 534
   effective_date: 2017-05-19

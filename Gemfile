@@ -35,7 +35,6 @@ gem 'bcrypt', '~> 3.1.7'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
-
 # Rails money gem
 gem 'money-rails', '~>1'
 
@@ -44,6 +43,9 @@ gem 'rails_admin', '~> 1.1.1'
 
 # Cross Origin Requests
 gem 'rack-cors', require: 'rack/cors'
+
+# Bootstrap
+gem 'bootstrap-sass', '3.3.6'
 
 
 group :development, :test do

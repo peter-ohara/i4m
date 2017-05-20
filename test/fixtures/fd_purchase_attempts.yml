@@ -1,11 +1,11 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
+  user: one
   fixed_deposit_investment: one
-  interest_rate: 15.7892
-  effective_date: 2017-05-19
+  principal_pesewas: 1
 
 two:
+  user: two
   fixed_deposit_investment: two
-  interest_rate: 16.3842
-  effective_date: 2017-05-19
+  principal_pesewas: 1

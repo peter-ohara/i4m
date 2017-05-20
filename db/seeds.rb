@@ -6,35 +6,141 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-legacy_capital = Institution.create(
-    name: "Legacy Capital",
-    description: "Legacy Capital Savings and Loans Company Limited, is a Ghanaian owned company.
-It started operations on the 1st of November,2011 as a Microfinance Company. It was licensed by the Bank of Ghana on 17th August,2016 under the Non-Bank Financial Institution Law 2008 (Act 774), to operate as a savings and loans company.
-It's headquarted at Kuku Hill, Osu within the capital's diverse arena. Since 2011, the trails of Legacy Capital on the financial and banking landscape of Ghana have been gradually distinct, with our fully-networked branches accross the country.
-We offer attractive products, competitive interest rates; prompt service delivery and professional competence for service delivery.
-Legacy Capital is dedicated to distinguishing itself through excellence. In view of this we seek to provide our valued customers with convenient, tailored and reliable banking products and services through our robust IT infastructure and dedicated team of professionals.
-We offer a range of personal, business and institutional financial solutions that are designed to deliver optimum value to our customers.
-With an e-business suite and a branch expansion drive, Legacy Capital gives you several reasons to patronise any of our products.
-We are committed to truly understanding your business. We work as an extension of your own team-trusted,dedicated, accessible and responsive.
-Legacy Capital...Banking for your Legacy"
+user1 = User.create(
+  first_name: 'Kwaku',
+  last_name: 'Bako',
+  phone_number: '0244199900',
+  email: 'kwaku.baku@gmail.com'
 )
 
-cash_is_king_fixed_deposit = FixedDepositInvestment.create(
-    institution: legacy_capital,
-    name: "Cash is King Fixed Deposit",
-    description: "Features\n
-    - Customer deposit money for a fixed period of time not less than 6 months.\n
-    - No premature withdrawal is allowed.\n
-    - Interest rate is prevailing Treasury Bill rate plus up to 7%.\n
-    - Interest is paid monthly to the customers preferred account at any bank.\n
-    - The deposit could be used as a collateral for a loan (the loan would be obtained within 12 hours upon receipt of request)\n
-    - A certificate of deposit is issued.",
-    tenure: 182, # 6 months = 182 days
-    minimum_principal_pesewas: 10 * 100
+user2 = User.create(
+  first_name: 'Andrew',
+  last_name: 'Adom',
+  phone_number: '0501191603',
+  email: 'andrew.adom@gmail.com'
 )
 
-cash_is_king_interest_rate = FixedDepositRate.create(
-    fixed_deposit_investment: cash_is_king_fixed_deposit,
-    interest_rate: (15.3181 + 7) * 1000,
-    start_date: "Monday May 15, 2017",
+institution1 = Institution.create(
+  name: 'Legacy Capital'
 )
+
+institution2 = Institution.create(
+  name: 'Databank'
+)
+
+
+fixed_deposit1 = FixedDepositInvestment.create(
+  institution: institution1,
+  name: 'Legacy Fixed Deposit - 91 days',
+  period_in_days: 91,
+  minimum_principal_pesewas: 10000,
+  risk_rating: 1,
+  links: 'http://legacycapital.com.gh/products_services',
+  email: 'info@legacycapital.com.gh',
+  phone_number: '027-7506509/027-7508773/050-1339522',
+  description: "These offer flexible interest payment plans for tenures of 91, 182 and 365 days respectively.
+      Features
+  - Minimum investment amount of GHS 1,000.00
+  - Very attractive interest rate (Ranging from T –Bill + 2% to 8%) depending on the amount and the tenure.
+      - All our rates are negotiable.
+          - Prompt payment of investment upon maturity
+  - We believe that, it is not only the rate but the security of your investment is what gives us the edge over our competitors."
+)
+
+
+fixed_deposit2 = FixedDepositInvestment.create(
+  institution: institution1,
+  name: 'Legacy Fixed Deposit - 182 days',
+  period_in_days: 182,
+  minimum_principal_pesewas: 10000,
+  risk_rating: 1,
+  links: 'http://legacycapital.com.gh/products_services',
+  email: 'info@legacycapital.com.gh',
+  phone_number: '027-7506509/027-7508773/050-1339522',
+  description: "These offer flexible interest payment plans for tenures of 91, 182 and 365 days respectively.
+      Features
+  - Minimum investment amount of GHS 1,000.00
+  - Very attractive interest rate (Ranging from T –Bill + 2% to 8%) depending on the amount and the tenure.
+      - All our rates are negotiable.
+          - Prompt payment of investment upon maturity
+  - We believe that, it is not only the rate but the security of your investment is what gives us the edge over our competitors."
+)
+
+fixed_deposit_rate = FixedDepositRate.create(
+  fixed_deposit_investment: fixed_deposit1,
+  interest_rate: 15.7892,
+  effective_date: '2017-05-19'
+)
+
+fixed_deposit_rate2 = FixedDepositRate.create(
+  fixed_deposit_investment: fixed_deposit2,
+  interest_rate: 16.7892,
+  effective_date: '2017-05-19'
+)
+
+mutual_fund1 = MutualFund.create(
+  institution: institution1,
+  name: 'Mfund',
+  minimum_principal_pesewas: 5000,
+  debit_order_pesewas: 1000,
+  management_fee_rate: 30000,
+  min_days_before_withdrawal: 91,
+  risk_rating: 1,
+  links: 'http://bit.ly/2databank',
+  email: 'info@databankgh.com',
+  phone_number: '(+233) 302 610610',
+  description: "N/A"
+)
+
+mutual_fund2 = MutualFund.create(
+    institution: institution1,
+    name: 'SIA',
+    minimum_principal_pesewas: 2500,
+    debit_order_pesewas: 2000,
+    management_fee_rate: 30000,
+    min_days_before_withdrawal: 365,
+    risk_rating: 1,
+    links: 'http://bit.ly/2databank',
+    email: 'info@databankgh.com',
+    phone_number: '(+233) 302 610610',
+    description: "N/A"
+)
+
+mutual_fund_rate1 = MutualFundRate.create(
+  mutual_fund: mutual_fund1,
+  unit_price_pesewas: 9392,
+  yield_to_date: 1988,
+  effective_date: '2017-05-19'
+)
+
+mutual_fund_rate2 = MutualFundRate.create(
+  mutual_fund: mutual_fund2,
+  unit_price_pesewas: 1578,
+  yield_to_date: 534,
+  effective_date: '2017-05-19'
+)
+
+mutual_fund_purchase_attempt1 = MutualFundPurchaseAttempt.create(
+  user: user1,
+  mutual_fund: mutual_fund1,
+  principal_pesewas: 500000
+)
+
+mutual_fund_purchase_attempt2 = MutualFundPurchaseAttempt.create(
+  user: user1,
+  mutual_fund: mutual_fund2,
+  principal_pesewas: 100000
+)
+
+fixed_deposit_purchase_attempt1 = FdPurchaseAttempt.create(
+  user: user1,
+  fixed_deposit_investment: fixed_deposit1,
+  principal_pesewas: 180000
+)
+
+mutual_fund_purchase_attempt2 = FdPurchaseAttempt.create(
+  user: user1,
+  fixed_deposit_investment: fixed_deposit2,
+  principal_pesewas: 560000
+)
+
