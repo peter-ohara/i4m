@@ -20,6 +20,7 @@
               <% end %>
             </td>
             <td class="mdl-data-table__cell--non-numeric"><span class="description"><%= fixed_deposit_investment.description %></span></td>
+            <td><%= fixed_deposit_investment.interest_rate / 10000.0 %></td>
           </tr>
       <% end %>
       </tbody>
