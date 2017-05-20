@@ -1,0 +1,102 @@
+<div class="mdl-grid portfolio-max-width">
+
+  <div class="mdl-cell mdl-cell--12-col">
+
+    <p id="notice"><%= notice %></p>
+
+    <p>
+      <strong>Institution:</strong>
+      <%= @fixed_deposit_investment.institution.name %>
+    </p>
+
+    <p>
+      <strong>Name:</strong>
+      <%= @fixed_deposit_investment.name %>
+    </p>
+
+    <p>
+      <strong>Interest Rate:</strong>
+      <%= @fixed_deposit_investment.interest_rate / 10000.0 %> %
+    </p>
+
+    <p>
+      <strong>Period in days:</strong>
+      <%= @fixed_deposit_investment.period_in_days %>
+    </p>
+
+    <p>
+      <strong>Minimum principal:</strong>
+      <%= @fixed_deposit_investment.minimum_principal %>
+    </p>
+
+    <p>
+      <strong>Risk rating:</strong>
+      <%= @fixed_deposit_investment.risk_rating %>
+    </p>
+
+    <p>
+      <strong>Links:</strong>
+      <%= @fixed_deposit_investment.links %>
+    </p>
+
+    <p>
+      <strong>Email:</strong>
+      <%= @fixed_deposit_investment.email %>
+    </p>
+
+    <p>
+      <strong>Phone number:</strong>
+      <%= @fixed_deposit_investment.phone_number %>
+    </p>
+
+    <p>
+      <strong>Description:</strong>
+      <%= @fixed_deposit_investment.description %>
+    </p>
+
+
+    <button class="purchase-button mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" onclick="showPurchaseForm()">Purchase</button>
+
+    <p>
+      <%= form_tag "/fixed_deposit_investments/#{@fixed_deposit_investment.id}/purchase", :method => 'post', id: 'purchase-form' do %>
+        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+          <%= text_field_tag :principal, params[:principal], class:"mdl-textfield__input", pattern:"-?[0-9]*(\\.[0-9]+)?"%>
+          <label class="mdl-textfield__label" for="principal">Amount to purchase...</label>
+          <span class="mdl-textfield__error">Input is not a number!</span>
+        </div>
+
+        <br>
+
+        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+          <%= text_field_tag :first_name, params[:first_name], class:"mdl-textfield__input" %>
+          <label class="mdl-textfield__label" for="first_name">First Name...</label>
+        </div>
+
+        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+          <%= text_field_tag :last_name, params[:last_name], class:"mdl-textfield__input" %>
+          <label class="mdl-textfield__label" for="last_name">Last Name...</label>
+
+        </div>
+
+        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+          <%= text_field_tag :phone_number, params[:phone_number], class:"mdl-textfield__input" %>
+          <label class="mdl-textfield__label" for="phone_number">Phone Number...</label>
+        </div>
+
+        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+          <%= email_field_tag :email, params[:email], class:"mdl-textfield__input" %>
+          <label class="mdl-textfield__label" for="email">Email...</label>
+        </div>
+
+        <br>
+        <%= submit_tag "Purchase", :name => nil, class:"mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored"%>
+    <% end %>
+    </p>
+
+
+    <br>
+
+    <%= link_to 'Back', root_path %>
+  </div>
+
+</div>

@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  mutual_fund: one
+  unit_price_pesewas: 9392
+  yield_to_date: 1988
+  effective_date: 2017-05-19
+
+two:
+  mutual_fund: two
+  unit_price_pesewas: 1578
+  yield_to_date: 534
+  effective_date: 2017-05-19
