@@ -2,7 +2,7 @@
 
 <p>
   <strong>Institution:</strong>
-  <%= @mutual_fund.institution %>
+  <%= @mutual_fund.institution.name %>
 </p>
 
 <p>
@@ -10,14 +10,25 @@
   <%= @mutual_fund.name %>
 </p>
 
+
 <p>
-  <strong>Minimum principal pesewas:</strong>
-  <%= @mutual_fund.minimum_principal_pesewas %>
+  <strong>Unit Price:</strong>
+  <%= @mutual_fund.unit_price %>
 </p>
 
 <p>
-  <strong>Debit order pesewas:</strong>
-  <%= @mutual_fund.debit_order_pesewas %>
+  <strong>Yield to Date:</strong>
+  <%= @mutual_fund.yield_to_date / 100.0 %> %
+</p>
+
+<p>
+  <strong>Minimum principal:</strong>
+  <%= @mutual_fund.minimum_principal %>
+</p>
+
+<p>
+  <strong>Debit order:</strong>
+  <%= @mutual_fund.debit_order %>
 </p>
 
 <p>
