@@ -2,37 +2,41 @@
 
 
 <h2>
-<%= form_tag root_path, :method => 'get', id: 'search-form' do %>
-    <p>
-      I want to invest
-      <%= text_field_tag :search, params[:principal], placeholder: 'Principal' %>
-      for this
-      <%= text_field_tag :search, params[:period], placeholder: 'Period' %>
-      days
-      <%= submit_tag "Filter", :name => nil %>
-    </p>
-<% end %>
+  <%= form_tag root_path, :method => 'get', id: 'search-form' do %>
+      <p>
+        I want to invest
+        <%= text_field_tag :search, params[:principal], placeholder: 'Principal' %>
+        for this
+        <%= text_field_tag :search, params[:period], placeholder: 'Period' %>
+        days
+        <%= submit_tag "Filter", :name => nil %>
+      </p>
+  <% end %>
 </h2>
 
 <h2>Fixed Deposit Investments</h2>
 <table>
   <thead>
-    <tr>
-      <th>Institution</th>
-      <th>Investment</th>
-      <th>Description</th>
-      <th>Interest Rate</th>
-    </tr>
+  <tr>
+    <th>Investment</th>
+    <th>Description</th>
+    <th>Interest Rate</th>
+  </tr>
   </thead>
   <tbody>
-    <% @fixed_deposit_investments.each do |fixed_deposit_investment| %>
-    <tr>
-      <td><%= fixed_deposit_investment.institution.name %></td>
-      <td><%= fixed_deposit_investment.name %></td>
-      <td><span class="description"><%= fixed_deposit_investment.description %></span></td>
-      <td><%= fixed_deposit_investment.interest_rate / 10000.0 %></td>
-    </tr>
-    <% end %>
+  <% @fixed_deposit_investments.each do |fixed_deposit_investment| %>
+      <tr>
+        <td>
+          <%= link_to(fixed_deposit_investment, html_options = {}) do %>
+              <%= fixed_deposit_investment.institution.name %>
+              <br>
+              <%= fixed_deposit_investment.name %>
+          <% end %>
+        </td>
+        <td><span class="description"><%= fixed_deposit_investment.description %></span></td>
+        <td><%= fixed_deposit_investment.interest_rate / 10000.0 %></td>
+      </tr>
+  <% end %>
   </tbody>
 </table>
 
@@ -40,7 +44,6 @@
 <table>
   <thead>
   <tr>
-    <th>Institution</th>
     <th>Investment</th>
     <th>Description</th>
     <th>Unit Price</th>
@@ -50,8 +53,13 @@
   <tbody>
   <% @mutual_funds.each do |mutual_fund| %>
       <tr>
-        <td><%= mutual_fund.institution.name %></td>
-        <td><%= mutual_fund.name %></td>
+        <td>
+          <%= link_to(mutual_fund, html_options = {}) do %>
+              <%= mutual_fund.institution.name %>
+              <br>
+              <%= mutual_fund.name %>
+          <% end %>
+        </td>
         <td><span class="description"><%= mutual_fund.description %></span></td>
         <td><%= mutual_fund.unit_price %></td>
         <td><%= mutual_fund.yield_to_date / 10000.0 %></td>
