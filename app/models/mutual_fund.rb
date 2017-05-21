@@ -21,4 +21,26 @@ class MutualFund < ApplicationRecord
     mutual_fund_rate = MutualFundRate.find_by(mutual_fund: self)
     mutual_fund_rate.yield_to_date / 10000.0 if mutual_fund_rate
   end
+
+  def self.filter(principal, duration, search_query)
+    if search_query
+      mutual_funds = MutualFund.all
+    else
+      mutual_funds = MutualFund.all
+    end
+
+    if principal
+      mutual_funds = mutual_funds
+                          .where('minimum_principal_pesewas <= ?',
+                                 principal.to_i * 100)
+    end
+
+    if duration
+      mutual_funds = mutual_funds
+                          .where('min_days_before_withdrawal <= ?',
+                                 duration)
+    end
+
+    mutual_funds
+  end
 end

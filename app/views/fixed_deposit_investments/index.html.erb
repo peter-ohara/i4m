@@ -1,43 +1,29 @@
-<p id="notice"><%= notice %></p>
-
-<h1>Fixed Deposit Investments</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Institution</th>
-      <th>Name</th>
-      <th>Period in days</th>
-      <th>Minimum principal pesewas</th>
-      <th>Risk rating</th>
-      <th>Links</th>
-      <th>Email</th>
-      <th>Phone number</th>
-      <th>Description</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @fixed_deposit_investments.each do |fixed_deposit_investment| %>
+<div class="mdl-grid portfolio-max-width">
+  <div class="mdl-cell mdl-cell--12-col">
+    <h2>Fixed Deposit Investments</h2>
+    <table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp">
+      <thead>
       <tr>
-        <td><%= fixed_deposit_investment.institution %></td>
-        <td><%= fixed_deposit_investment.name %></td>
-        <td><%= fixed_deposit_investment.period_in_days %></td>
-        <td><%= fixed_deposit_investment.minimum_principal_pesewas %></td>
-        <td><%= fixed_deposit_investment.risk_rating %></td>
-        <td><%= fixed_deposit_investment.links %></td>
-        <td><%= fixed_deposit_investment.email %></td>
-        <td><%= fixed_deposit_investment.phone_number %></td>
-        <td><%= fixed_deposit_investment.description %></td>
-        <td><%= link_to 'Show', fixed_deposit_investment %></td>
-        <td><%= link_to 'Edit', edit_fixed_deposit_investment_path(fixed_deposit_investment) %></td>
-        <td><%= link_to 'Destroy', fixed_deposit_investment, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <th class="mdl-data-table__cell--non-numeric">Investment</th>
+        <th class="mdl-data-table__cell--non-numeric">Description</th>
+        <th>Interest Rate (%)</th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Fixed Deposit Investment', new_fixed_deposit_investment_path %>
+      </thead>
+      <tbody>
+      <% @fixed_deposit_investments.each do |fixed_deposit_investment| %>
+          <tr>
+            <td class="mdl-data-table__cell--non-numeric">
+              <%= link_to(fixed_deposit_investment, html_options = {}) do %>
+                  <%= fixed_deposit_investment.institution.name %>
+                  <br>
+                  <%= fixed_deposit_investment.name %>
+              <% end %>
+            </td>
+            <td class="mdl-data-table__cell--non-numeric description"><%= fixed_deposit_investment.description %></td>
+            <td><%= fixed_deposit_investment.interest_rate %></td>
+          </tr>
+      <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>

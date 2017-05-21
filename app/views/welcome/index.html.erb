@@ -1,60 +1,402 @@
-<div class="mdl-grid portfolio-max-width">
-  <div class="mdl-cell mdl-cell--12-col">
-    <h2>Fixed Deposit Investments</h2>
-    <table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp">
-      <thead>
-      <tr>
-        <th class="mdl-data-table__cell--non-numeric">Investment</th>
-        <th class="mdl-data-table__cell--non-numeric">Description</th>
-        <th>Interest Rate (%)</th>
-      </tr>
-      </thead>
-      <tbody>
-      <% @fixed_deposit_investments.each do |fixed_deposit_investment| %>
-          <tr>
-            <td class="mdl-data-table__cell--non-numeric">
-              <%= link_to(fixed_deposit_investment, html_options = {}) do %>
-                  <%= fixed_deposit_investment.institution.name %>
-                  <br>
-                  <%= fixed_deposit_investment.name %>
-              <% end %>
-            </td>
-            <td class="mdl-data-table__cell--non-numeric description"><%= fixed_deposit_investment.description %></td>
-            <td><%= fixed_deposit_investment.interest_rate %></td>
-          </tr>
-      <% end %>
-      </tbody>
-    </table>
-  </div>
+<!DOCTYPE html>
+<html lang="en">
 
-  <div class="mdl-cell mdl-cell--12-col">
-    <h2>Mutual Funds</h2>
-    <table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp">
-      <thead>
-      <tr>
-        <th class="mdl-data-table__cell--non-numeric">Investment</th>
-        <th class="mdl-data-table__cell--non-numeric">Description</th>
-        <th>Unit Price (GHS)</th>
-        <th>Yield To Date (%)</th>
-      </tr>
-      </thead>
-      <tbody>
-      <% @mutual_funds.each do |mutual_fund| %>
-          <tr>
-            <td class="mdl-data-table__cell--non-numeric">
-              <%= link_to(mutual_fund, html_options = {}) do %>
-                  <%= mutual_fund.institution.name %>
-                  <br>
-                  <%= mutual_fund.name %>
-              <% end %>
-            </td>
-            <td  class="mdl-data-table__cell--non-numeric description"><%= mutual_fund.description %></td>
-            <td><%= mutual_fund.unit_price %></td>
-            <td><%= mutual_fund.yield_to_date %></td>
-          </tr>
-      <% end %>
-      </tbody>
-    </table>
-  </div>
+<head>
 
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+
+  <title>InvestxD</title>
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.0/css/font-awesome.min.css">
+
+  <link rel="stylesheet" href="css/style.css">
+  <!-- Bootstrap core CSS -->
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Material Design Bootstrap -->
+  <link href="css/mdb.min.css" rel="stylesheet">
+
+  <!-- Template styles -->
+  <style>
+    /* TEMPLATE STYLES */
+
+    html,
+    body,
+    .view {
+      height: 100%;
+    }
+    /* Navigation*/
+
+    .navbar {
+      background-color: transparent;
+    }
+
+    .scrolling-navbar {
+      -webkit-transition: background .5s ease-in-out, padding .5s ease-in-out;
+      -moz-transition: background .5s ease-in-out, padding .5s ease-in-out;
+      transition: background .5s ease-in-out, padding .5s ease-in-out;
+    }
+
+    .top-nav-collapse {
+      background-color: #3c4f74;
+    }
+
+    footer.page-footer {
+      background-color: #3c4f74;
+      margin-top: 2rem;
+    }
+
+    @media only screen and (max-width: 768px) {
+      .navbar {
+        background-color: #1C2331;
+      }
+    }
+    /*Call to action*/
+
+    .flex-center {
+      color: #fff;
+    }
+
+    .view {
+      background: url("https://mdbootstrap.com/img/Photos/Horizontal/Work/full page/img%20(2).jpg")no-repeat center center fixed;
+      -webkit-background-size: cover;
+      -moz-background-size: cover;
+      -o-background-size: cover;
+      background-size: cover;
+    }
+    /*Contact section*/
+
+    #contact .fa {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+      color: #1C2331;
+    }
+  </style>
+
+</head>
+
+<body>
+
+<!--Navbar-->
+<nav class="navbar navbar-toggleable-md navbar-dark fixed-top scrolling-navbar">
+  <div class="container">
+    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNav1" aria-controls="navbarNav1" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <a class="navbar-brand" href="">
+      <strong>InvestxD</strong>
+    </a>
+    <div class="collapse navbar-collapse" id="navbarNav1">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/fixed_deposit_investments">Fixed Deposit Investments</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/mutual_funds">Mutual Funds</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#about">About</a>
+        </li>
+      </ul>
+      <form class="form-inline waves-effect waves-light">
+        <input class="form-control" type="text" placeholder="Search">
+      </form>
+    </div>
+  </div>
+</nav>
+<!--/.Navbar-->
+
+<!--Mask-->
+<div class="view hm-black-strong">
+  <div class="full-bg-img flex-center">
+    <ul>
+      <li>
+        <h1 class="h1-responsive wow fadeInDown" data-wow-delay="0.2s">Investing in Africa's Future Today</h1></li>
+      <li>
+        <p class="wow fadeInDown">Every information you need on investments in Africa</p>
+      </li>
+      <br />
+      <br />
+      <li>
+        <a href="/search" class="btn btn-primary btn-lg wow fadeInLeft" data-wow-delay="0.2s" rel="nofollow">Get Started</a>
+      </li>
+    </ul>
+  </div>
 </div>
+<!--/.Mask-->
+
+<!-- Main container-->
+<div class="container">
+
+  <div class="section-two-header">
+    <h2 class="h2-responsive wow fadeIn" data-wow-delay="0.2s">What we can help you with</h2>
+  </div>
+
+  <!--Section: About-->
+  <section id="about" class="text-center wow fadeIn" data-wow-delay="0.2s">
+
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Velit explicabo assumenda eligendi ex exercitationem harum deleniti quaerat beatae ducimus dolor voluptates magnam, reiciendis pariatur culpa tempore quibusdam quidem, saepe eius.</p>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Velit explicabo assumenda eligendi ex exercitationem harum deleniti quaerat beatae ducimus dolor voluptates magnam, reiciendis pariatur culpa tempore quibusdam quidem, saepe eius.</p>
+
+  </section>
+  <!--Section: About-->
+
+  <div class="section-two-header">
+    <br /><br />
+  </div>
+
+  <!--Section: Best features-->
+  <section id="best-features">
+
+    <div class="row">
+
+      <!--First columnn-->
+      <div class="col-lg-3 col-sm-12">
+        <!--Card-->
+        <div class="card wow fadeIn">
+
+          <!--Card image-->
+          <div class="view overlay hm-white-slight">
+            <img src="img/compare.png" class="img-fluid" alt="">
+            <a>
+              <div class="mask"></div>
+            </a>
+          </div>
+          <!--/.Card image-->
+
+          <!--Card content-->
+          <div class="card-block text-center">
+            <!--Title-->
+            <h4 class="card-title">Compare</h4>
+            <hr>
+            <!--Text-->
+            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Provident fuga animi architecto dolores dicta cum quo velit.</p>
+          </div>
+          <!--/.Card content-->
+
+        </div>
+        <!--/.Card-->
+      </div>
+      <!--First columnn-->
+
+      <!--Second columnn-->
+      <div class="col-lg-3 col-sm-12">
+        <!--Card-->
+        <div class="card wow fadeIn" data-wow-delay="0.2s">
+
+          <!--Card image-->
+          <div class="view overlay hm-white-slight">
+            <img src="img/calculate.png" class="img-fluid" alt="">
+            <a>
+              <div class="mask"></div>
+            </a>
+          </div>
+          <!--/.Card image-->
+
+          <!--Card content-->
+          <div class="card-block text-center">
+            <!--Title-->
+            <h4 class="card-title">Calculate</h4>
+            <hr>
+            <!--Text-->
+            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Provident fuga animi architecto dolores dicta cum quo velit.</p>
+          </div>
+          <!--/.Card content-->
+
+        </div>
+        <!--/.Card-->
+      </div>
+      <!--Second columnn-->
+
+      <!--Third columnn-->
+      <div class="col-lg-3 col-sm-12">
+        <!--Card-->
+        <div class="card wow fadeIn" data-wow-delay="0.4s">
+
+          <!--Card image-->
+          <div class="view overlay hm-white-slight">
+            <img src="img/purchase.png" class="img-fluid" alt="">
+            <a>
+              <div class="mask"></div>
+            </a>
+          </div>
+          <!--/.Card image-->
+
+          <!--Card content-->
+          <div class="card-block text-center">
+            <!--Title-->
+            <h4 class="card-title">Purchase</h4>
+            <hr>
+            <!--Text-->
+            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Provident fuga animi architecto dolores dicta cum quo velit.</p>
+          </div>
+          <!--/.Card content-->
+
+        </div>
+        <!--/.Card-->
+      </div>
+      <!--Third columnn-->
+
+      <!--First columnn-->
+      <div class="col-lg-3 col-sm-12">
+        <!--Card-->
+        <div class="card wow fadeIn" data-wow-delay="0.6s">
+
+          <!--Card image-->
+          <div class="view overlay hm-white-slight">
+            <img src="img/monitor.png" class="img-fluid" alt="">
+            <a>
+              <div class="mask"></div>
+            </a>
+          </div>
+          <!--/.Card image-->
+
+          <!--Card content-->
+          <div class="card-block text-center">
+            <!--Title-->
+            <h4 class="card-title">Monitor</h4>
+            <hr>
+            <!--Text-->
+            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Provident fuga animi architecto dolores dicta cum quo velit.</p>
+          </div>
+          <!--/.Card content-->
+
+        </div>
+        <!--/.Card-->
+      </div>
+      <!--First columnn-->
+    </div>
+
+  </section>
+  <!--/Section: Best features-->
+  <br /><br />
+</div>
+<!--/ Main container-->
+
+<div class="container-fluid" style="background-color: #f4f4f4;">
+
+  <div class="how-it-works-section">
+    <h2 class="h2-responsive wow fadeIn">How it works</h2>
+  </div>
+
+  <!--Section: Contact-->
+  <section id="contact">
+
+
+  </section>
+  <!--Section: Contact-->
+</div>
+
+
+
+<!--Footer-->
+<footer class="page-footer center-on-small-only">
+
+  <!--Footer Links-->
+  <div class="container-fluid">
+    <br />
+    <div class="row">
+
+      <div class="col-lg-1">
+      </div>
+      <!--First column-->
+      <div class="col-lg-3 col-xs-12">
+        <h5 class="title">ABOUT InvestxD</h5>
+        <p>InvestxD is a place where you can find all investments with low minimum seed starting and buy whenever and wherever you are.</p>
+
+        <p>Some more text here describing invest xd.</p>
+        <br /><br />
+      </div>
+      <!--/.First column-->
+
+      <div class="col-md-8 col-xs-12" align="center">
+        <div class="row">
+          <div class="col-lg-6">
+            <h5 class="title">Contact us</h5>
+            <br />
+            <ul>
+              <li class="wow fadeIn" data-wow-delay="0.2s"><i class="fa fa-map-marker teal-text"></i>
+                <p>No. 32, Aluguntugui Street</p>
+              </li>
+
+              <li class="wow fadeIn" data-wow-delay="0.3s"><i class="fa fa-phone teal-text"></i>
+                <p>+233 212 3456</p>
+              </li>
+
+              <li class="wow fadeIn" data-wow-delay="0.4s"><i class="fa fa-envelope teal-text"></i>
+                <p><a href="mailto:info@investxd.com" class="btn btn-success" rel="nofollow">Send Message</a></p>
+              </li>
+            </ul>
+            <br />
+          </div>
+          <div class="col-lg-6">
+            <h5 class="title">Connect with us</h5>
+            <br /><br /><br />
+            <img src="img/fb.png" class="wow fadeIn" data-wow-delay="0.2s">
+            <img src="img/tw.png" class="wow fadeIn" data-wow-delay="0.3s">
+            <img src="img/in.png" class="wow fadeIn" data-wow-delay="0.4s">
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+  </div>
+  <!--/.Footer Links-->
+
+  <hr>
+
+  <!--Call to action-->
+  <div class="call-to-action">
+    <h4>Become an investor today</h4>
+    <ul>
+      <li>
+        <a href="/search" class="btn btn-info" rel="nofollow">Get Started</a>
+      </li>
+    </ul>
+  </div>
+  <!--/.Call to action-->
+
+  <!--Copyright-->
+  <div class="footer-copyright">
+    <div class="container-fluid">
+      © 2017 Copyright: InvestxD
+
+    </div>
+  </div>
+  <!--/.Copyright-->
+
+</footer>
+<!--/.Footer-->
+
+
+<!-- SCRIPTS -->
+
+<!-- JQuery -->
+<script type="text/javascript" src="js/jquery-2.2.3.min.js"></script>
+
+<!-- Bootstrap tooltips -->
+<script type="text/javascript" src="js/tether.min.js"></script>
+
+<!-- Bootstrap core JavaScript -->
+<script type="text/javascript" src="js/bootstrap.min.js"></script>
+
+<!-- MDB core JavaScript -->
+<script type="text/javascript" src="js/mdb.min.js"></script>
+
+<!-- Animations init-->
+<script>
+    new WOW().init();
+</script>
+
+
+</body>
+
+</html>

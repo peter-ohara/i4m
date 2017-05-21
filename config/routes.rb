@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  get 'search', to: 'search#index'
+
   post 'fixed_deposit_investments/:id/purchase', to: 'fixed_deposit_investments#purchase'
   post 'mutual_funds/:id/purchase', to: 'mutual_funds#purchase'
 
