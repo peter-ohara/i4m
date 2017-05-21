@@ -19,6 +19,6 @@ class MutualFund < ApplicationRecord
 
   def yield_to_date
     mutual_fund_rate = MutualFundRate.find_by(mutual_fund: self)
-    mutual_fund_rate.yield_to_date 10000.0if mutual_fund_rate
+    mutual_fund_rate.yield_to_date / 10000.0 if mutual_fund_rate
   end
 end
