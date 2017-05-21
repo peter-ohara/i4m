@@ -1,20 +1,13 @@
-/**
- * Created by peter on 5/20/17.
- */
-var formIsVisible = false;
 
-
-$(document).ready(function () {
-    $("#purchase-form").hide();
-});
-
-
-function showPurchaseForm() {
-    $("#purchase-form").toggle();
-    if (formIsVisible) {
-        $('.purchase-button').html("Hide Purchase Form");
-    } else {
-        $('.purchase-button').html("Purchase");
-    }
-    formIsVisible = !formIsVisible;
+// Purchase Form
+var dialog = document.querySelector('dialog');
+var showDialogButton = document.querySelector('#show-dialog');
+if (!dialog.showModal) {
+    dialogPolyfill.registerDialog(dialog);
 }
+showDialogButton.addEventListener('click', function () {
+    dialog.showModal();
+});
+dialog.querySelector('.close').addEventListener('click', function () {
+    dialog.close();
+});

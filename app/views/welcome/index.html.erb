@@ -19,7 +19,7 @@
                   <%= fixed_deposit_investment.name %>
               <% end %>
             </td>
-            <td class="mdl-data-table__cell--non-numeric"><span class="description"><%= fixed_deposit_investment.description %></span></td>
+            <td class="mdl-data-table__cell--non-numeric description"><%= fixed_deposit_investment.description %></td>
             <td><%= fixed_deposit_investment.interest_rate / 10000.0 %></td>
           </tr>
       <% end %>
@@ -48,7 +48,7 @@
                   <%= mutual_fund.name %>
               <% end %>
             </td>
-            <td  class="mdl-data-table__cell--non-numeric"><span class="description"><%= mutual_fund.description %></span></td>
+            <td  class="mdl-data-table__cell--non-numeric description"><%= mutual_fund.description %></td>
             <td><%= mutual_fund.unit_price %></td>
             <td><%= mutual_fund.yield_to_date / 10000.0 %></td>
           </tr>

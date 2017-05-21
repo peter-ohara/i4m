@@ -1,12 +1,44 @@
 .description {
   white-space: pre-wrap;
-  min-width:200px;
+  width:100%;
 }
-
-
-
 
 .portfolio-max-width {
   max-width: 900px;
   margin: auto;
+}
+
+#show-dialog {
+  position: fixed;
+  display: block;
+  right: 0;
+  bottom: 0;
+  margin-right: 40px;
+  margin-bottom: 40px;
+  z-index: 900;
+}
+
+.demo-graphs {
+  padding: 8px 16px;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-align-items: stretch;
+  -ms-flex-align: stretch;
+  align-items: stretch;
+}
+
+.section {
+  //display: block;
+  padding-top: 78px;
+}
+
+.section-header {
+  color: #755692;
+  font-size: 24px;
+  margin-bottom: 36px;
+  text-align: center;
 }
