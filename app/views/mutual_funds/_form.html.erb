@@ -1,0 +1,72 @@
+<%= form_for(mutual_fund) do |f| %>
+  <% if mutual_fund.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(mutual_fund.errors.count, "error") %> prohibited this mutual_fund from being saved:</h2>
+
+      <ul>
+      <% mutual_fund.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :institution_id %>
+    <%= f.text_field :institution_id %>
+  </div>
+
+  <div class="field">
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+  </div>
+
+  <div class="field">
+    <%= f.label :minimum_principal_pesewas %>
+    <%= f.number_field :minimum_principal_pesewas %>
+  </div>
+
+  <div class="field">
+    <%= f.label :debit_order_pesewas %>
+    <%= f.number_field :debit_order_pesewas %>
+  </div>
+
+  <div class="field">
+    <%= f.label :management_fee_rate %>
+    <%= f.number_field :management_fee_rate %>
+  </div>
+
+  <div class="field">
+    <%= f.label :min_days_before_withdrawal %>
+    <%= f.number_field :min_days_before_withdrawal %>
+  </div>
+
+  <div class="field">
+    <%= f.label :risk_rating %>
+    <%= f.number_field :risk_rating %>
+  </div>
+
+  <div class="field">
+    <%= f.label :links %>
+    <%= f.text_area :links %>
+  </div>
+
+  <div class="field">
+    <%= f.label :email %>
+    <%= f.text_field :email %>
+  </div>
+
+  <div class="field">
+    <%= f.label :phone_number %>
+    <%= f.text_field :phone_number %>
+  </div>
+
+  <div class="field">
+    <%= f.label :description %>
+    <%= f.text_area :description %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
