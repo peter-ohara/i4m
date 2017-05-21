@@ -9,7 +9,8 @@ class MutualFund < ApplicationRecord
 
 
   def unit_price
-    MutualFundRate.find_by(mutual_fund: self).unit_price_pesewas / 10000.0
+    mutual_fund_rate = MutualFundRate.find_by(mutual_fund: self)
+    mutual_fund_rate.unit_price_pesewas / 10000.0 if mutual_fund_rate
   end
 
   def unit_price_pesewas
@@ -17,6 +18,7 @@ class MutualFund < ApplicationRecord
   end
 
   def yield_to_date
-    MutualFundRate.find_by(mutual_fund: self).yield_to_date
+    mutual_fund_rate = MutualFundRate.find_by(mutual_fund: self)
+    mutual_fund_rate.yield_to_date 10000.0if mutual_fund_rate
   end
 end
