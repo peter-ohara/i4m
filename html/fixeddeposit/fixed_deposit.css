@@ -7,6 +7,7 @@ body {
 }
 #page-wrap {
 	margin: 50px;
+	margin-top: 100px;
 }
 p {
 	margin: 20px 0; 
@@ -24,7 +25,7 @@ p {
 		background: #eee; 
 	}
 	th { 
-		background: #333; 
+		background: #3c4f74; 
 		color: white; 
 		font-weight: bold; 
 	}
@@ -80,14 +81,9 @@ p {
 		/*
 		Label the data
 		*/
-		td:nth-of-type(1):before { content: "Institution"; }
-		td:nth-of-type(2):before { content: "Investment Name"; }
+		td:nth-of-type(2):before { content: "Investment"; }
 		td:nth-of-type(3):before { content: "Description"; }
-		td:nth-of-type(4):before { content: "YTD/Interest"; }
-		td:nth-of-type(5):before { content: "Period"; }
-		td:nth-of-type(6):before { content: "Minimum"; }
-		td:nth-of-type(7):before { content: "Debit Order"; }
-		td:nth-of-type(8):before { content: "Invest"; }
+		td:nth-of-type(4):before { content: "YTD/Interest Rate"; }
 	}
 	
 	/* Smartphones (portrait and landscape) ----------- */

@@ -19,9 +19,9 @@
     <!-- Material Design Bootstrap -->
     <link href="css/mdb.min.css" rel="stylesheet">
 
-    <!-- Template styles -->
+    <!-- Styles -->
     <style>
-        /* TEMPLATE STYLES */
+        /* STYLES */
         
         html,
         body,
@@ -95,13 +95,13 @@
                         <a class="nav-link">Home <span class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="">About</a>
+                        <a class="nav-link" href="../fixeddeposit/fixed_deposit.html">Fixed Deposits</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="">Features</a>
+                        <a class="nav-link" href="../mutualfund/mutual_fund.html">Mutual Funds</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="">Contact</a>
+                        <a class="nav-link" href="#about">About</a>
 
                     </li>
                 </ul>
@@ -125,8 +125,7 @@
                 <br />
                 <br />
                 <li>
-                    <a target="_blank" href="https://mdbootstrap.com/getting-started/" class="btn btn-primary btn-lg wow fadeInLeft" data-wow-delay="0.2s" rel="nofollow">Get Started</a>
-                    <a target="_blank" href="https://mdbootstrap.com/material-design-for-bootstrap/" class="btn btn-default btn-lg wow fadeInRight" data-wow-delay="0.2s" rel="nofollow">Learn more</a>
+                    <a href="" data-toggle="modal" data-target=".myModal" class="btn btn-primary btn-lg wow fadeInLeft" data-wow-delay="0.2s" rel="nofollow">Get Started</a>
                 </li>
             </ul>
         </div>
@@ -301,7 +300,7 @@
     <footer class="page-footer center-on-small-only">
 
         <!--Footer Links-->
-        <div class="container-fluid">
+        <div class="container-fluid" id="about">
         <br />
             <div class="row">
 
@@ -361,8 +360,7 @@
             <ul>
                 <li>
                     <h5>Get an account for free</h5></li>
-                <li><a target="_blank" href="https://mdbootstrap.com/getting-started/" class="btn btn-info" rel="nofollow">Sign up!</a></li>
-                <li><a target="_blank" href="https://mdbootstrap.com/material-design-for-bootstrap/" class="btn btn-default" rel="nofollow">Learn more</a></li>
+                <li><a href="" data-toggle="modal" data-target=".myModal" class="btn btn-info" rel="nofollow">Get Started</a></li>
             </ul>
         </div>
         <!--/.Call to action-->
@@ -378,6 +376,23 @@
 
     </footer>
     <!--/.Footer-->
+
+    <div class="modal fade margin-of-modal myModal" role="dialog">
+        <div class="modal-dialog modal-lg">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h4 class="modal-title">Something related</h4>
+              <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+            <div class="modal-body text-in-modal-content" id="the-input-boxes">
+              <p>I have  <input type="text" name="" /> Ghc and I would like to invest it for <input type="text" name="" /> months.</p>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-default">Go</button>
+            </div>
+          </div>
+        </div>
+    </div>
 
 
     <!-- SCRIPTS -->
@@ -399,6 +414,20 @@
         new WOW().init();
     </script>
 
+
+    <!--Start of Tawk.to Script-->
+    <script type="text/javascript">
+    var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+    (function(){
+    var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+    s1.async=true;
+    s1.src='https://embed.tawk.to/5921b5038028bb732704707a/default';
+    s1.charset='UTF-8';
+    s1.setAttribute('crossorigin','*');
+    s0.parentNode.insertBefore(s1,s0);
+    })();
+    </script>
+    <!--End of Tawk.to Script-->
 
 </body>
 
