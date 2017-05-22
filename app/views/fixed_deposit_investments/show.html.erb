@@ -1,5 +1,9 @@
 <div class="section portfolio-max-width">
-  <div class="section-header"><%= @fixed_deposit_investment.name %></div>
+  <div class="section-header">
+    <%= @fixed_deposit_investment.institution.name %>
+    -
+    <%= @fixed_deposit_investment.name %>
+  </div>
 </div>
 
 <div class="mdl-grid  portfolio-max-width">
@@ -20,11 +24,6 @@
       </h2>
     </div>
     <div class="mdl-card__supporting-text">
-
-      <p>
-        <strong>Insitution:</strong>
-        <%= @fixed_deposit_investment.institution.name %>
-      </p>
 
       <p>
         <strong>Interest Rate:</strong>
@@ -59,44 +58,43 @@
     </div>
     <div class="mdl-card__supporting-text mdl-grid">
       <div class="mdl-cell mdl-cell--3-col">
-        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-          <%= text_field_tag :principal, params[:principal], class: "mdl-textfield__input", pattern: "-?[0-9]*(\\.[0-9]+)?" %>
-          <label class="mdl-textfield__label" for="principal">Amount to purchase...</label>
-          <span class="mdl-textfield__error">Input is not a number!</span>
-        </div>
-
-        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-          <%= text_field_tag :principal, params[:principal], class: "mdl-textfield__input", pattern: "-?[0-9]*(\\.[0-9]+)?" %>
-          <label class="mdl-textfield__label" for="principal">Monthly Deposit...</label>
-          <span class="mdl-textfield__error">Input is not a number!</span>
-        </div>
-
         <p>
-          Interest Rate: 8%
+          Interest Rate: <strong>8%</strong>
         </p>
 
-        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-          <%= text_field_tag :principal, params[:principal], class: "mdl-textfield__input", pattern: "-?[0-9]*(\\.[0-9]+)?" %>
-          <label class="mdl-textfield__label" for="principal">Duration...</label>
-          <span class="mdl-textfield__error">Input is not a number!</span>
-        </div>
-      </div>
+        <form action="">
+          <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+            <%= text_field_tag :principal, params[:principal], class: "mdl-textfield__input", pattern: "-?[0-9]*(\\.[0-9]+)?" %>
+            <label class="mdl-textfield__label" for="principal">Amount to purchase...</label>
+            <span class="mdl-textfield__error">Input is not a number!</span>
+          </div>
 
-      <div class="mdl-cell mdl-cell--3-col">
-        <p>Final Balance</p>
-        <p>GHS 234,345</p>
+          <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+            <%= text_field_tag :principal, params[:principal], class: "mdl-textfield__input", pattern: "-?[0-9]*(\\.[0-9]+)?" %>
+            <label class="mdl-textfield__label" for="principal">Monthly Deposit...</label>
+            <span class="mdl-textfield__error">Input is not a number!</span>
+          </div>
 
-        <p>Total Deposits</p>
-        <p>GHS 234,345</p>
-
-        <p>Total Interest</p>
-        <p>GHS 234,345</p>
+          <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+            <%= text_field_tag :principal, params[:principal], class: "mdl-textfield__input", pattern: "-?[0-9]*(\\.[0-9]+)?" %>
+            <label class="mdl-textfield__label" for="principal">Duration...</label>
+            <span class="mdl-textfield__error">Input is not a number!</span>
+          </div>
+        </form>
       </div>
 
       <div class="mdl-cell mdl-cell--6-col demo-graphs">
         <svg fill="currentColor" viewBox="0 0 500 250" class="demo-graph">
           <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#chart"></use>
         </svg>
+      </div>
+
+      <div class="mdl-cell mdl-cell--3-col">
+        <p>Final Balance: <strong>GHS 234,345</strong></p>
+
+        <p>Total Deposits: <strong>GHS 234,345</strong></p>
+
+        <p>Total Interest: <strong>GHS 234,345</strong></p>
       </div>
     </div>
   </div>
@@ -130,11 +128,11 @@
       </g>
       <g id="Layer_5">
         <polygon opacity="0.36" stroke-miterlimit="10" points="0,223.3 48,138.5 154.7,169 211,88.5
-              294.5,80.5 380,165.2 437,75.5 469.5,223.3 	"/>
+              294.5,80.5 380,165.2 437,75.5 469.5,223.3 "/>
       </g>
       <g id="Layer_4">
         <polygon stroke-miterlimit="10" points="469.3,222.7 1,222.7 48.7,166.7 155.7,188.3 212,132.7
-              296.7,128 380.7,184.3 436.7,125 	"/>
+              296.7,128 380.7,184.3 436.7,125 "/>
       </g>
     </g>
   </defs>

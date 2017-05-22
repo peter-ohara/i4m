@@ -1,5 +1,7 @@
 <div class="section portfolio-max-width">
-  <div class="section-header"><%= @mutual_fund.name %></div>
+  <div class="section-header">
+    <%= @mutual_fund.institution.name %>
+    <%= @mutual_fund.name %></div>
 </div>
 
 <div class="mdl-grid  portfolio-max-width">
@@ -22,12 +24,6 @@
     <div class="mdl-card__supporting-text">
 
       <p>
-        <strong>Insitution:</strong>
-        <%= @mutual_fund.institution.name %>
-      </p>
-
-
-      <p>`
         <strong>Unit Price:</strong>
         GHS <%= @mutual_fund.unit_price %>
       </p>
@@ -38,16 +34,6 @@
       </p>
 
       <p>
-        <strong>Debit order:</strong>
-        GHS <%= @mutual_fund.debit_order %>
-      </p>
-
-      <p>
-        <strong>Management fee rate:</strong>
-        <%= @mutual_fund.management_fee_rate %> %
-      </p>
-
-      <p>
         <strong>Min days before withdrawal:</strong>
         <%= @mutual_fund.min_days_before_withdrawal %>
       </p>
@@ -55,6 +41,16 @@
       <p>
         <strong>Minimum principal:</strong>
         GHS <%= @mutual_fund.minimum_principal %>
+      </p>
+
+      <p>
+        <strong>Debit order:</strong>
+        GHS <%= @mutual_fund.debit_order %>
+      </p>
+
+      <p>
+        <strong>Management fee rate:</strong>
+        <%= @mutual_fund.management_fee_rate %> %
       </p>
 
       <p>
