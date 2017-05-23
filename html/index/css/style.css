@@ -13,6 +13,11 @@
 .how-it-works-section {
 	padding: 3em 0em;
     text-align: center;
+    color: #ffffff;
+}
+
+.how-it-works-section1 {
+	text-align: center;
 }
 
 #the-input-boxes input{
