@@ -38,13 +38,7 @@ fixed_deposit1 = FixedDepositInvestment.create(
   links: 'http://legacycapital.com.gh/products_services',
   email: 'info@legacycapital.com.gh',
   phone_number: '027-7506509/027-7508773/050-1339522',
-  description: "These offer flexible interest payment plans for tenures of 91, 182 and 365 days respectively.
-      Features
-  - Minimum investment amount of GHS 1,000.00
-  - Very attractive interest rate (Ranging from T –Bill + 2% to 8%) depending on the amount and the tenure.
-      - All our rates are negotiable.
-          - Prompt payment of investment upon maturity
-  - We believe that, it is not only the rate but the security of your investment is what gives us the edge over our competitors."
+  description: "Short term investment product offered by the Bank of Ghana on behalf of the Government. Purchasing a treasury bill is lending money to the Government. This is a common method used by governments to borrow money from citizens for development purposes."
 )
 
 
@@ -89,12 +83,12 @@ mutual_fund1 = MutualFund.create(
   links: 'http://bit.ly/2databank',
   email: 'info@databankgh.com',
   phone_number: '(+233) 302 610610',
-  description: "N/A"
+  description: "MFund is a low-risk mutual fund that operates as an investment alternative to a savings account to help you meet your short-term financial needs."
 )
 
 mutual_fund2 = MutualFund.create(
     institution: institution2,
-    name: 'SIA',
+    name: 'Student Investment Account',
     minimum_principal_pesewas: 2500,
     debit_order_pesewas: 2000,
     management_fee_rate: 30000,
@@ -103,7 +97,9 @@ mutual_fund2 = MutualFund.create(
     links: 'http://bit.ly/2databank',
     email: 'info@databankgh.com',
     phone_number: '(+233) 302 610610',
-    description: "N/A"
+    description: "This investment package designed specifically for tertiary students. DSIA combines a Databank mutual fund with other benefits such as investment seminars, career planning advice, rewards for staying invested, as well as a membership card that offers discounts at a variety of retail outlets nationwide.
+
+GHS10 management fees"
 )
 
 mutual_fund_rate1 = MutualFundRate.create(

@@ -1,0 +1,35 @@
+/* YOUR CUSTOM STYLES */
+
+.section-two-header {
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+    margin-top: 45px;
+    margin-bottom: 45px;
+    font-weight: 300;
+}
+
+.how-it-works-section {
+	padding: 3em 0em;
+    text-align: center;
+    color: #ffffff;
+}
+
+.how-it-works-section1 {
+	text-align: center;
+}
+
+#the-input-boxes input{
+	width: 15%;
+	text-align: center;
+}
+
+.text-in-modal-content {
+	text-align: center;
+	padding: 2em 0em;
+}
+
+.margin-of-modal {
+	margin-top: 200px;
+}
