@@ -14,3 +14,17 @@
 	padding: 3em 0em;
     text-align: center;
 }
+
+#the-input-boxes input{
+	width: 15%;
+	text-align: center;
+}
+
+.text-in-modal-content {
+	text-align: center;
+	padding: 2em 0em;
+}
+
+.margin-of-modal {
+	margin-top: 200px;
+}

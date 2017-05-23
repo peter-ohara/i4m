@@ -1,60 +1,91 @@
-<div class="mdl-grid portfolio-max-width">
-  <div class="mdl-cell mdl-cell--12-col">
-    <h2>Fixed Deposit Investments</h2>
-    <table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp">
-      <thead>
-      <tr>
-        <th class="mdl-data-table__cell--non-numeric">Investment</th>
-        <th class="mdl-data-table__cell--non-numeric">Description</th>
-        <th>Interest Rate (%)</th>
-      </tr>
-      </thead>
-      <tbody>
-      <% @fixed_deposit_investments.each do |fixed_deposit_investment| %>
-          <tr>
-            <td class="mdl-data-table__cell--non-numeric">
-              <%= link_to(fixed_deposit_investment, html_options = {}) do %>
-                  <%= fixed_deposit_investment.institution.name %>
-                  <br>
-                  <%= fixed_deposit_investment.name %>
-              <% end %>
-            </td>
-            <td class="mdl-data-table__cell--non-numeric description"><%= fixed_deposit_investment.description %></td>
-            <td><%= fixed_deposit_investment.interest_rate %></td>
-          </tr>
-      <% end %>
-      </tbody>
-    </table>
+<div class="container">
+
+  <div class="row">
+      <div class="col-lg-12 col-sm-12">
+        <br />
+        <br />
+        <br />
+        <br />
+        <div class="text-center">
+          <h3>Search Results</h3>
+        </div>
+        <br />
+      </div>
   </div>
 
-  <div class="mdl-cell mdl-cell--12-col">
-    <h2>Mutual Funds</h2>
-    <table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp">
-      <thead>
-      <tr>
-        <th class="mdl-data-table__cell--non-numeric">Investment</th>
-        <th class="mdl-data-table__cell--non-numeric">Description</th>
-        <th>Unit Price (GHS)</th>
-        <th>Yield To Date (%)</th>
-      </tr>
-      </thead>
-      <tbody>
-      <% @mutual_funds.each do |mutual_fund| %>
-          <tr>
-            <td class="mdl-data-table__cell--non-numeric">
-              <%= link_to(mutual_fund, html_options = {}) do %>
-                  <%= mutual_fund.institution.name %>
-                  <br>
-                  <%= mutual_fund.name %>
-              <% end %>
-            </td>
-            <td  class="mdl-data-table__cell--non-numeric description"><%= mutual_fund.description %></td>
-            <td><%= mutual_fund.unit_price %></td>
-            <td><%= mutual_fund.yield_to_date %></td>
-          </tr>
-      <% end %>
-      </tbody>
-    </table>
+  <div class="row">
+    <div class="col-lg-12 col-sm-12">
+      <h4>Fixed Deposit Investments</h4>
+    </div>
+    <!--First columnn-->
+    <div class="col-lg-12 col-sm-12">
+      <!--Card-->
+      <div class="list-group">
+        <% @fixed_deposit_investments.each do |fixed_deposit_investment| %>
+            <%= link_to(fixed_deposit_investment, class: 'list-group-item list-group-item-action flex-column align-items-start') do %>
+              <div class="d-flex w-100 justify-content-between">
+                <h5 class="mb-1">
+                  <%= fixed_deposit_investment.name %>
+                </h5>
+                <small class="text-muted">
+                  <%= fixed_deposit_investment.institution.name %>
+                </small>
+              </div>
+              <p class="mb-1">
+                <%= fixed_deposit_investment.description %>
+              </p>
+              <small class="text-muted">
+                Interest rate: <%= fixed_deposit_investment.interest_rate %>%
+              </small>
+            <% end %>
+        <% end %>
+      </div>
+      <!--/.Card-->
+    </div>
+    <!--First columnn-->
+  </div>
+
+  <br>
+  <br>
+  <br>
+
+  <div class="row">
+    <div class="col-lg-12 col-sm-12">
+      <h4>Mutual Funds</h4>
+    </div>
+    <!--First columnn-->
+    <div class="col-lg-12 col-sm-12">
+      <!--Card-->
+      <div class="list-group">
+        <% @mutual_funds.each do |mutual_fund| %>
+            <%= link_to(mutual_fund, class: 'list-group-item list-group-item-action flex-column align-items-start') do %>
+                <div class="d-flex w-100 justify-content-between">
+                  <h5 class="mb-1">
+                    <%= mutual_fund.name %>
+                  </h5>
+                  <small class="text-muted">
+                    <%= mutual_fund.institution.name %>
+                  </small>
+                </div>
+                <p class="mb-1">
+                  <%= mutual_fund.description %>
+                </p>
+                <small class="text-muted">
+                  Unit price: GHS<%= mutual_fund.unit_price %>
+                  &nbsp;
+                  YTD: <%= mutual_fund.yield_to_date %>%
+                </small>
+            <% end %>
+        <% end %>
+      </div>
+      <!--/.Card-->
+    </div>
+    <!--First columnn-->
   </div>
 
 </div>
+
+
+
+
+

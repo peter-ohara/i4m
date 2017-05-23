@@ -1,54 +1,224 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <title>I4m</title>
-    <%= csrf_meta_tags %>
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-  </head>
+<html lang="en">
 
-  <body>
-    <!-- Always shows a header, even in smaller screens. -->
-    <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
-      <header class="mdl-layout__header">
-        <div class="mdl-layout__header-row">
-          <!-- Title -->
-          <span class="mdl-layout-title">InvestXD</span>
-          <!-- Add spacer, to align navigation to the right -->
-          <div class="mdl-layout-spacer"></div>
-          <!-- Navigation. We hide it in small screens. -->
-          <nav class="mdl-navigation mdl-layout--large-screen-only">
-            <a class="mdl-navigation__link" href="">Link</a>
-            <a class="mdl-navigation__link" href="">Link</a>
-            <a class="mdl-navigation__link" href="">Link</a>
-            <a class="mdl-navigation__link" href="">Link</a>
-          </nav>
-        </div>
-      </header>
-      <div class="mdl-layout__drawer">
-        <span class="mdl-layout-title">Title</span>
-        <nav class="mdl-navigation">
-          <a class="mdl-navigation__link" href="">Link</a>
-          <a class="mdl-navigation__link" href="">Link</a>
-          <a class="mdl-navigation__link" href="">Link</a>
-          <a class="mdl-navigation__link" href="">Link</a>
-        </nav>
-      </div>
-      <main class="mdl-layout__content mdl-color--grey-100">
-        <div class="page-content">
-          <%= yield %>
-        </div>
-        <footer class="mdl-mini-footer">
-          <div class="mdl-mini-footer__left-section">
-            <div class="mdl-logo">Title</div>
-            <ul class="mdl-mini-footer__link-list">
-              <li><a href="#">Help</a></li>
-              <li><a href="#">Privacy & Terms</a></li>
-            </ul>
-          </div>
-        </footer>
-      </main>
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+
+  <title>InvestxD</title>
+  <%= csrf_meta_tags %>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.0/css/font-awesome.min.css">
+
+  <!-- Our style -->
+  <link rel="stylesheet" href="results.css">
+
+  <!-- Bootstrap core CSS -->
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Material Design Bootstrap -->
+  <link href="css/mdb.min.css" rel="stylesheet">
+
+  <!-- Styles -->
+  <style>
+    /* STYLES */
+
+    html,
+    body,
+    .view {
+      height: 100%;
+    }
+    /* Navigation*/
+
+    .navbar {
+      background-color: #3c4f74;
+    }
+
+    .scrolling-navbar {
+      -webkit-transition: background .5s ease-in-out, padding .5s ease-in-out;
+      -moz-transition: background .5s ease-in-out, padding .5s ease-in-out;
+      transition: background .5s ease-in-out, padding .5s ease-in-out;
+    }
+
+    .top-nav-collapse {
+      background-color: #3c4f74;
+    }
+
+    footer.page-footer {
+      background-color: #3c4f74;
+      margin-top: 2rem;
+    }
+
+    @media only screen and (max-width: 768px) {
+      .navbar {
+        background-color: #1C2331;
+      }
+    }
+    /*Call to action*/
+
+    .flex-center {
+      color: #fff;
+    }
+
+    .view {
+      background: url("https://mdbootstrap.com/img/Photos/Horizontal/Work/full page/img%20(2).jpg")no-repeat center center fixed;
+      -webkit-background-size: cover;
+      -moz-background-size: cover;
+      -o-background-size: cover;
+      background-size: cover;
+    }
+    /*Contact section*/
+
+    #contact .fa {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+      color: #1C2331;
+    }
+  </style>
+
+
+</head>
+
+<body>
+
+<!--Navbar-->
+<nav class="navbar navbar-toggleable-md navbar-dark fixed-top scrolling-navbar">
+  <div class="container">
+    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNav1" aria-controls="navbarNav1" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <a class="navbar-brand" href="/">
+      <img src="img/logo1.png">
+    </a>
+    <div class="collapse navbar-collapse" id="navbarNav1">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="/fixed_deposit_investments">Fixed Deposit Investments</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/mutual_funds">Mutual Funds</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#about">About</a>
+        </li>
+      </ul>
+      <form action="search" class="form-inline waves-effect waves-light">
+        <input class="form-control" type="text" name="query" placeholder="Search">
+      </form>
     </div>
-  </body>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </div>
+</nav>
+<!--/.Navbar-->
+
+<%= yield %>
+
+<!--Footer-->
+<footer class="page-footer center-on-small-only" id="about">
+
+  <!--Footer Links-->
+  <div class="container-fluid" id="about">
+    <br />
+    <div class="row">
+
+      <div class="col-lg-1">
+      </div>
+      <!--First column-->
+      <div class="col-lg-3 col-xs-12">
+        <h5 class="title">About investXD</h5>
+        <p>investXD is aimed at promoting financial inclusion hence the reason for making investment a worthwhile experience for our investors. We employ licensed advisors and financial journalists in providing you the most accurate information.</p>
+
+        <p>We are investors and we hate the problems we go through everytime we want to invest. we built investXD because it makes our lives simple. We hope it makes yours as well :) </p>
+        <br /><br />
+      </div>
+      <!--/.First column-->
+
+      <div class="col-lg-8 col-md-12 col-xs-12" align="center">
+        <div class="row">
+          <div class="col-lg-6">
+            <h5 class="title">Contact us</h5>
+            <br />
+            <ul>
+              <li class="wow fadeIn" data-wow-delay="0.2s"><i class="fa fa-map-marker teal-text"></i>
+                <p>No. 32, Aluguntugui Street</p>
+              </li>
+
+              <li class="wow fadeIn" data-wow-delay="0.3s"><i class="fa fa-phone teal-text"></i>
+                <p>+233 204 264 743</p>
+              </li>
+
+              <li class="wow fadeIn" data-wow-delay="0.4s"><i class="fa fa-envelope teal-text"></i>
+                <p><a href="mailto:info@investxd.com" class="btn btn-success" rel="nofollow">Send Message</a></p>
+              </li>
+            </ul>
+            <br />
+          </div>
+          <div class="col-lg-6">
+            <h5 class="title">Connect with us</h5>
+            <br /><br /><br />
+            <img src="img/fb.png" class="wow fadeIn" data-wow-delay="0.2s">
+            <img src="img/tw.png" class="wow fadeIn" data-wow-delay="0.3s">
+            <img src="img/in.png" class="wow fadeIn" data-wow-delay="0.4s">
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+  </div>
+  <!--/.Footer Links-->
+
+  <!--Copyright-->
+  <div class="footer-copyright">
+    <div class="container-fluid">
+      © 2017 Copyright: InvestxD
+
+    </div>
+  </div>
+  <!--/.Copyright-->
+
+</footer>
+<!--/.Footer-->
+
+
+<!-- SCRIPTS -->
+
+<!-- JQuery -->
+<script type="text/javascript" src="js/jquery-2.2.3.min.js"></script>
+
+<!-- Bootstrap tooltips -->
+<script type="text/javascript" src="js/tether.min.js"></script>
+
+<!-- Bootstrap core JavaScript -->
+<script type="text/javascript" src="js/bootstrap.min.js"></script>
+
+<!-- MDB core JavaScript -->
+<script type="text/javascript" src="js/mdb.min.js"></script>
+
+<!-- Animations init-->
+<script>
+    new WOW().init();
+</script>
+
+<!--Start of Tawk.to Script-->
+<script type="text/javascript">
+    var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+    (function(){
+        var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+        s1.async=true;
+        s1.src='https://embed.tawk.to/5921b5038028bb732704707a/default';
+        s1.charset='UTF-8';
+        s1.setAttribute('crossorigin','*');
+        s0.parentNode.insertBefore(s1,s0);
+    })();
+</script>
+<!--End of Tawk.to Script-->
+
+
+</body>
+<%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
 </html>

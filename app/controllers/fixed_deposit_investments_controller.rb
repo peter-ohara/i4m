@@ -10,6 +10,7 @@ class FixedDepositInvestmentsController < ApplicationController
   # GET /fixed_deposit_investments/1
   # GET /fixed_deposit_investments/1.json
   def show
+    render :layout => 'application2'
   end
 
   # GET /fixed_deposit_investments/new
