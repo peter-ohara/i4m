@@ -47,6 +47,9 @@ gem 'rack-cors', require: 'rack/cors'
 # Bootstrap
 gem 'bootstrap-sass', '3.3.6'
 
+# Full text search
+gem 'pg_search'
+
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

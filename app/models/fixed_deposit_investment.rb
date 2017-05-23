@@ -1,10 +1,19 @@
 class FixedDepositInvestment < ApplicationRecord
+  include PgSearch
+
   belongs_to :institution
 
   has_many :fixed_deposit_rates, inverse_of: :fixed_deposit_investment
   has_many :fd_purchase_attempts, inverse_of: :fixed_deposit_investment
 
   monetize :minimum_principal_pesewas, as: 'minimum_principal'
+
+  # Search through FixedDepositInvestments by their name and description
+  pg_search_scope :search_name_and_description,
+                  against: [:name, :description],
+                  using: {
+                      tsearch: {}
+                  }
 
   def interest_rate
     fixed_deposit_rate = FixedDepositRate.find_by(fixed_deposit_investment: self)
@@ -17,10 +26,10 @@ class FixedDepositInvestment < ApplicationRecord
   end
 
   def self.filter(principal, duration, search_query)
-    unless search_query.blank?
+    if search_query.blank?
       fixed_deposit_investments = FixedDepositInvestment.all
     else
-      fixed_deposit_investments = FixedDepositInvestment.all
+      fixed_deposit_investments = FixedDepositInvestment.search_name_and_description search_query
     end
 
     unless principal.blank?

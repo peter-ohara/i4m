@@ -1,4 +1,6 @@
 class MutualFund < ApplicationRecord
+  include PgSearch
+
   belongs_to :institution
 
   has_many :mutual_fund_rates, inverse_of: :mutual_fund
@@ -7,7 +9,12 @@ class MutualFund < ApplicationRecord
   monetize :minimum_principal_pesewas, as: 'minimum_principal'
   monetize :debit_order_pesewas, as: 'debit_order'
 
-
+  # Search through MutualFunds by their name and description
+  pg_search_scope :search_name_and_description,
+                  against: [:name, :description],
+                  using: {
+                      tsearch: {}
+                  }
   def unit_price
     mutual_fund_rate = MutualFundRate.find_by(mutual_fund: self)
     mutual_fund_rate.unit_price_pesewas / 10000.0 if mutual_fund_rate
@@ -28,10 +35,10 @@ class MutualFund < ApplicationRecord
   end
 
   def self.filter(principal, duration, search_query)
-    unless search_query.blank?
+    if search_query.blank?
       mutual_funds = MutualFund.all
     else
-      mutual_funds = MutualFund.all
+      mutual_funds = MutualFund.search_name_and_description search_query
     end
 
     unless principal.blank?
