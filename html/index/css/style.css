@@ -1,4 +1,4 @@
-/* YOUR CUSTOM STYLES */
+/* CUSTOM STYLES */
 
 .section-two-header {
     display: flex;
@@ -10,6 +10,10 @@
     font-weight: 300;
 }
 
+.key-partners-section {
+	padding: 2.5em 0em;
+    text-align: center;
+}
 .how-it-works-section {
     padding: 2.5em 0em;
     text-align: center;
