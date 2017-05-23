@@ -91,22 +91,18 @@
         </a>
         <div class="collapse navbar-collapse" id="navbarNav1">
             <ul class="navbar-nav mr-auto">
-                <li class="nav-item active">
-                    <a class="nav-link">Home <span class="sr-only">(current)</span></a>
-                </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="../fixeddeposit/fixed_deposit.html">Fixed Deposits</a>
+                    <a class="nav-link" href="../fixeddeposit/fixed_deposit.html">Fixed Deposit Investments</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="../mutualfund/mutual_fund.html">Mutual Funds</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#about">About</a>
-
                 </li>
             </ul>
-            <form class="form-inline waves-effect waves-light">
-                <input class="form-control" type="text" placeholder="Search">
+      <form action="search" class="form-inline waves-effect waves-light">
+        <input class="form-control" type="text" name="query" placeholder="Search">
             </form>
         </div>
     </div>
@@ -141,7 +137,7 @@
     </div>
 
     <!--Section: About-->
-    <section id="about" class="text-center wow fadeIn" data-wow-delay="0.2s">
+  <section class="text-center wow fadeIn" data-wow-delay="0.2s">
 
         <p>We provide you all information you need to know about any investment before you make decision. We have videos and blogs explaining all the terms into simple term for your understanding.</p>
         <p>We eliminate the transportation, queue and email alert once in awhile hustle. Get everything anytime you need it here and leverage on the best products available in the market to suit your needs.</p>
@@ -291,7 +287,7 @@
     </div>
     <br />
     <div class="how-it-works-section1">
-        <img src="img/hiw.png">
+        <img class="mx-auto d-block img-fluid" src="img/hiw.png">
     </div>
     <br /><br />
     <div style="color: white; text-align: center;">
@@ -299,7 +295,7 @@
     </div>
     <br />
     <div class="how-it-works-section1">
-        <img src="img/hiutw.png">
+        <img class="mx-auto d-block img-fluid" src="img/hiutw.png">
     </div>
     <br />
 </div>
@@ -314,10 +310,10 @@
         <br />
         <div class="row">
 
-            <div class="col-lg-1">
+            <div class="col-lg-1 col-md-12 col-xs-12">
             </div>
             <!--First column-->
-            <div class="col-lg-3 col-xs-12">
+            <div class="col-lg-3 col-md-12 col-xs-12">
                 <h5 class="title">About investXD</h5>
                 <p>investXD is aimed at promoting financial inclusion hence the reason for making investment a worthwhile experience for our investors. We employ licensed advisors and financial journalists in providing you the most accurate information.</p>
 
@@ -326,7 +322,7 @@
             </div>
             <!--/.First column-->
 
-            <div class="col-md-8 col-xs-12" align="center">
+            <div class="col-lg-8 col-md-12 col-xs-12" align="center">
                 <div class="row">
                     <div class="col-lg-6">
                         <h5 class="title">Contact us</h5>
@@ -369,7 +365,6 @@
         <h4>Become an investor today</h4>
         <ul>
             <li>
-                <h5>Get an account for free</h5></li>
             <li><a href="" data-toggle="modal" data-target=".myModal" class="btn btn-info" rel="nofollow">Get Started</a></li>
         </ul>
     </div>
@@ -389,18 +384,18 @@
 
 <div class="modal fade margin-of-modal myModal" role="dialog">
     <div class="modal-dialog modal-lg">
-        <div class="modal-content">
+    <form action="search" class="modal-content">
             <div class="modal-header">
                 <h4 class="modal-title">Let us help you decide</h4>
                 <button type="button" class="close" data-dismiss="modal">&times;</button>
             </div>
             <div class="modal-body text-in-modal-content" id="the-input-boxes">
-                <p>I have  <input type="text" name="" /> Ghc and I would like to invest it for <input type="text" name="" /> months.</p>
+        <p>I have  <input type="text" name="principal" /> Ghc and I would like to invest it for <input type="text" name="duration" /> months.</p>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-default">Go</button>
+        <button type="submit" class="btn btn-default">Go</button>
             </div>
-        </div>
+    </form>
     </div>
 </div>
 
