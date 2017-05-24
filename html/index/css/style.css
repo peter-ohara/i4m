@@ -65,22 +65,59 @@ and (max-device-width: 480px) {
 
 @media screen and (max-width: 767px){   
     #main-img{      
-        content:url("../img/hiwmb.png");
-    } 
+       content:url("../img/hiwmb.png");
+    }
+    #ride-img{      
+       content:url("../img/logos1mb.png");
+    }
+    #side-img{      
+       content:url("../img/logos2mb.png");
+    }
+    #tide-img{      
+       content:url("../img/logos3mb.png");
+    }
 }
 
 @media screen and (min-width: 768px) {      
     #main-img{      
        content:url("../img/hiw.png");
-     } 
+    }
+    #ride-img{      
+       content:url("../img/logos1.png");
+    }
+    #side-img{      
+       content:url("../img/logos2.png");
+    }
+    #tide-img{      
+       content:url("../img/logos3.png");
+    }
+
 } 
 @media (min-width: 992px){      
-      #main-img{        
-          content:url("../img/hiw.png");  
-      } 
+    #main-img{        
+        content:url("../img/hiw.png");  
+    }
+    #ride-img{        
+        content:url("../img/logos1.png");  
+    }
+    #side-img{      
+        content:url("../img/logos2.png");
+    }
+    #tide-img{      
+        content:url("../img/logos3.png");
+    }
 }
 @media (min-width: 1200px) {    
-     #main-img{         
-         content:url("../img/hiw.png");   
-     } 
+    #main-img{         
+        content:url("../img/hiw.png");   
+    }
+    #ride-img{         
+        content:url("../img/logos1.png");   
+    }
+    #side-img{      
+        content:url("../img/logos2.png");
+    }
+    #tide-img{      
+        content:url("../img/logos3.png");
+    }
 }
