@@ -46,4 +46,42 @@ class FixedDepositInvestment < ApplicationRecord
 
     fixed_deposit_investments
   end
+
+  def compound_interest_with_deposits(principal, monthly_deposits,
+                                      annual_compounding_frequency, duration_in_years)
+    p = principal
+    pmt = monthly_deposits
+    r = interest_rate
+    n = annual_compounding_frequency
+    t = duration_in_years
+    compound_interest(p, r, n, t) + future_value_of_a_series(pmt, r, n, t) # * (1+(r/n))
+  end
+
+  def compound_interest(principal, annual_interest_rate, annual_compounding_frequency, duration_in_years)
+    p = principal
+    r = annual_interest_rate
+    n = annual_compounding_frequency
+    t = duration_in_years
+    p * (1 + (r/n))**(n * t)
+  end
+
+  def total_deposits(monthly_deposits, annual_compounding_frequency, duration_in_years)
+    monthly_deposits * (annual_compounding_frequency * duration_in_years)
+  end
+
+  def total_interest(final_balance, total_deposits, principal)
+    final_balance - (total_deposits + principal)
+  end
+
+  private
+
+  def future_value_of_a_series(monthly_deposits, annual_interest_rate,
+                                annual_compounding_frequency, duration_years)
+    pmt = monthly_deposits
+    r = annual_interest_rate
+    n = annual_compounding_frequency
+    t = duration_years
+    pmt * ((1 + (r/n)) ** (n*t) - 1) / (r/n)
+  end
+
 end

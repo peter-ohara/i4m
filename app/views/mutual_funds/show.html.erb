@@ -116,31 +116,37 @@
             </div>
 
             <div class="col-md-12">
-              <!--Naked Form-->
-              <div class="md-form">
-                <input type="number" id="principal" class="form-control">
-                <label for="principal">Amount to purchase...</label>
-              </div>
 
-              <div class="md-form">
-                <input type="number" id="deposits" class="form-control">
-                <label for="deposits">Monthly Deposits</label>
-              </div>
+              <form data-calculate-mutual-fund-returns>
+                <!--Naked Form-->
+                <div class="md-form">
+                  <input type="number" id="principal" name="principal" class="form-control">
+                  <label for="principal">Amount to purchase...</label>
+                </div>
 
-              <form class="range-field">
-                <label for="duration">Duration</label>
-                <input type="range" id="duration" class="form-control"
-                       min="0" max="100" />
+                <div class="md-form">
+                  <input type="number" id="deposits" name="deposits" class="form-control">
+                  <label for="deposits">Monthly Deposits</label>
+                </div>
+
+                <div class="md-form">
+                  <input type="number" id="duration" name="duration" class="form-control">
+                  <label for="duration">Years</label>
+                </div>
+
+                <p>
+                  Interest Rate:
+                  <strong>8%</strong>
+                </p>
+
+                <input type="hidden" name="annual_interest_rate" value="8" />
+
+                <div class="text-center">
+                  <button type="submit" class="btn btn-deep-purple">Calculate</button>
+                </div>
+                <!--Naked Form-->
               </form>
 
-              <p>
-                Interest Rate: <strong>8%</strong>
-              </p>
-
-              <div class="text-center">
-                <button class="btn btn-deep-purple">Calculate</button>
-              </div>
-              <!--Naked Form-->
             </div>
           </div>
         </div>

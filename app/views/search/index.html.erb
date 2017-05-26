@@ -1,46 +1,112 @@
 <div class="container">
 
   <div class="row">
-      <div class="col-lg-12 col-sm-12">
-        <br />
-        <br />
-        <br />
-        <br />
-        <div class="text-center">
-          <h3>Search Results</h3>
-        </div>
-        <br />
+    <div class="col-lg-12 col-sm-12">
+      <br/>
+      <br/>
+      <br/>
+      <br/>
+      <div class="text-center">
+        <h3>Search Results</h3>
       </div>
+      <br/>
+    </div>
   </div>
 
   <div class="row">
+    <div class="col-md-12">
+      <!--Panel-->
+      <div class="card card-block">
+        <h4 class="card-title">How much do you want to invest</h4>
+        <div class="card-text">
+          <div class="row">
+            <div class="col-md-12">
+
+              <form class="form-inline" data-calculate-fixed_deposit-returns>
+                <!--Naked Form-->
+                <p>
+                  I want to invest GHS &nbsp;
+                <div class="md-form">
+                  <input type="number" id="principal" name="principal" class="form-control">
+                  <label for="principal">Amount to purchase...</label>
+                </div>
+                and monthly deposits of &nbsp;
+                <div class="md-form">
+                  <input type="number" id="deposits" name="deposits" class="form-control">
+                  <label for="deposits">Monthly Deposits</label>
+                </div>
+                for &nbsp;
+                <div class="md-form">
+                  <input type="number" id="duration" name="duration" class="form-control">
+                  <label for="duration">Duration</label>
+                </div>
+                years &nbsp;
+                </p>
+                <div class="text-center">
+                  <button type="submit" class="btn btn-deep-purple">Calculate</button>
+                </div>
+                <!--Naked Form-->
+              </form>
+
+            </div>
+          </div>
+        </div>
+      </div>
+      <!--/.Panel-->
+    </div>
+
     <div class="col-lg-12 col-sm-12">
+      <br>
+      <br>
+      <br>
+      <br>
       <h4>Fixed Deposit Investments</h4>
     </div>
     <!--First columnn-->
     <div class="col-lg-12 col-sm-12">
-      <!--Card-->
-      <div class="list-group">
-        <% @fixed_deposit_investments.each do |fixed_deposit_investment| %>
-            <%= link_to(fixed_deposit_investment, class: 'list-group-item list-group-item-action flex-column align-items-start') do %>
-              <div class="d-flex w-100 justify-content-between">
-                <h5 class="mb-1">
-                  <%= fixed_deposit_investment.name %>
-                </h5>
-                <small class="text-muted">
-                  <%= fixed_deposit_investment.institution.name %>
-                </small>
-              </div>
-              <p class="mb-1">
+      <% @fixed_deposit_investments.each do |fixed_deposit_investment| %>
+          <!--Panel-->
+          <div class="card card-block investment">
+            <h4 class="card-title"><%= fixed_deposit_investment.name %></h4>
+            <p class="card-text">
+            <div class="row">
+              <div class="col-md-6">
                 <%= fixed_deposit_investment.description %>
-              </p>
-              <small class="text-muted">
-                Interest rate: <%= fixed_deposit_investment.interest_rate %>%
-              </small>
-            <% end %>
-        <% end %>
-      </div>
-      <!--/.Card-->
+              </div>
+              <div class="col-md-6">
+                <div class="row">
+                  <div class="col-md-12">
+                    <p class="d-flex justify-content-between">
+                      <span>Final balance</span>
+                      <span class="final_balance"></span>
+                    </p>
+                    <p class="d-flex justify-content-between">
+                      <span>Total interest</span>
+                      <span class="total_interest"></span>
+                    </p>
+                    <p class="d-flex justify-content-between">
+                      <span>Interest rate</span>
+                      <%= fixed_deposit_investment.interest_rate %>%
+                    </p>
+                  </div>
+                  <div class="col-md-12">
+                    <svg fill="#3c4f74" viewBox="0 0 500 250" class="demo-graph">
+                      <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#chart"></use>
+                    </svg>
+                    <input type="hidden" name="annual_interest_rate" value="<%= fixed_deposit_investment.interest_rate %>">
+                  </div>
+                </div>
+              </div>
+            </div>
+            </p>
+            <div class="flex-row">
+              <%= link_to('Details', fixed_deposit_investment, class: 'card-link') %>
+              <a href="" class="card-link">Purchase</a>
+            </div>
+          </div>
+          <!--/.Panel-->
+          <br><br>
+      <% end %>
     </div>
     <!--First columnn-->
   </div>
