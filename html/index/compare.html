@@ -14,7 +14,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.0/css/font-awesome.min.css">
 
     <!-- Our style -->
-    <link rel="stylesheet" href="results.css">
+    <link rel="stylesheet" href="css/style.css">
 
     <!-- Bootstrap core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -113,155 +113,191 @@
 </nav>
 <!--/.Navbar-->
 
-<div class="container">
+<div class="page-wrap">
 
-    <div class="row">
-        <div class="col-lg-12 col-sm-12">
-            <br/>
-            <br/>
-            <br/>
-            <br/>
-            <div class="text-center">
-                <h3>Search Results</h3>
-            </div>
-            <br/>
+        <br />
+        <div class="text-center">
+            <h3>Legacy Capital Fixed Deposit Investment</h3>
         </div>
-    </div>
+        <br />
+        <br />
+        <br />
 
     <div class="row">
-        <div class="col-md-12">
-            <!--Panel-->
-            <div class="card card-block">
-                <h4 class="card-title">How much do you want to invest</h4>
-                <div class="card-text">
-                    <div class="row">
-                        <div class="col-md-12">
 
-                            <form class="form-inline" data-calculate-fixed_deposit-returns>
-                                <!--Naked Form-->
+
+        <div class="col-lg-12">
+                <div class="card wow fadeIn">
+                        <div class="card-block how-it-works-section1 padding-for-title" style="background-color: #3c4f74;">
+                            Calculate how much you will earn on each investment shown below
+                        </div>
+                        <!--Card content-->
+                        <div class="card-block block-of-contents" id="bar-width">
+                            <br />
+                            <form class="" data-calculate-fixed_deposit-returns>
                                 <p>
-                                    I want to invest GHS &nbsp;
-                                <div class="md-form">
-                                    <input type="number" id="principal" name="principal" class="form-control">
-                                </div>
-                                and monthly deposits of &nbsp;
-                                <div class="md-form">
-                                    <input type="number" id="deposits" name="deposits" class="form-control">
-                                </div>
-                                for &nbsp;
-                                <div class="md-form">
-                                    <input type="number" id="duration" name="duration" class="form-control">
-                                </div>
-                                years &nbsp;
+                                    I have GHS &nbsp;&nbsp;
+                                    <input type="number" id="principal" name="principal" placeholder="100">&nbsp;&nbsp;
+                                    and I would like to invest  &nbsp;&nbsp;
+                                    <input type="number" id="deposits" name="deposits" placeholder="10">
+                                    every month for &nbsp;&nbsp;
+                                    <input type="number" id="duration" name="duration" placeholder="6">&nbsp;&nbsp;
+                                    months
                                 </p>
                                 <div class="text-center">
-                                    <button type="submit" class="btn btn-deep-purple">Calculate</button>
+                                    <button type="submit" class="btn btn-default">Calculate</button>
                                 </div>
-                                <!--Naked Form-->
                             </form>
-
                         </div>
-                    </div>
+                        <!--/.Card content-->
                 </div>
-            </div>
-            <!--/.Panel-->
         </div>
 
         <div class="col-lg-12 col-sm-12">
-            <br>
-            <br>
-            <br>
-            <br>
-            <h4>Fixed Deposit Investments</h4>
+            <br />
+            <br />
         </div>
         <!--First columnn-->
         <div class="col-lg-12 col-sm-12">
+            <div class="card card-block how-it-works-section1 padding-for-title" style="background-color: #3c4f74;">
+                Legacy Fixed Deposit - 91 days
+            </div>
             <!--Panel-->
             <div class="card card-block investment">
-                <h4 class="card-title">Legacy Fixed Deposit - 91 days</h4>
                 <p class="card-text">
                     <div class="row">
-                        <div class="col-md-6">
+                        <div class="col-md-6 feature-container">
                             Short term investment product offered by the Bank of Ghana on behalf of the Government. Purchasing a treasury bill is lending money to the Government. This is a common method used by governments to borrow money from citizens for development purposes.
                         </div>
                         <div class="col-md-6">
                             <div class="row">
-                                <div class="col-md-12">
-                <p class="d-flex justify-content-between">
-                    <span>Final balance</span>
-                    GHS <span class="final_balance"></span>
-                </p>
-                <p class="d-flex justify-content-between">
-                    <span>Total interest</span>
-                    GHS <span class="total_interest"></span>
-                </p>
-                <p class="d-flex justify-content-between">
-                    <span>Interest rate</span>
-                    15.7892%
+                                <div class="col-md-6">
+                                    
+                                </div>
+                                <div class="col-md-6">
+                                    <p class="d-flex justify-content-between">
+                                        <span>Final balance</span>
+                                        GHS <span class="final_balance"></span>
+                                    </p>
+                                    <p class="d-flex justify-content-between">
+                                        <span>Total interest</span>
+                                        GHS <span class="total_interest"></span>
+                                    </p>
+                                    <p class="d-flex justify-content-between">
+                                        <span>Interest rate</span>
+                                        15.7892% <span class=""></span>
+                                    </p>
+                                </div>
+                                
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4">
+                            
+                        </div>
+                        <div class="col-md-4">
+                            <svg fill="#3c4f74" viewBox="0 0 500 250" class="demo-graph">
+                                <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#chart"></use>
+                            </svg>
+                            <input type="hidden" name="annual_interest_rate" value="15.7892">
+                        </div>
+                        <div class="col-md-4">
+                            
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4" align="center">
+                            <div class="row">
+                                <div class="col-md-6" align="center">
+                                    <a class="card-link btn btn-deep-purple" href="/fixed_deposit_investments/1">Details</a>
+                                </div>
+                                <div class="col-md-6" align="center">
+                                    <a href="" class="card-link btn btn-info">Purchase</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                        </div>
+                        <div class="col-md-4">
+                        </div>
+                    </div>
                 </p>
             </div>
-            <div class="col-md-12">
-                <svg fill="#3c4f74" viewBox="0 0 500 250" class="demo-graph">
-                    <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#chart"></use>
-                </svg>
-                <input type="hidden" name="annual_interest_rate" value="15.7892">
-            </div>
-        </div>
-    </div>
-</div>
-</p>
-<div class="flex-row">
-    <a class="card-link" href="/fixed_deposit_investments/1">Details</a>
-    <a href="" class="card-link">Purchase</a>
-</div>
-</div>
 <!--/.Panel-->
-<br><br>
+<br />
 <!--Panel-->
-<div class="card card-block investment">
-    <h4 class="card-title">Legacy Fixed Deposit - 182 days</h4>
-    <p class="card-text">
-        <div class="row">
-            <div class="col-md-6">
-                These offer flexible interest payment plans for tenures of 91, 182 and 365 days respectively.
+<div class="card card-block how-it-works-section1 padding-for-title" style="background-color: #3c4f74;">
+                Legacy Fixed Deposit - 182 days
+            </div>
+            <!--Panel-->
+            <div class="card card-block investment">
+                <p class="card-text">
+                    <div class="row">
+                        <div class="col-md-6 feature-container">
+                            These offer flexible interest payment plans for tenures of 91, 182 and 365 days respectively.
                 Features
                 - Minimum investment amount of GHS 1,000.00
                 - Very attractive interest rate (Ranging from T –Bill + 2% to 8%) depending on the amount and the tenure.
                 - All our rates are negotiable.
                 - Prompt payment of investment upon maturity
                 - We believe that, it is not only the rate but the security of your investment is what gives us the edge over our competitors.
+                        </div>
+                        <div class="col-md-6">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    
+                                </div>
+                                <div class="col-md-6">
+                                    <p class="d-flex justify-content-between">
+                                        <span>Final balance</span>
+                                        GHS <span class="final_balance"></span>
+                                    </p>
+                                    <p class="d-flex justify-content-between">
+                                        <span>Total interest</span>
+                                        GHS <span class="total_interest"></span>
+                                    </p>
+                                    <p class="d-flex justify-content-between">
+                                        <span>Interest rate</span>
+                                        16.7892% <span class=""></span>
+                                    </p>
+                                </div>
+                                
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4">
+                            
+                        </div>
+                        <div class="col-md-4">
+                            <svg fill="#3c4f74" viewBox="0 0 500 250" class="demo-graph">
+                                <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#chart"></use>
+                            </svg>
+                            <input type="hidden" name="annual_interest_rate" value="15.7892">
+                        </div>
+                        <div class="col-md-4">
+                            
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4" align="center">
+                            <div class="row">
+                                <div class="col-md-6" align="center">
+                                    <a class="card-link btn btn-deep-purple" href="/fixed_deposit_investments/1">Details</a>
+                                </div>
+                                <div class="col-md-6" align="center">
+                                    <a href="" class="card-link btn btn-info">Purchase</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                        </div>
+                        <div class="col-md-4">
+                        </div>
+                    </div>
+                </p>
             </div>
-            <div class="col-md-6">
-                <div class="row">
-                    <div class="col-md-12">
-    <p class="d-flex justify-content-between">
-        <span>Final balance</span>
-        GHS <span class="final_balance"></span>
-    </p>
-    <p class="d-flex justify-content-between">
-        <span>Total interest</span>
-        GHS <span class="total_interest"></span>
-    </p>
-    <p class="d-flex justify-content-between">
-        <span>Interest rate</span>
-        16.7892%
-    </p>
-</div>
-<div class="col-md-12">
-    <svg fill="#3c4f74" viewBox="0 0 500 250" class="demo-graph">
-        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#chart"></use>
-    </svg>
-    <input type="hidden" name="annual_interest_rate" value="16.7892">
-</div>
-</div>
-</div>
-</div>
-</p>
-<div class="flex-row">
-    <a class="card-link" href="/fixed_deposit_investments/2">Details</a>
-    <a href="" class="card-link">Purchase</a>
-</div>
-</div>
 <!--/.Panel-->
 <br><br>
 </div>
