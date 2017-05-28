@@ -283,19 +283,11 @@
                     <div class="card wow fadeIn" data-wow-delay="0.2s">
 
                         <!--Card content-->
-                        <div class="card-block height-of-cards1">
+                        <div class="card-block height-of-cards1" align="center">
                             <!--Title-->
-                            <h4 class="card-title">More Info</h4>
+                            <h4 class="card-title">Risk Rating</h4>
                             <hr>
-                            <p>
-				              <strong>Some more info here:</strong>
-				              91
-				            </p>
-
-				            <p>
-				              <strong>Some more here:</strong>
-				              100
-				            </p>
+                            <canvas width="200" height="100" style="border: 1px solid #f4f4f4" id="foo"></canvas>
                         </div>
                         <!--/.Card content-->
 
@@ -399,47 +391,6 @@
     </footer>
     <!--/.Footer-->
 
-    <div class="modal fade margin-of-modal" id="myModal" role="dialog">
-        <div class="modal-dialog modal-lg">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h4 class="modal-title">Something related</h4>
-              <button type="button" class="close" data-dismiss="modal">&times;</button>
-            </div>
-            <div class="modal-body text-in-modal-content">
-              <form action="../waitinglist/waiting_list.html" method="post">
-
-			  <div class="form-group">
-			    <input type="text" class="form-control" id="fname" placeholder="Enter First name">
-			  </div>
-
-			  <div class="form-group">
-			    <input type="text" class="form-control" id="lname" placeholder="Enter Last name">
-			  </div>
-
-			  <div class="form-group">
-			    <input type="text" class="form-control" id="pnumber" placeholder="Phone Number">
-			  </div>
-
-			  <div class="form-group">
-			    <input type="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="Enter email">
-			    <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
-			  </div>
-			  <br /><br />
-			  <div align="center">
-			  	<button type="submit" class="btn btn-primary">Submit</button>
-			  </div>
-
-			</form>
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-default">Go</button>
-            </div>
-          </div>
-        </div>
-    </div>
-
-
     <!-- SCRIPTS -->
 
     <!-- JQuery -->
@@ -453,6 +404,11 @@
 
     <!-- MDB core JavaScript -->
     <script type="text/javascript" src="../index/js/mdb.min.js"></script>
+
+    <!-- risk meter -->
+    <script type="text/javascript" src="../index/js/gauge.min.js"></script>
+
+	<script type="text/javascript" src="../index/js/riskmeter.js"></script>
 
     <!-- Animations init-->
     <script>
