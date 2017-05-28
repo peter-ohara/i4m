@@ -10,7 +10,6 @@ class MutualFundsController < ApplicationController
   # GET /mutual_funds/1
   # GET /mutual_funds/1.json
   def show
-    render :layout => 'application2'
   end
 
   # GET /mutual_funds/new

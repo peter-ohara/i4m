@@ -1,5 +1,7 @@
 class FixedDepositInvestmentsController < ApplicationController
-  before_action :set_fixed_deposit_investment, only: [:show, :edit, :update, :destroy, :purchase]
+  before_action :set_fixed_deposit_investment, only: [:show, :edit, :update,
+                                                      :destroy, :purchase,
+                                                      :new_purchase]
 
   # GET /fixed_deposit_investments
   # GET /fixed_deposit_investments.json
@@ -10,7 +12,6 @@ class FixedDepositInvestmentsController < ApplicationController
   # GET /fixed_deposit_investments/1
   # GET /fixed_deposit_investments/1.json
   def show
-    render :layout => 'application2'
   end
 
   # GET /fixed_deposit_investments/new
@@ -62,6 +63,9 @@ class FixedDepositInvestmentsController < ApplicationController
     end
   end
 
+  def new_purchase
+  end
+
   def purchase
     @user = User.create(
       first_name: params[:first_name],
@@ -77,8 +81,10 @@ class FixedDepositInvestmentsController < ApplicationController
 
     respond_to do |format|
       if purchase_attempt.save
-        format.html { redirect_to @fixed_deposit_investment,
-                                  notice: "Purchase created successfully."}
+        format.html {
+          redirect_to @fixed_deposit_investment,
+          notice: 'Purchase created successfully.'
+        }
         format.json { render :show, status: :created, location: @fixed_deposit_investment }
       else
         format.html { render :new }

@@ -98,7 +98,10 @@
             </p>
             <div class="flex-row">
               <%= link_to('Details', fixed_deposit_investment, class: 'card-link') %>
-              <a href="" class="card-link">Purchase</a>
+              <a href="fixed_deposit_investments/<%= fixed_deposit_investment.id %>/purchase"
+                 class="card-link">
+                Purchase
+              </a>
             </div>
           </div>
           <!--/.Panel-->

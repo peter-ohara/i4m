@@ -1,9 +1,4 @@
-<button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored"
-        id="show-dialog" type="button">
-  <i class="material-icons">shopping cart</i>
-</button>
-
-<dialog class="mdl-dialog">
+<div class="">
   <%= form_tag "/#{path}/#{investment.id}/purchase", :method => 'post', id: 'purchase-form' do %>
       <h4 class="mdl-dialog__title">Purchase this investment</h4>
       <div class="mdl-dialog__content">
@@ -42,4 +37,4 @@
         <button type="button" class="mdl-button close">Cancel</button>
       </div>
   <% end %>
-</dialog>
+</div>
