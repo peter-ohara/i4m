@@ -10,6 +10,11 @@
     font-weight: 300;
 }
 
+.page-wrap {
+	margin: 50px;
+	margin-top: 100px;
+}
+
 .key-partners-section {
 	padding: 2.5em 0em;
     text-align: center;
@@ -25,8 +30,31 @@
     text-align: center;
 }
 
+.block-of-contents {
+	text-align: center;
+}
+
+.padding-for-title {
+	padding: 1.5em 0em;
+}
+
 #the-input-boxes input {
     width: 15%;
+    text-align: center;
+}
+
+#bar-width input {
+	width: 10%;
+	text-align: left;
+}
+
+#bar-width1 input {
+	width: 10%;
+	text-align: center;
+}
+
+.the-input-boxes1 input {
+    width: 5%;
     text-align: center;
 }
 
@@ -41,6 +69,18 @@
 
 .text-align-center-for-all {
 	text-align: center;
+}
+
+.height-of-cards {
+	height: 400px;
+}
+
+.height-of-cards1 {
+	height: 200px;
+}
+
+.margin-of-cal-boxes input {
+	margin-left: 50px;
 }
 
 @media only screen
@@ -61,6 +101,14 @@ and (max-device-width: 480px) {
 
 .feature-container {
     margin-bottom: 2em;
+}
+
+.div.fixed {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    width: 300px;
+    border: 3px solid #73AD21;
 }
 
 @media screen and (max-width: 767px){   
@@ -119,5 +167,11 @@ and (max-device-width: 480px) {
     }
     #tide-img{      
         content:url("../img/logos3.png");
+    }
+}
+
+@media screen and (max-width: 767px){   
+    #bar-width1 input {      
+       width: 15%;
     }
 }
