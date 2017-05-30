@@ -1,7 +1,15 @@
-<div class="container">
+<div class="container content">
   <div class="row">
     <div class="col-md-12">
-      <%= render partial: "layouts/purchase_form", locals: {path: 'fixed_deposit_investments', investment: @fixed_deposit_investment} %>
+      <h3 class="text-center">
+        You have chosen to purchase
+        <%= @fixed_deposit_investment.name %>
+      </h3>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+      <%= render partial: 'layouts/purchase_form', locals: {path: 'fixed_deposit_investments', investment: @fixed_deposit_investment} %>
     </div>
   </div>
 </div>

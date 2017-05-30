@@ -1,5 +1,6 @@
 class FixedDepositInvestment < ApplicationRecord
   include PgSearch
+  include ActionView::Helpers::DateHelper
 
   belongs_to :institution
 
@@ -45,6 +46,22 @@ class FixedDepositInvestment < ApplicationRecord
     end
 
     fixed_deposit_investments
+  end
+
+  def risk_label
+    risk_label = 'very low' if risk_rating == 1
+    risk_label = 'low' if risk_rating == 2
+    risk_label = 'medium' if risk_rating == 3
+    risk_label = 'high' if risk_rating == 4
+    risk_label = 'very high' if risk_rating == 5
+    risk_label
+  end
+
+  def period
+    from_time = Time.now
+    duration = period_in_days.days
+
+    distance_of_time_in_words(from_time, from_time + duration)
   end
 
   def compound_interest_with_deposits(principal, monthly_deposits,

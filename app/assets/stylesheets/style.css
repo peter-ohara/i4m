@@ -10,8 +10,13 @@
     font-weight: 300;
 }
 
+.page-wrap {
+    margin: 50px;
+    margin-top: 100px;
+}
+
 .key-partners-section {
-	padding: 2.5em 0em;
+    padding: 2.5em 0em;
     text-align: center;
 }
 .how-it-works-section {
@@ -25,8 +30,31 @@
     text-align: center;
 }
 
+.block-of-contents {
+    text-align: center;
+}
+
+.padding-for-title {
+    padding: 1.5em 0em;
+}
+
 #the-input-boxes input {
     width: 15%;
+    text-align: center;
+}
+
+#bar-width input {
+    width: 10%;
+    text-align: left;
+}
+
+#bar-width1 input {
+    width: 10%;
+    text-align: center;
+}
+
+.the-input-boxes1 input {
+    width: 5%;
     text-align: center;
 }
 
@@ -40,19 +68,31 @@
 }
 
 .text-align-center-for-all {
-	text-align: center;
+    text-align: center;
+}
+
+.height-of-cards {
+    min-height: 400px;
+}
+
+.height-of-cards1 {
+    min-height: 200px;
+}
+
+.margin-of-cal-boxes input {
+    margin-left: 50px;
 }
 
 @media only screen
 and (min-device-width: 320px)
 and (max-device-width: 480px) {
     .card-length {
-        height: 180px;
+        min-height: 180px;
     }
 }
 
 .how-it-works-bg {
-    background: url("howitworksbg.png") no-repeat center center fixed;
+    background: url("/assets/howitworksbg.png") no-repeat center center fixed;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
@@ -63,61 +103,88 @@ and (max-device-width: 480px) {
     margin-bottom: 2em;
 }
 
-@media screen and (max-width: 767px){   
-    #main-img{      
-       content:url("hiwmb.png");
+.div.fixed {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    width: 300px;
+    border: 3px solid #73AD21;
+}
+
+@media screen and (max-width: 767px){
+    #main-img{
+        content:url("/assets/hiwmb.png");
     }
-    #ride-img{      
-       content:url("logos1mb.png");
+    #ride-img{
+        content:url("/assets/logos1mb.png");
     }
-    #side-img{      
-       content:url("logos2mb.png");
+    #side-img{
+        content:url("/assets/logos2mb.png");
     }
-    #tide-img{      
-       content:url("logos3mb.png");
+    #tide-img{
+        content:url("/assets/logos3mb.png");
     }
 }
 
-@media screen and (min-width: 768px) {      
-    #main-img{      
-       content:url("hiw.png");
+@media screen and (min-width: 768px) {
+    #main-img{
+        content:url("/assets/hiw.png");
     }
-    #ride-img{      
-       content:url("logos1.png");
+    #ride-img{
+        content:url("/assets/logos1.png");
     }
-    #side-img{      
-       content:url("logos2.png");
+    #side-img{
+        content:url("/assets/logos2.png");
     }
-    #tide-img{      
-       content:url("logos3.png");
+    #tide-img{
+        content:url("/assets/logos3.png");
     }
 
-} 
-@media (min-width: 992px){      
-    #main-img{        
-        content:url("hiw.png");
+}
+@media (min-width: 992px){
+    #main-img{
+        content:url("/assets/hiw.png");
     }
-    #ride-img{        
-        content:url("logos1.png");
+    #ride-img{
+        content:url("/assets/logos1.png");
     }
-    #side-img{      
-        content:url("logos2.png");
+    #side-img{
+        content:url("/assets/logos2.png");
     }
-    #tide-img{      
-        content:url("logos3.png");
+    #tide-img{
+        content:url("/assets/logos3.png");
     }
 }
-@media (min-width: 1200px) {    
-    #main-img{         
-        content:url("hiw.png");
+@media (min-width: 1200px) {
+    #main-img{
+        content:url("/assets/hiw.png");
     }
-    #ride-img{         
-        content:url("logos1.png");
+    #ride-img{
+        content:url("/assets/logos1.png");
     }
-    #side-img{      
-        content:url("logos2.png");
+    #side-img{
+        content:url("/assets/logos2.png");
     }
-    #tide-img{      
-        content:url("logos3.png");
+    #tide-img{
+        content:url("/assets/logos3.png");
     }
 }
+
+@media screen and (max-width: 767px){
+    #bar-width1 input {
+        width: 15%;
+    }
+}
+
+.content {
+    margin-top: 100px;
+}
+
+.card {
+    margin-bottom: 3em;
+}
+
+/*.risk-meter {*/
+    /*width: 200px;*/
+    /*height: 200px;*/
+/*}*/

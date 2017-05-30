@@ -1,5 +1,5 @@
 class WelcomeController < ApplicationController
   def index
-    render :layout => false
+    render layout: 'landing_page'
   end
 end
