@@ -181,7 +181,7 @@ and (max-device-width: 480px) {
 }
 
 .card {
-    margin-bottom: 3em;
+    margin-bottom: 2em;
 }
 
 .investment {
@@ -191,4 +191,12 @@ and (max-device-width: 480px) {
 .truncate {
     overflow: hidden;
     text-overflow: ellipsis;
+}
+
+.demo-graph {
+    padding: 20px;
+}
+
+.investments-list .investment {
+    cursor: pointer;
 }

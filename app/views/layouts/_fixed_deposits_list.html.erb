@@ -1,8 +1,8 @@
-<div class="row">
+<div class="row investments-list">
   <% @fixed_deposit_investments.each do |fixed_deposit_investment| %>
 
       <div class="col-md-6">
-        <div class="card investment d-flex flex-row">
+        <div class="card investment d-flex flex-row" data-href="/fixed_deposit_investments/<%= fixed_deposit_investment.id %>">
 
           <div class="card-block unique-color white-text">
             <p><strong class="final_balance"></strong></p>

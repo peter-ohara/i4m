@@ -83,7 +83,7 @@ class FixedDepositInvestmentsController < ApplicationController
       if purchase_attempt.save
         format.html {
           redirect_to @fixed_deposit_investment,
-          notice: 'Purchase created successfully.'
+          notice: 'Congratulations!! You just joined our waiting list. We would contact you immediately your request can be processed.'
         }
         format.json { render :show, status: :created, location: @fixed_deposit_investment }
       else

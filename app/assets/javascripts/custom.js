@@ -1,10 +1,15 @@
 $(document).ready(function () {
-    // $("[name=principal], [name=deposits], [name=duration]").blur(updateList());
-    $("[name=principal], [name=deposits], [name=duration]").blur(function () {
+    $(".investments-list .investment").click(function () {
+        var link = $(this).data('href');
+        location.href = link
+    });
+
+
+    $("[name=principal], [name=deposits], [name=duration], #duration_multiplier").blur(function () {
         updateList();
     });
 
-    $("[name=principal], [name=deposits], [name=duration]").change(function () {
+    $("[name=principal], [name=deposits], [name=duration], #duration_multiplier").change(function () {
         updateList();
     });
 
@@ -17,23 +22,44 @@ $(document).ready(function () {
 
 function updateList() {
     var principal = parseFloat($('[name=principal]').val());
-    var monthly_deposits = parseFloat($('[name=deposits]').val());
-    var duration_in_years = parseFloat($('[name=duration]').val());
+    var deposits = parseFloat($('[name=deposits]').val());
+    var duration = parseFloat($('[name=duration]').val());
+    var duration_multiplier = parseFloat($('#duration_multiplier').find(":selected").val());
     var annual_compounding_frequency = 12;
 
+    // Make an ajax call with the values so the session can be stored
+    if (principal && deposits) {
+        $.ajax({
+            url: "/search/save",
+            method: "post",
+            data: {
+                principal: principal,
+                deposits: deposits,
+                duration: duration,
+                duration_multiplier: duration_multiplier,
+                annual_compounding_frequency: annual_compounding_frequency
+            }
+        }).done(function () {
+            console.log("saved search")
+        });
+    }
+
     console.log("principal", principal);
-    console.log("monthly_deposits", monthly_deposits);
-    console.log("duration_in_years", duration_in_years);
+    console.log("deposits", deposits);
+    console.log("duration", duration);
     console.log("annual_compounding_frequency", annual_compounding_frequency);
+    console.log("duration_multiplier", duration_multiplier);
+
+    var duration_in_years = duration / duration_multiplier;
 
 
     $(".investment").each(function (index, element) {
         var annual_interest_rate = parseFloat($(element).find('[name=annual_interest_rate]').val()) / 100;
         console.log("annual_interest_rate", annual_interest_rate);
 
-        var finalBalance = getTompoundInterestWithDeposits(principal, monthly_deposits, annual_interest_rate,
+        var finalBalance = getTompoundInterestWithDeposits(principal, deposits, annual_interest_rate,
             annual_compounding_frequency, duration_in_years);
-        var totalDeposits = getTotalDeposits(monthly_deposits, annual_compounding_frequency, duration_in_years);
+        var totalDeposits = getTotalDeposits(deposits, annual_compounding_frequency, duration_in_years);
         var totalInterest = getTotalInterest(finalBalance, totalDeposits, principal);
 
         var finalBalanceString = "GHS " + finalBalance.toLocaleString();
@@ -89,6 +115,4 @@ $('input[type="range"]').rangeslider();
 
 // Start Animations
 new WOW().init();
-
-
 

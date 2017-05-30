@@ -12,6 +12,13 @@ class SearchController < ApplicationController
                                       search_query)
   end
 
+  def save
+    session[:principal] = params[:principal]
+    session[:deposits] = params[:deposits]
+    session[:duration] = params[:duration]
+    session[:duration_multiplier] = params[:duration_multiplier]
+  end
+
   def search_params
     params.permit(:principal, :duration, :query)
   end
