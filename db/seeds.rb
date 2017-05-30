@@ -31,7 +31,7 @@ institution2 = Institution.create(
 
 fixed_deposit1 = FixedDepositInvestment.create(
   institution: institution1,
-  name: 'Legacy Fixed Deposit - 91 days',
+  name: '91 day Fixed Deposit',
   period_in_days: 91,
   minimum_principal_pesewas: 10000,
   risk_rating: 1,
@@ -44,7 +44,7 @@ fixed_deposit1 = FixedDepositInvestment.create(
 
 fixed_deposit2 = FixedDepositInvestment.create(
   institution: institution1,
-  name: 'Legacy Fixed Deposit - 182 days',
+  name: '182 day Fixed Deposit',
   period_in_days: 182,
   minimum_principal_pesewas: 10000,
   risk_rating: 1,

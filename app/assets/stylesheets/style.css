@@ -184,7 +184,11 @@ and (max-device-width: 480px) {
     margin-bottom: 3em;
 }
 
-/*.risk-meter {*/
-    /*width: 200px;*/
-    /*height: 200px;*/
-/*}*/
+.investment {
+    margin-bottom: 2em;
+}
+
+.truncate {
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
