@@ -1,3 +1,27 @@
+<div class="row">
+<div class="col-lg-3" align="center">
+<!--Calculator-->
+  <div>
+    <br />
+    <table>
+      <tr><td>Slider with initial value</td></tr>
+      <tr>
+      <td><input id="slider" class="mdl-slider mdl-js-slider" type="range"  
+         min="0" max="100" value="25" tabindex="0" 
+         oninput="updateTextbox(this.value)" onchange="updateTextbox(this.value)"></td>
+      </tr>
+   </table>
+   Value: <input type="number" id="text-box" name=""
+            min="0" max="100" value="25" onchange="updateSlider(this.value)"/>
+  </div>
+<!--/.Calculator-->
+</div>
+<div class="col-lg-9">
+</div>
+</div>
+
+<br />
+
 <div class="card wow fadeIn">
   <div class="card-block how-it-works-section1 padding-for-title" style="background-color: #3c4f74;">
     How much and how long do you want to invest
@@ -30,4 +54,18 @@
     </form>
   </div>
   <!--/.Card content-->
+  
 </div>
+
+
+<script langauage="javascript">
+  function updateSlider(value){
+    if ($("#slider").val() == value) return;
+    $("#slider").val(value);
+  }
+
+  function updateTextbox(value){
+    if ($("#text-box").val() == value) return;
+    $("#text-box").val(value);
+  } 
+</script>
