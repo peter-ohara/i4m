@@ -64,7 +64,12 @@
 }
 
 .margin-of-modal {
-    margin-top: 200px;
+    margin-top: 100px;
+}
+
+.margin-of-modal iframe {
+    width: 560px;
+    height: 315px;
 }
 
 .text-align-center-for-all {
@@ -123,6 +128,10 @@ and (max-device-width: 480px) {
     }
     #tide-img{
         content:url("/assets/logos3mb.png");
+    }
+    .margin-of-modal iframe {
+        width: 300px;
+        height: 500px;
     }
 }
 
