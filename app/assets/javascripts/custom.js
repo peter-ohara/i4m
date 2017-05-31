@@ -111,8 +111,6 @@ function getTotalInterest(finalBalance, totalDeposits, principal) {
     return finalBalance - (totalDeposits + principal);
 }
 
-$('input[type="range"]').rangeslider();
-
 // Start Animations
 new WOW().init();
 

@@ -16,6 +16,5 @@
 //= require tether
 //= require bootstrap
 //= require mdb
-//= require rangeslider
 //= require gauge
 //= require_tree .
