@@ -17,4 +17,5 @@
 //= require bootstrap
 //= require mdb
 //= require gauge
+//= require accounting
 //= require_tree .

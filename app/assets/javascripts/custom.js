@@ -62,9 +62,9 @@ function updateList() {
         var totalDeposits = getTotalDeposits(deposits, annual_compounding_frequency, duration_in_years);
         var totalInterest = getTotalInterest(finalBalance, totalDeposits, principal);
 
-        var finalBalanceString = "GHS " + finalBalance.toLocaleString();
-        var totalDepositsString = "GHS " + totalDeposits.toLocaleString();
-        var totalInterestString = "GHS " + totalInterest.toLocaleString();
+        var finalBalanceString = accounting.formatMoney(finalBalance, "", 2);
+        var totalDepositsString = accounting.formatMoney(totalDeposits, "", 2);
+        var totalInterestString = accounting.formatMoney(totalInterest, "", 2);
 
         console.log("finalBalance", finalBalanceString);
         console.log("totalDeposits", totalDepositsString);

@@ -4,20 +4,23 @@
       <div class="col-md-6">
         <div class="card investment d-flex flex-row" data-href="/fixed_deposit_investments/<%= fixed_deposit_investment.id %>">
 
-          <div class="card-block unique-color white-text">
-            <p><strong class="final_balance"></strong></p>
-            <br>
-            <br>
-            <br>
-            <p><%= fixed_deposit_investment.interest_rate %>%</p>
+          <div class="card-block unique-color white-text text-center">
+            <div>
+              <br>
+              <br>
+              <strong>GH₵</strong>
+              <strong class="total_interest"></strong>
+            </div>
+            <small>calculated interest</small>
           </div>
 
           <div class="card-block">
-            <p class="card-text truncate"><%= fixed_deposit_investment.name %></p>
-            <p class="card-text truncate text-muted"><%= fixed_deposit_investment.institution.name %></p>
-            <p class="card-texttruncate text-muted"><%= fixed_deposit_investment.risk_label %> risk</p>
-            <input type="hidden" name="annual_interest_rate" value="<%= fixed_deposit_investment.interest_rate %>">
+            <div class="card-text truncate"><%= fixed_deposit_investment.name %></div>
+            <div class="card-text truncate text-muted">by <%= fixed_deposit_investment.institution.name %></div>
             <br>
+            <div class="card-text truncate text-muted d-flex justify-content-between"><span>Interest rate:</span> <%= fixed_deposit_investment.interest_rate %>%</div>
+            <div class="card-text truncate text-muted d-flex justify-content-between"><span>Risk:</span> <%= fixed_deposit_investment.risk_label %></div>
+            <input type="hidden" name="annual_interest_rate" value="<%= fixed_deposit_investment.interest_rate %>">
           </div>
 
         </div>
