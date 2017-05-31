@@ -18,4 +18,5 @@
 //= require mdb
 //= require gauge
 //= require accounting
+//= require loader
 //= require_tree .

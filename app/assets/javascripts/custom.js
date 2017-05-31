@@ -4,7 +4,6 @@ $(document).ready(function () {
         location.href = link
     });
 
-
     $("[name=principal], [name=deposits], [name=duration], #duration_multiplier").blur(function () {
         updateList();
     });

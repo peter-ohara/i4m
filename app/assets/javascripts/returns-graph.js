@@ -1,51 +1,26 @@
-$(function () {
-    var option = {
-        responsive: true,
-        scales: {
-            xAxes: [{
-                stacked: true
-            }],
-            yAxes: [{
-                stacked: true
-            }]
-        }
+$(document).ready(function () {
+    google.charts.load('current', {packages: ['corechart', 'bar']});
+    google.charts.setOnLoadCallback(function () {
+        drawMultSeries();
+    });
+
+    var options = {
+        legend: { position: 'top', maxLines: 3 },
+        bar: { groupWidth: '75%' },
+        isStacked: true
     };
 
-    var ctx = document.getElementById("myChart").getContext('2d');
+    function drawMultSeries() {
+        var data = google.visualization.arrayToDataTable([
+            ['Genre', 'Principal', 'Deposits', 'Interest', { role: 'annotation' } ],
+            ['2010', 10, 24, 20, ''],
+            ['2020', 16, 22, 23, ''],
+            ['2030', 28, 19, 29, '']
+        ]);
 
-    var data = {
-        labels: ["Estimated Returns"],
-        datasets: [
-            {
-                stack: "principal",
-                label: "Principal",
-                fillColor: "rgba(220,220,220,0.5)",
-                strokeColor: "rgba(220,220,220,0.8)",
-                highlightFill: "rgba(220,220,220,0.75)",
-                highlightStroke: "rgba(220,220,220,1)",
-                data: [65]
-            },
-            {
-                stack: "interest",
-                label: "Interest",
-                fillColor: "rgba(151,187,205,0.5)",
-                strokeColor: "rgba(151,187,205,0.8)",
-                highlightFill: "rgba(151,187,205,0.75)",
-                highlightStroke: "rgba(151,187,205,1)",
-                data: [45]
-            },
-            {
-                stack: "balance",
-                label: "Balance",
-                fillColor: "rgba(151,187,205,0.5)",
-                strokeColor: "rgba(151,187,205,0.8)",
-                highlightFill: "rgba(151,187,205,0.75)",
-                highlightStroke: "rgba(151,187,205,1)",
-                data: [28]
-            }
-        ]
-    };
+        var chart = new google.visualization.ColumnChart(
+            document.getElementById('chart_div'));
 
-    var myBarChart = new Chart(ctx).Bar(data, option);
+        chart.draw(data, options);
+    }
 });
-
