@@ -71,6 +71,7 @@ function updateList() {
         console.log("totalInterest", totalInterestString);
 
         $(element).find('.final_balance').html(finalBalanceString);
+        $(element).find('.total_deposits').html(totalDepositsString);
         $(element).find('.total_interest').html(totalInterestString);
     });
 }
