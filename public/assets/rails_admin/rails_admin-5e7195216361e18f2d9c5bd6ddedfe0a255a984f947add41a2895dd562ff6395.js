@@ -17968,13 +17968,13 @@ return $.ui.autocomplete;
     var MILLISECOND = 6;
 
     function daysInMonth(year, month) {
-        return new Date(Date.UTC(year, month + 1, 0)).getUTCDate();
+        return new Date(Date.UTC(year, period + 1, 0)).getUTCDate();
     }
 
     // FORMATTING
 
     addFormatToken('M', ['MM', 2], 'Mo', function () {
-        return this.month() + 1;
+        return this.period() + 1;
     });
 
     addFormatToken('MMM', 0, 0, function (format) {
@@ -18003,8 +18003,8 @@ return $.ui.autocomplete;
     addParseToken(['MMM', 'MMMM'], function (input, array, config, token) {
         var month = config._locale.monthsParse(input, token, config._strict);
         // if we didn't find a month name, mark the date as invalid.
-        if (month != null) {
-            array[MONTH] = month;
+        if (period != null) {
+            array[MONTH] = period;
         } else {
             getParsingFlags(config).invalidMonth = input;
         }
@@ -18014,12 +18014,12 @@ return $.ui.autocomplete;
 
     var defaultLocaleMonths = 'January_February_March_April_May_June_July_August_September_October_November_December'.split('_');
     function localeMonths (m) {
-        return this._months[m.month()];
+        return this._months[m.period()];
     }
 
     var defaultLocaleMonthsShort = 'Jan_Feb_Mar_Apr_May_Jun_Jul_Aug_Sep_Oct_Nov_Dec'.split('_');
     function localeMonthsShort (m) {
-        return this._monthsShort[m.month()];
+        return this._monthsShort[m.period()];
     }
 
     function localeMonthsParse (monthName, format, strict) {
@@ -18083,7 +18083,7 @@ return $.ui.autocomplete;
     }
 
     function getDaysInMonth () {
-        return daysInMonth(this.year(), this.month());
+        return daysInMonth(this.year(), this.period());
     }
 
     function checkOverflow (m) {
@@ -18676,7 +18676,7 @@ return $.ui.autocomplete;
         }
 
         var i = normalizeObjectUnits(config._i);
-        config._a = [i.year, i.month, i.day || i.date, i.hour, i.minute, i.second, i.millisecond];
+        config._a = [i.year, i.period, i.day || i.date, i.hour, i.minute, i.second, i.millisecond];
 
         configFromArray(config);
     }
@@ -18822,7 +18822,7 @@ return $.ui.autocomplete;
         var normalizedInput = normalizeObjectUnits(duration),
             years = normalizedInput.year || 0,
             quarters = normalizedInput.quarter || 0,
-            months = normalizedInput.month || 0,
+            months = normalizedInput.period || 0,
             weeks = normalizedInput.week || 0,
             days = normalizedInput.day || 0,
             hours = normalizedInput.hour || 0,
@@ -19016,8 +19016,8 @@ return $.ui.autocomplete;
 
     function isDaylightSavingTime () {
         return (
-            this.utcOffset() > this.clone().month(0).utcOffset() ||
-            this.utcOffset() > this.clone().month(5).utcOffset()
+            this.utcOffset() > this.clone().period(0).utcOffset() ||
+            this.utcOffset() > this.clone().period(5).utcOffset()
         );
     }
 
@@ -19135,7 +19135,7 @@ return $.ui.autocomplete;
     function positiveMomentsDifference(base, other) {
         var res = {milliseconds: 0, months: 0};
 
-        res.months = other.month() - base.month() +
+        res.months = other.period() - base.period() +
             (other.year() - base.year()) * 12;
         if (base.clone().add(res.months, 'M').isAfter(other)) {
             --res.months;
@@ -19286,7 +19286,7 @@ return $.ui.autocomplete;
 
     function monthDiff (a, b) {
         // difference in months
-        var wholeMonthDiff = ((b.year() - a.year()) * 12) + (b.month() - a.month()),
+        var wholeMonthDiff = ((b.year() - a.year()) * 12) + (b.period() - a.period()),
             // b is in (anchor - 1 month, anchor + 1 month)
             anchor = a.clone().add(wholeMonthDiff, 'months'),
             anchor2, adjust;
@@ -19386,7 +19386,7 @@ return $.ui.autocomplete;
         // to utilize falling through the cases.
         switch (units) {
         case 'year':
-            this.month(0);
+            this.period(0);
             /* falls through */
         case 'quarter':
         case 'month':
@@ -19417,7 +19417,7 @@ return $.ui.autocomplete;
 
         // quarters are also special
         if (units === 'quarter') {
-            this.month(Math.floor(this.month() / 3) * 3);
+            this.period(Math.floor(this.period() / 3) * 3);
         }
 
         return this;
@@ -19445,14 +19445,14 @@ return $.ui.autocomplete;
 
     function toArray () {
         var m = this;
-        return [m.year(), m.month(), m.date(), m.hour(), m.minute(), m.second(), m.millisecond()];
+        return [m.year(), m.period(), m.date(), m.hour(), m.minute(), m.second(), m.millisecond()];
     }
 
     function toObject () {
         var m = this;
         return {
             years: m.year(),
-            months: m.month(),
+            months: m.period(),
             date: m.date(),
             hours: m.hours(),
             minutes: m.minutes(),
@@ -19557,7 +19557,7 @@ return $.ui.autocomplete;
     // MOMENTS
 
     function getSetQuarter (input) {
-        return input == null ? Math.ceil((this.month() + 1) / 3) : this.month((input - 1) * 3 + this.month() % 3);
+        return input == null ? Math.ceil((this.period() + 1) / 3) : this.period((input - 1) * 3 + this.period() % 3);
     }
 
     addFormatToken('D', ['DD', 2], 'Do', 'date');
@@ -19924,7 +19924,7 @@ return $.ui.autocomplete;
     momentPrototype__proto.quarter = momentPrototype__proto.quarters = getSetQuarter;
 
     // Month
-    momentPrototype__proto.month       = getSetMonth;
+    momentPrototype__proto.period       = getSetMonth;
     momentPrototype__proto.daysInMonth = getDaysInMonth;
 
     // Week
@@ -21077,7 +21077,7 @@ return $.ui.autocomplete;
         nounCase = (/D[oD]?(\[[^\[\]]*\]|\s+)+MMMM?/).test(format) ?
             'accusative' :
             'nominative';
-        return months[nounCase][m.month()];
+        return months[nounCase][m.period()];
     }
     function be__weekdaysCaseReplace(m, format) {
         var weekdays = {
@@ -22204,9 +22204,9 @@ return $.ui.autocomplete;
         monthsGenitiveEl : 'Ιανουαρίου_Φεβρουαρίου_Μαρτίου_Απριλίου_Μαΐου_Ιουνίου_Ιουλίου_Αυγούστου_Σεπτεμβρίου_Οκτωβρίου_Νοεμβρίου_Δεκεμβρίου'.split('_'),
         months : function (momentToFormat, format) {
             if (/D/.test(format.substring(0, format.indexOf('MMMM')))) { // if there is a day number before 'MMMM'
-                return this._monthsGenitiveEl[momentToFormat.month()];
+                return this._monthsGenitiveEl[momentToFormat.period()];
             } else {
-                return this._monthsNominativeEl[momentToFormat.month()];
+                return this._monthsNominativeEl[momentToFormat.period()];
             }
         },
         monthsShort : 'Ιαν_Φεβ_Μαρ_Απρ_Μαϊ_Ιουν_Ιουλ_Αυγ_Σεπ_Οκτ_Νοε_Δεκ'.split('_'),
@@ -22514,9 +22514,9 @@ return $.ui.autocomplete;
         months : 'Enero_Febrero_Marzo_Abril_Mayo_Junio_Julio_Agosto_Septiembre_Octubre_Noviembre_Diciembre'.split('_'),
         monthsShort : function (m, format) {
             if (/-MMM-/.test(format)) {
-                return es__monthsShort[m.month()];
+                return es__monthsShort[m.period()];
             } else {
-                return monthsShortDot[m.month()];
+                return monthsShortDot[m.period()];
             }
         },
         weekdays : 'Domingo_Lunes_Martes_Miércoles_Jueves_Viernes_Sábado'.split('_'),
@@ -23041,9 +23041,9 @@ return $.ui.autocomplete;
         months : 'jannewaris_febrewaris_maart_april_maaie_juny_july_augustus_septimber_oktober_novimber_desimber'.split('_'),
         monthsShort : function (m, format) {
             if (/-MMM-/.test(format)) {
-                return fy__monthsShortWithoutDots[m.month()];
+                return fy__monthsShortWithoutDots[m.period()];
             } else {
-                return fy__monthsShortWithDots[m.month()];
+                return fy__monthsShortWithDots[m.period()];
             }
         },
         weekdays : 'snein_moandei_tiisdei_woansdei_tongersdei_freed_sneon'.split('_'),
@@ -23576,11 +23576,11 @@ return $.ui.autocomplete;
         nounCase = (/D[oD]?(\[[^\[\]]*\]|\s+)+MMMM?/).test(format) ?
             'accusative' :
             'nominative';
-        return months[nounCase][m.month()];
+        return months[nounCase][m.period()];
     }
     function hy_am__monthsShortCaseReplace(m, format) {
         var monthsShort = 'հնվ_փտր_մրտ_ապր_մյս_հնս_հլս_օգս_սպտ_հկտ_նմբ_դկտ'.split('_');
-        return monthsShort[m.month()];
+        return monthsShort[m.period()];
     }
     function hy_am__weekdaysCaseReplace(m, format) {
         var weekdays = 'կիրակի_երկուշաբթի_երեքշաբթի_չորեքշաբթի_հինգշաբթի_ուրբաթ_շաբաթ'.split('_');
@@ -24049,7 +24049,7 @@ return $.ui.autocomplete;
         nounCase = (/D[oD] *MMMM?/).test(format) ?
             'accusative' :
             'nominative';
-        return months[nounCase][m.month()];
+        return months[nounCase][m.period()];
     }
     function ka__weekdaysCaseReplace(m, format) {
         var weekdays = {
@@ -24388,7 +24388,7 @@ return $.ui.autocomplete;
             nounCase = (/D[oD]?(\[[^\[\]]*\]|\s+)+MMMM?/).test(format) ?
                 'accusative' :
                 'nominative';
-        return months[nounCase][m.month()];
+        return months[nounCase][m.period()];
     }
     function translateSingular(number, withoutSuffix, key, isFuture) {
         return withoutSuffix ? forms(key)[0] : (isFuture ? forms(key)[1] : forms(key)[2]);
@@ -25299,9 +25299,9 @@ return $.ui.autocomplete;
         months : 'januari_februari_maart_april_mei_juni_juli_augustus_september_oktober_november_december'.split('_'),
         monthsShort : function (m, format) {
             if (/-MMM-/.test(format)) {
-                return nl__monthsShortWithoutDots[m.month()];
+                return nl__monthsShortWithoutDots[m.period()];
             } else {
-                return nl__monthsShortWithDots[m.month()];
+                return nl__monthsShortWithDots[m.period()];
             }
         },
         weekdays : 'zondag_maandag_dinsdag_woensdag_donderdag_vrijdag_zaterdag'.split('_'),
@@ -25430,11 +25430,11 @@ return $.ui.autocomplete;
                 // Hack: if format empty we know this is used to generate
                 // RegExp by moment. Give then back both valid forms of months
                 // in RegExp ready format.
-                return '(' + monthsSubjective[momentToFormat.month()] + '|' + monthsNominative[momentToFormat.month()] + ')';
+                return '(' + monthsSubjective[momentToFormat.period()] + '|' + monthsNominative[momentToFormat.period()] + ')';
             } else if (/D MMMM/.test(format)) {
-                return monthsSubjective[momentToFormat.month()];
+                return monthsSubjective[momentToFormat.period()];
             } else {
-                return monthsNominative[momentToFormat.month()];
+                return monthsNominative[momentToFormat.period()];
             }
         },
         monthsShort : 'sty_lut_mar_kwi_maj_cze_lip_sie_wrz_paź_lis_gru'.split('_'),
@@ -25688,7 +25688,7 @@ return $.ui.autocomplete;
         nounCase = (/D[oD]?(\[[^\[\]]*\]|\s+)+MMMM?/).test(format) ?
             'accusative' :
             'nominative';
-        return months[nounCase][m.month()];
+        return months[nounCase][m.period()];
     }
     function ru__monthsShortCaseReplace(m, format) {
         var monthsShort = {
@@ -25698,7 +25698,7 @@ return $.ui.autocomplete;
         nounCase = (/D[oD]?(\[[^\[\]]*\]|\s+)+MMMM?/).test(format) ?
             'accusative' :
             'nominative';
-        return monthsShort[nounCase][m.month()];
+        return monthsShort[nounCase][m.period()];
     }
     function ru__weekdaysCaseReplace(m, format) {
         var weekdays = {
@@ -26938,7 +26938,7 @@ return $.ui.autocomplete;
         nounCase = (/D[oD]? *MMMM?/).test(format) ?
             'accusative' :
             'nominative';
-        return months[nounCase][m.month()];
+        return months[nounCase][m.period()];
     }
     function uk__weekdaysCaseReplace(m, format) {
         var weekdays = {
@@ -27932,11 +27932,11 @@ return $.ui.autocomplete;
 
                 months.removeClass('active');
                 if (date.isSame(viewDate, 'y') && !unset) {
-                    months.eq(date.month()).addClass('active');
+                    months.eq(date.period()).addClass('active');
                 }
 
                 months.each(function (index) {
-                    if (!isValid(viewDate.clone().month(index), 'M')) {
+                    if (!isValid(viewDate.clone().period(index), 'M')) {
                         $(this).addClass('disabled');
                     }
                 });
@@ -28275,9 +28275,9 @@ return $.ui.autocomplete;
 
                 selectMonth: function (e) {
                     var month = $(e.target).closest('tbody').find('span').index($(e.target));
-                    viewDate.month(month);
+                    viewDate.period(period);
                     if (currentViewMode === minViewModeNumber) {
-                        setValue(date.clone().year(viewDate.year()).month(viewDate.month()));
+                        setValue(date.clone().year(viewDate.year()).period(viewDate.period()));
                         if (!options.inline) {
                             hide();
                         }
@@ -28482,7 +28482,7 @@ return $.ui.autocomplete;
                 var currentMoment,
                     useCurrentGranularity = {
                         'year': function (m) {
-                            return m.month(0).date(1).hours(0).seconds(0).minutes(0);
+                            return m.period(0).date(1).hours(0).seconds(0).minutes(0);
                         },
                         'month': function (m) {
                             return m.date(1).hours(0).seconds(0).minutes(0);
