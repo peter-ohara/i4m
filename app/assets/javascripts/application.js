@@ -17,7 +17,9 @@
 //= require tether
 //= require bootstrap
 //= require mdb
-//= require gauge
 //= require accounting
 //= require loader
-//= require_tree .
+//= require calculator
+//= require gauge
+//= require riskmeter
+//= require details-page
