@@ -1,71 +1,71 @@
-<div class="row">
-<div class="col-lg-3" align="center">
-<!--Calculator-->
-  <div>
-    <br />
-    <table>
-      <tr><td>Slider with initial value</td></tr>
-      <tr>
-      <td><input id="slider" class="mdl-slider mdl-js-slider" type="range"  
-         min="0" max="100" value="25" tabindex="0" 
-         oninput="updateTextbox(this.value)" onchange="updateTextbox(this.value)"></td>
-      </tr>
-   </table>
-   Value: <input type="number" id="text-box" name=""
-            min="0" max="100" value="25" onchange="updateSlider(this.value)"/>
-  </div>
-<!--/.Calculator-->
-</div>
-<div class="col-lg-9">
-</div>
-</div>
-
-<br />
-
 <div class="card wow fadeIn">
-  <div class="card-block how-it-works-section1 padding-for-title" style="background-color: #3c4f74;">
-    How much and how long do you want to invest
-  </div>
-  <!--Card content-->
-  <div class="card-block block-of-contents" id="bar-width">
-    <br />
+  <div class="card-block">
+    <h4 class="card-title text-center">
+      How much and how long do you want to invest
+    </h4>
     <form data-calculate-fixed_deposit-returns>
-      <p>
-        I have GH₵ &nbsp;
-        <input class="bar-w" type="number" id="principal" name="principal" value="<%= session[:principal] ||= 100 %>">&nbsp;&nbsp;
-        and I would like to invest GH₵ &nbsp;
-        <input type="number" id="deposits" name="deposits" value="<%= session[:deposits] ||= 10 %>">
-        every month for &nbsp;
-        <input type="number" id="duration" name="duration" value="<%= session[:duration] ||= 6 %>">&nbsp;&nbsp;
+      <div class="row">
+        <div class="col-md-12 text-center">
+          <p>Principal</p>
+          <input class="mdl-slider mdl-js-slider" type="range"
+                 min="0" max="5000" step="10" value="<%= session[:principal] ||= 100 %>" tabindex="0" id="principal_slider">
+          <div class="mdl-textfield mdl-js-textfield" id="principal_text">
+            <input class="mdl-textfield__input" type="number" name="principal"
+                   min="0" max="5000" step="10" value="<%= session[:principal] ||= 100 %>" id="inp_principal_text">
+          </div>
+        </div>
 
-        <% if session[:duration_multiplier] == '12' %>
-            <select name="duration_multiplier" id="duration_multiplier">
-              <option value="12" selected>months</option>
-              <option value="1">years</option>
-            </select>
-        <% else %>
-            <select name="duration_multiplier" id="duration_multiplier">
-              <option value="12">months</option>
-              <option value="1" selected>years</option>
-            </select>
-        <% end %>
+        <div class="col-md-8 text-center">
+          <p>Monthly Deposits</p>
+          <input class="mdl-slider mdl-js-slider" type="range"
+                 min="0" max="500" step="10" value="<%= session[:deposits] ||= 10 %>" tabindex="0" id="deposits_slider">
+          <div class="mdl-textfield mdl-js-textfield" id="deposits_text">
+            <input class="mdl-textfield__input" type="number" name="deposits"
+                   min="0" max="500" step="10" value="<%= session[:deposits] ||= 10 %>" id="inp_deposits_text">
+          </div>
+        </div>
 
-      </p>
+        <div class="col-md-4 text-center">
+          <p>Duration</p>
+          <input class="mdl-slider mdl-js-slider" type="range"
+                 min="1" max="12" step="1" value="<%= session[:duration] ||= 6 %>" tabindex="0" id="duration_slider">
+
+          <div class="row">
+            <div class="col-sm-3">
+              <div class="mdl-textfield mdl-js-textfield" id="duration_text">
+                <input class="mdl-textfield__input" type="number" name="duration"
+                       min="1" max="12" step="1" value="<%= session[:duration] ||= 6 %>" id="inp_duration_text">
+              </div>
+            </div>
+            <div class="col-sm-9">
+              <div class="mdl-textfield" name="duration_multiplier" id="duration_multiplier">
+                <% if session[:duration_multiplier] == '12' %>
+                    <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="option-month">
+                      <input type="radio" id="option-month" class="mdl-radio__button mdl-textfield__input" name="options" value="12" checked>
+                      <span class="mdl-radio__label">months</span>
+                    </label>
+                    <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="option-year">
+                      <input type="radio" id="option-year" class="mdl-radio__button mdl-textfield__input" name="options" value="1">
+                      <span class="mdl-radio__label">years</span>
+                    </label>
+                <% else %>
+                    <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="option-month">
+                      <input type="radio" id="option-month" class="mdl-radio__button mdl-textfield__input" name="options" value="12">
+                      <span class="mdl-radio__label">months</span>
+                    </label>
+                    <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="option-year">
+                      <input type="radio" id="option-year" class="mdl-radio__button mdl-textfield__input" name="options" value="1" checked>
+                      <span class="mdl-radio__label">years</span>
+                    </label>
+                <% end %>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </form>
   </div>
-  <!--/.Card content-->
-  
 </div>
-
-
-<script langauage="javascript">
-  function updateSlider(value){
-    if ($("#slider").val() == value) return;
-    $("#slider").val(value);
-  }
-
-  function updateTextbox(value){
-    if ($("#text-box").val() == value) return;
-    $("#text-box").val(value);
-  } 
-</script>
+<br>
+<br>
+<br>

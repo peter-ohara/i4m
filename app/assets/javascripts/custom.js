@@ -4,26 +4,25 @@ $(document).ready(function () {
         location.href = link
     });
 
-    $("[name=principal], [name=deposits], [name=duration], #duration_multiplier").blur(function () {
-        updateList();
-    });
-
-    $("[name=principal], [name=deposits], [name=duration], #duration_multiplier").change(function () {
-        updateList();
-    });
-
     $("form[data-calculate-fixed_deposit-returns]").submit(function (event) {
         event.preventDefault();
+    });
+
+    $("#principal_slider, #inp_principal_text," +
+        "#deposits_slider, #inp_deposits_text," +
+        "#duration_slider, #inp_duration_text," +
+        "#duration_multiplier").bind('input change keyup', function () {
+        updateList();
     });
 
     updateList();
 });
 
 function updateList() {
-    var principal = parseFloat($('[name=principal]').val());
-    var deposits = parseFloat($('[name=deposits]').val());
-    var duration = parseFloat($('[name=duration]').val());
-    var duration_multiplier = parseFloat($('#duration_multiplier').find(":selected").val());
+    var principal = parseFloat($('#inp_principal_text').val());
+    var deposits = parseFloat($('#inp_deposits_text').val());
+    var duration = parseFloat($('#inp_duration_text').val());
+    var duration_multiplier = parseFloat($('#duration_multiplier').find(":checked").val());
     var annual_compounding_frequency = 12;
 
     // Make an ajax call with the values so the session can be stored
@@ -113,4 +112,31 @@ function getTotalInterest(finalBalance, totalDeposits, principal) {
 
 // Start Animations
 new WOW().init();
+
+
+$(document).ready(function () {
+    $('#principal_slider').on('input',function(){
+        $("#principal_text").get(0).MaterialTextfield.change(this.value);
+    });
+    $('#inp_principal_text').keyup(function() {
+        $("#principal_slider").get(0).MaterialSlider.change($( '#inp_principal_text').val());
+        console.dir($('#principal_slider'));
+    });
+
+    $('#deposits_slider').on('input',function(){
+        $("#deposits_text").get(0).MaterialTextfield.change(this.value);
+    });
+    $('#inp_deposits_text').keyup(function() {
+        $("#deposits_slider").get(0).MaterialSlider.change($( '#inp_deposits_text').val());
+        console.dir($('#deposits_slider'));
+    });
+
+    $('#duration_slider').on('input',function(){
+        $("#duration_text").get(0).MaterialTextfield.change(this.value);
+    });
+    $('#inp_duration_text').keyup(function() {
+        $("#duration_slider").get(0).MaterialSlider.change($( '#inp_duration_text').val());
+        console.dir($('#duration_slider'));
+    });
+});
 
