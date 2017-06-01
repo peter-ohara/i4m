@@ -19,7 +19,9 @@
 //= require mdb
 //= require accounting
 //= require loader
-//= require calculator
 //= require gauge
+//= require init
+//= require calculator
 //= require riskmeter
+//= require investment-list-item
 //= require details-page

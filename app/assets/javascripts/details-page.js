@@ -1,11 +1,3 @@
-$(document).ready(function () {
-    // Start Animations
-    new WOW().init();
-    setupCalculator();
-    setClickListenerOnInvestments();
-    setupRiskMeter();
-});
-
 function setupCalculator() {
     setupSliders();
     setupCalculatorInput();
@@ -52,13 +44,6 @@ function setupCalculatorInput() {
     google.charts.load('current', {packages: ['corechart', 'bar']});
     google.charts.setOnLoadCallback(function () {
         updateInvestmentList();
-    });
-}
-
-function setClickListenerOnInvestments() {
-    $(".investments-list .investment").click(function () {
-        var link = $(this).data('href');
-        location.href = link
     });
 }
 
@@ -151,3 +136,9 @@ function saveCalculatorInputs(principal, deposits, duration, duration_multiplier
         });
     }
 }
+
+$(document).on("turbolinks:load", function () {
+    if ($(".fixed_deposit_investments.index, .search.index, .fixed_deposit_investments.show").length === 0) return;
+
+    setupCalculator();
+});
