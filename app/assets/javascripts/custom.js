@@ -15,7 +15,10 @@ $(document).ready(function () {
         updateList();
     });
 
-    updateList();
+    google.charts.load('current', {packages: ['corechart', 'bar']});
+    google.charts.setOnLoadCallback(function () {
+        updateList();
+    });
 });
 
 function updateList() {
@@ -71,7 +74,33 @@ function updateList() {
         $(element).find('.final_balance').html(finalBalanceString);
         $(element).find('.total_deposits').html(totalDepositsString);
         $(element).find('.total_interest').html(totalInterestString);
+
+        var dataArray = getDataArray(duration, duration_multiplier, principal, deposits, annual_interest_rate, annual_compounding_frequency, dataArray);
+        drawMultSeries(dataArray);
     });
+}
+
+function getDataArray(duration, duration_multiplier, principal, deposits, annual_interest_rate, annual_compounding_frequency) {
+    var dataArray = [
+        ['Genre', 'Principal', 'Deposits', 'Interest', { role: 'annotation' } ]
+    ];
+
+    for (period = 1; period <= duration; period++) {
+        var duration_in_years = ((duration / duration_multiplier) / duration) * period;
+        // console.log("period", duration_in_years);
+
+        var finalBalance = getTompoundInterestWithDeposits(principal, deposits, annual_interest_rate,
+            annual_compounding_frequency, duration_in_years);
+        var totalDeposits = getTotalDeposits(deposits, annual_compounding_frequency, duration_in_years);
+        var totalInterest = getTotalInterest(finalBalance, totalDeposits, principal);
+
+        if (duration_multiplier === 12) {
+            dataArray.push([ 'Month ' + parseInt(period), principal, totalDeposits, totalInterest, '']);
+        } else {
+            dataArray.push([ 'Year ' + parseInt(period), principal, totalDeposits, totalInterest, '']);
+        }
+    }
+    return dataArray;
 }
 
 
@@ -139,4 +168,20 @@ $(document).ready(function () {
         console.dir($('#duration_slider'));
     });
 });
+
+function drawMultSeries(dataArray) {
+    var data = google.visualization.arrayToDataTable(dataArray);
+
+
+    var options = {
+        legend: { position: 'top', maxLines: 3 },
+        bar: { groupWidth: '75%' },
+        isStacked: true
+    };
+
+    var chart = new google.visualization.ColumnChart(
+        document.getElementById('chart_div'));
+
+    chart.draw(data, options);
+}
 
