@@ -21,7 +21,7 @@
 //= require loader
 //= require gauge
 //= require init
-//= require calculator
+//= require compound-interest
 //= require riskmeter
 //= require investment-list-item
-//= require details-page
+//= require calculator

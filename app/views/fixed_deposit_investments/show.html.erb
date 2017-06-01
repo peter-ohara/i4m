@@ -1,4 +1,4 @@
-<div class="container content">
+<div class="container-fluid content">
   <div class="row">
     <% if flash[:notice] %>
         <div class="col-md-12">
@@ -6,13 +6,58 @@
           <br>
         </div>
     <% end %>
-    <div class="col-md-12">
+    <div class="col-md-4">
       <%= render 'layouts/calculator_form' %>
     </div>
-  </div>
 
-  <div class="row">
-    <div class="col-md-7">
+    <div class="col-md-4">
+      <!--Card-->
+      <div class="card wow fadeIn investment" data-wow-delay="0.2s">
+
+        <div id="chart_div" class="demo-graph"></div>
+
+
+
+        <!--Card content-->
+        <div class="card-block text-center">
+          <!--Title-->
+          <h4 class="card-title">Returns</h4>
+          <div>
+            <p class="d-flex justify-content-between">
+              <span>Final balance</span>
+              <span>
+                GH₵ <strong class="final_balance"></strong>
+              </span>
+            </p>
+            <p class="d-flex justify-content-between">
+              <span>Total deposits</span>
+              <span>
+                GH₵ <span class="total_deposits"></span>
+              </span>
+            </p>
+            <p class="d-flex justify-content-between">
+              <span>Total interest</span>
+              <span>
+                GH₵ <span class="total_interest"></span>
+              </span>
+            </p>
+            <input type="hidden" name="annual_interest_rate" value="<%= @fixed_deposit_investment.interest_rate %>">
+          </div>
+
+          <h4 class="card-title">Risk</h4>
+          <canvas class="risk-meter" id="foo"
+                  data-risk-rating="<%= @fixed_deposit_investment.risk_rating %>"></canvas>
+          <p>
+            <strong><%= @fixed_deposit_investment.risk_label %></strong>
+          </p>
+        </div>
+        <!--/.Card content-->
+
+      </div>
+      <!--/.Card-->
+    </div>
+
+    <div class="col-md-4">
       <!--Description Card-->
       <div class="card wow fadeIn">
 
@@ -22,7 +67,7 @@
           <h4 class="card-title">
             <%= @fixed_deposit_investment.name %>
           </h4>
-          
+
           <!--Text-->
           <p class="card-text">
             <%= @fixed_deposit_investment.description %>
@@ -84,53 +129,6 @@
         </div>
       </div>
 
-    </div>
-
-    <div class="col-md-5">
-      <!--Card-->
-      <div class="card wow fadeIn investment" data-wow-delay="0.2s">
-
-        <div id="chart_div" class="demo-graph"></div>
-
-
-
-        <!--Card content-->
-        <div class="card-block text-center">
-          <!--Title-->
-          <h4 class="card-title">Returns</h4>
-          <div>
-            <p class="d-flex justify-content-between">
-              <span>Final balance</span>
-              <span>
-                GH₵ <strong class="final_balance"></strong>
-              </span>
-            </p>
-            <p class="d-flex justify-content-between">
-              <span>Total deposits</span>
-              <span>
-                GH₵ <span class="total_deposits"></span>
-              </span>
-            </p>
-            <p class="d-flex justify-content-between">
-              <span>Total interest</span>
-              <span>
-                GH₵ <span class="total_interest"></span>
-              </span>
-            </p>
-            <input type="hidden" name="annual_interest_rate" value="<%= @fixed_deposit_investment.interest_rate %>">
-          </div>
-
-          <h4 class="card-title">Risk</h4>
-          <canvas class="risk-meter" id="foo"
-                  data-risk-rating="<%= @fixed_deposit_investment.risk_rating %>"></canvas>
-          <p>
-            <strong><%= @fixed_deposit_investment.risk_label %></strong>
-          </p>
-        </div>
-        <!--/.Card content-->
-
-      </div>
-      <!--/.Card-->
     </div>
   </div>
 

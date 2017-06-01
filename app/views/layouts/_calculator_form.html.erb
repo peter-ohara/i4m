@@ -15,7 +15,7 @@
           </div>
         </div>
 
-        <div class="col-md-8 text-center">
+        <div class="col-md-12 text-center">
           <p>Monthly Deposits</p>
           <input class="mdl-slider mdl-js-slider" type="range"
                  min="0" max="500" step="10" value="<%= session[:deposits] ||= 10 %>" tabindex="0" id="deposits_slider">
@@ -25,7 +25,7 @@
           </div>
         </div>
 
-        <div class="col-md-4 text-center">
+        <div class="col-md-12 text-center">
           <p>Duration</p>
           <input class="mdl-slider mdl-js-slider" type="range"
                  min="1" max="12" step="1" value="<%= session[:duration] ||= 6 %>" tabindex="0" id="duration_slider">

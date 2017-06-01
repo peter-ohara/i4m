@@ -1,21 +1,18 @@
-<div class="container content">
+<div class="container-fluid content">
   <div class="row">
-    <div class="col-md-12">
+    <div class="col-md-4">
       <%= render 'layouts/calculator_form' %>
     </div>
-  </div>
 
-
-  <% if @fixed_deposit_investments.empty? %>
-      <div class="row">
-        <div class="col-md-12">
+    <div class="col-md-8">
+      <% if @fixed_deposit_investments.empty? %>
           <div class="text-center">
             There no investments that fit the search criteria
             &quot; <%= params[:query] %> &quot;
           </div>
-        </div>
-      </div>
-  <% else %>
-      <%= render 'layouts/fixed_deposits_list' %>
-  <% end %>
+      <% else %>
+          <%= render 'layouts/fixed_deposits_list' %>
+      <% end %>
+    </div>
+  </div>
 </div>

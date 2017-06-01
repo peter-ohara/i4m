@@ -1,8 +1,13 @@
+<div class="row">
+  <div class="col-md-12">
+    <p><span id="results-count"></span> investments fit this criteria</p>
+  </div>
+</div>
 <div class="row investments-list">
   <% @fixed_deposit_investments.each do |fixed_deposit_investment| %>
 
-      <div class="col-md-6">
-        <div class="card investment d-flex flex-row" data-href="/fixed_deposit_investments/<%= fixed_deposit_investment.id %>">
+      <div class="col-md-6 investment" data-href="/fixed_deposit_investments/<%= fixed_deposit_investment.id %>">
+        <div class="card d-flex flex-row">
 
           <div class="card-block unique-color white-text text-center">
             <div>
@@ -21,6 +26,8 @@
             <div class="card-text truncate text-muted d-flex justify-content-between"><span>Interest rate:</span> <%= fixed_deposit_investment.interest_rate %>%</div>
             <div class="card-text truncate text-muted d-flex justify-content-between"><span>Risk:</span> <%= fixed_deposit_investment.risk_label %></div>
             <input type="hidden" name="annual_interest_rate" value="<%= fixed_deposit_investment.interest_rate %>">
+            <input type="hidden" name="minimum_principal" value="<%= fixed_deposit_investment.minimum_principal %>">
+            <input type="hidden" name="period" value="<%= fixed_deposit_investment.period_in_days %>">
           </div>
 
         </div>
