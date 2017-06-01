@@ -13,6 +13,7 @@
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
+//= require material
 //= require tether
 //= require bootstrap
 //= require mdb

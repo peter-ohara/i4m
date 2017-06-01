@@ -13,8 +13,8 @@
 ActiveRecord::Schema.define(version: 20170523223253) do
 
   # These are extensions that must be enabled in order to support this database
-  enable_extension "plpgsql"
   enable_extension "pg_trgm"
+  enable_extension "plpgsql"
 
   create_table "fd_purchase_attempts", force: :cascade do |t|
     t.integer  "user_id"
