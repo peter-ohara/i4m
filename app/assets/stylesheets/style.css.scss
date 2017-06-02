@@ -97,7 +97,7 @@ and (max-device-width: 480px) {
 }
 
 .how-it-works-bg {
-    background: url("/assets/howitworksbg.png") no-repeat center center fixed;
+    background: image-url("howitworksbg.png") no-repeat center center fixed;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
@@ -118,16 +118,16 @@ and (max-device-width: 480px) {
 
 @media screen and (max-width: 767px){
     #main-img{
-        content:url("/assets/hiwmb.png");
+        content:image-url("hiwmb.png");
     }
     #ride-img{
-        content:url("/assets/logos1mb.png");
+        content:image-url("logos1mb.png");
     }
     #side-img{
-        content:url("/assets/logos2mb.png");
+        content:image-url("logos2mb.png");
     }
     #tide-img{
-        content:url("/assets/logos3mb.png");
+        content:image-url("logos3mb.png");
     }
     .margin-of-modal iframe {
         width: 300px;
@@ -137,45 +137,45 @@ and (max-device-width: 480px) {
 
 @media screen and (min-width: 768px) {
     #main-img{
-        content:url("/assets/hiw.png");
+        content:image-url("hiw.png");
     }
     #ride-img{
-        content:url("/assets/logos1.png");
+        content:image-url("logos1.png");
     }
     #side-img{
-        content:url("/assets/logos2.png");
+        content:image-url("logos2.png");
     }
     #tide-img{
-        content:url("/assets/logos3.png");
+        content:image-url("logos3.png");
     }
 
 }
 @media (min-width: 992px){
     #main-img{
-        content:url("/assets/hiw.png");
+        content:image-url("hiw.png");
     }
     #ride-img{
-        content:url("/assets/logos1.png");
+        content:image-url("logos1.png");
     }
     #side-img{
-        content:url("/assets/logos2.png");
+        content:image-url("logos2.png");
     }
     #tide-img{
-        content:url("/assets/logos3.png");
+        content:image-url("logos3.png");
     }
 }
 @media (min-width: 1200px) {
     #main-img{
-        content:url("/assets/hiw.png");
+        content:image-url("hiw.png");
     }
     #ride-img{
-        content:url("/assets/logos1.png");
+        content:image-url("logos1.png");
     }
     #side-img{
-        content:url("/assets/logos2.png");
+        content:image-url("logos2.png");
     }
     #tide-img{
-        content:url("/assets/logos3.png");
+        content:image-url("logos3.png");
     }
 }
 
