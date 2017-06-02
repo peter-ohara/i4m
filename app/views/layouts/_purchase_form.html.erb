@@ -9,8 +9,8 @@
     <%= form_tag "/#{path}/#{investment.id}/purchase", :method => 'post', class: 'form' do %>
 
         <div class="form-group">
-          <label for="principal">How much of this investment you want to purchase</label>
-          <input type="number" class="form-control" name="principal" id="principal" placeholder="Minimum Amount">
+          <label for="principal">How much of this investment you want to purchase (GH₵)</label>
+          <input type="number" class="form-control" name="principal" id="principal" value="<%= session[:principal] ||= 100 %>" placeholder="Principal">
         </div>
 
         <div class="form-group">
