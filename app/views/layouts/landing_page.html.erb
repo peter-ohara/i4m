@@ -85,7 +85,7 @@
       <span class="navbar-toggler-icon"></span>
     </button>
     <a class="navbar-brand" href="/">
-      <img src="/assets/logo1.png">
+      <%= image_tag 'logo1.png' %>
     </a>
     <%= render 'layouts/navigation' %>
   </div>
@@ -146,10 +146,17 @@
           <div class="col-lg-6">
             <h5 class="title">Connect with us</h5>
             <br/><br/><br/>
-            <a href=""><img src="/assets/fb.png" class="wow fadeIn" data-wow-delay="0.2s"></a>
-            <a target="_blank" href="https://twitter.com/investxd"><img src="/assets/tw.png" class="wow fadeIn"
-                                                                        data-wow-delay="0.3s"></a>
-            <a href=""><img src="/assets/in.png" class="wow fadeIn" data-wow-delay="0.4s"></a>
+            <a href="">
+              <%= image_tag 'fb.png', class: 'wow fadeIn', data: { 'wow-delay': '0.2s'} %>
+            </a>
+
+            <a target="_blank" href="https://twitter.com/investxd">
+              <%= image_tag 'tw.png', class: 'wow fadeIn', data: { 'wow-delay': '0.3s'} %>
+            </a>
+
+            <a href="">
+              <%= image_tag 'in.png', class: 'wow fadeIn', data: { 'wow-delay': '0.4s'} %>
+            </a>
           </div>
         </div>
       </div>
